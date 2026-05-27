@@ -1,38 +1,10 @@
-
+<div class="roadmap-widget">
 <h2 class="sr-only">Lộ trình nghiên cứu phát hiện mơ hồ trong SRS từ Planning đến Maintenance</h2>
-<style>
-  .phase-nav { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:20px; }
-  .pnav-btn { padding:6px 14px; border-radius:20px; border:0.5px solid var(--color-border-secondary); background:transparent; color:var(--color-text-secondary); font-size:13px; cursor:pointer; transition:all .15s; }
-  .pnav-btn.active { background:var(--color-background-info); color:var(--color-text-info); border-color:transparent; font-weight:500; }
-  .phase-panel { display:none; }
-  .phase-panel.active { display:block; }
-  .phase-header { display:flex; align-items:center; gap:12px; margin-bottom:16px; padding-bottom:12px; border-bottom:0.5px solid var(--color-border-tertiary); }
-  .phase-badge { padding:4px 12px; border-radius:20px; font-size:12px; font-weight:500; }
-  .phase-title { font-size:17px; font-weight:500; color:var(--color-text-primary); margin:0; }
-  .phase-sub { font-size:13px; color:var(--color-text-secondary); margin:4px 0 0; }
-  .step-list { display:flex; flex-direction:column; gap:10px; }
-  .step-card { background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:12px 14px; }
-  .step-title { font-size:14px; font-weight:500; color:var(--color-text-primary); margin:0 0 4px; }
-  .step-desc { font-size:13px; color:var(--color-text-secondary); margin:0; line-height:1.6; }
-  .step-code { font-family:var(--font-mono); font-size:12px; background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:6px; padding:8px 10px; margin-top:8px; color:var(--color-text-secondary); white-space:pre; overflow-x:auto; }
-  .tag-row { display:flex; gap:6px; flex-wrap:wrap; margin-top:8px; }
-  .tag { font-size:11px; padding:2px 8px; border-radius:12px; font-weight:500; }
-  .tag-blue { background:var(--color-background-info); color:var(--color-text-info); }
-  .tag-amber { background:var(--color-background-warning); color:var(--color-text-warning); }
-  .tag-green { background:var(--color-background-success); color:var(--color-text-success); }
-  .tag-red { background:var(--color-background-danger); color:var(--color-text-danger); }
-  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-  .metric-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:10px; }
-  .metric-box { background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-md); padding:10px; text-align:center; }
-  .metric-val { font-size:18px; font-weight:500; color:var(--color-text-primary); }
-  .metric-lbl { font-size:11px; color:var(--color-text-secondary); margin-top:2px; }
-  .ask-btn { margin-top:14px; padding:8px 16px; border-radius:var(--border-radius-md); border:0.5px solid var(--color-border-secondary); background:transparent; color:var(--color-text-secondary); font-size:13px; cursor:pointer; }
-  .ask-btn:hover { background:var(--color-background-secondary); }
-  @media(max-width:500px){ .two-col{grid-template-columns:1fr;} .metric-grid{grid-template-columns:1fr 1fr;} }
-</style>
+  <link rel="stylesheet" href="roadmap.css">
 
 <div class="phase-nav" id="nav"></div>
 <div id="panels"></div>
+</div>
 
 <script>
 const phases = [
