@@ -1,1 +1,16 @@
 https://colab.research.google.com/drive/1mvUZsfjSWCXka34FMTheafkHFIAgy9cF?usp=sharing
+
+Chạy với Rule-base chia 80-20:
+                   precision    recall  f1-score   support
+
+ Không mơ hồ (ok)     0.7857    0.0357    0.0683       308
+Có mơ hồ (defect)     0.2995    0.9769    0.4585       130
+
+         accuracy                         0.3151       438
+        macro avg     0.5426    0.5063    0.2634       438
+     weighted avg     0.6414    0.3151    0.1841       438
+
+
+Precision (Độ chính xác - 0.2995 cho nhãn 'defect'): Trong số tất cả các câu mà hệ thống dự đoán là 'có mơ hồ', chỉ có khoảng 29.95% là thực sự mơ hồ. Chỉ số này thấp cho thấy hệ thống đang bị "nhạy cảm quá mức" (False Positive cao).
+Recall (Độ phủ - 0.9769 cho nhãn 'defect'): Đây là con số ấn tượng nhất. Hệ thống của bạn tìm ra được gần như toàn bộ (97.69%) các lỗi mơ hồ thực tế có trong dữ liệu. Trong NCKH về an toàn phần mềm, Recall cao thường được ưu tiên vì chúng ta thà bắt nhầm còn hơn bỏ sót lỗi.
+F1-Score (0.4585): Là con số trung bình điều hòa giữa Precision và Recall. Con số này phản ánh hiệu năng tổng thể của mô hình hybrid hiện tại.
