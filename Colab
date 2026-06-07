@@ -1,6 +1,6 @@
 https://colab.research.google.com/drive/1mvUZsfjSWCXka34FMTheafkHFIAgy9cF?usp=sharing
 
-Chạy với Rule-base chia 80-20:
+Chạy với Rule-base chia 80-20 (Chưa có VLM):
                    precision    recall  f1-score   support
 
  Không mơ hồ (ok)     0.7857    0.0357    0.0683       308
