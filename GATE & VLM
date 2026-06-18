@@ -1,0 +1,21 @@
+Link Colab: https://colab.research.google.com/drive/1WMX7YPLD_a3CM9A3MwypWiqAxnRfxq2z?usp=sharing
+
+=======================================================
+         EVALUATION REPORT — 2-LAYER ARCHITECTURE
+=======================================================
+  Accuracy         : 0.8971  (89.71%)
+  F1 (macro)       : 0.8782
+  F1 (weighted)    : 0.8977
+  MCC              : 0.7567  (range: -1 ~ 1)
+  ROC-AUC          : 0.8824
+
+  Class: defect
+    Precision      : 0.8148
+    Recall         : 0.8462
+    F1-score       : 0.8302
+
+  Class: ok
+    Precision      : 0.9339
+    Recall         : 0.9187
+    F1-score       : 0.9262
+=======================================================
