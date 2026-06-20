@@ -1,0 +1,49 @@
+GATE & VLM Version 2 (Tăng nhẹ ROC-AUC): https://colab.research.google.com/drive/1gXfucz59wj0hnG76L5xuTabUBUZQdmEy
+
+=================================================================
+      EVALUATION REPORT — OPTIMIZED GATE + VLM
+=================================================================
+  Best VLM threshold : 0.865
+  Accuracy           : 0.8584  (85.84%)
+  F1 (macro)         : 0.8172
+  F1 (weighted)      : 0.8525
+  MCC                : 0.6467  (range: -1 ~ 1)
+  ROC-AUC            : 0.9260
+
+  Class: defect
+    Precision        : 0.8400
+    Recall           : 0.6462
+    F1-score         : 0.7304
+
+  Class: ok
+    Precision        : 0.8639
+    Recall           : 0.9481
+    F1-score         : 0.9040
+=================================================================
+
+Confusion Matrix (rows=actual, cols=predicted):
+              ok    defect
+  actual ok  :  146       8
+  actual def :   23      42
+
+
+
+
+Một số thay đổi:
+1/ Không tính ROC bằng nhãn cứng nữa
+Bản cũ dùng:
+y_score = [1.0 if p == 1 else 0.0 for p in y_pred_bin]
+Cách này làm ROC-AUC gần như chỉ đo một điểm threshold. Bản mới tạo defect_score liên tục từ VLM bằng log-probability của hai nhãn: P(defect) vs P(ok)
+
+2/ Thêm hàm vlm_defect_score(requirement)
+Thay vì chỉ generate() ra chữ ok/defect, code mới hỏi model: với prompt này, nhãn nào có xác suất cao hơn?
+score gần 1 -> nghiêng về defect
+score gần 0 -> nghiêng về ok
+Score này được dùng trực tiếp cho ROC-AUC.
+
+3/ Tune threshold trên validation set
+Thay vì mặc định threshold 0.5, bản mới thử threshold từ 0.05 đến 0.95, chọn threshold tốt nhất theo:
+Macro-F1
+sau đó defect F1
+Threshold tốt nhất được lưu vào:
+BEST_VLM_THRESHOLD
