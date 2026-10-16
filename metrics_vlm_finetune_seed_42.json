@@ -1,0 +1,27 @@
+{
+  "model": "vlm_finetune",
+  "seed": 42,
+  "accuracy": 0.8904,
+  "balanced_accuracy": 0.8687,
+  "precision_defect": 0.8154,
+  "recall_defect": 0.8154,
+  "f1_defect": 0.8154,
+  "precision_ok": 0.9221,
+  "recall_ok": 0.9221,
+  "f1_ok": 0.9221,
+  "f1_macro": 0.8687,
+  "f1_weighted": 0.8904,
+  "mcc": 0.7375,
+  "roc_auc": 0.9276,
+  "pr_auc": 0.8337,
+  "confusion_matrix": [
+    [
+      142,
+      12
+    ],
+    [
+      12,
+      53
+    ]
+  ]
+}

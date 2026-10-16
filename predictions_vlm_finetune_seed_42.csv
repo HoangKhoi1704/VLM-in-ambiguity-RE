@@ -1,0 +1,2 @@
+requirement,defect,predicted,p_defect,correct
+Sample requirement content,ok,ok,0.01,True
