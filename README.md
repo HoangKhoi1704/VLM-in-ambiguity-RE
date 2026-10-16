@@ -17,8 +17,7 @@ This repository contains the empirical code, benchmark dataset, notebooks, and m
 │   └── SRS_VLM_Finetune.ipynb        # QLoRA fine-tuning for Qwen2.5-VL-3B-Instruct
 ├── src/
 │   ├── run_baselines.py              # Evaluates Majority Classifier, TF-IDF + LR, TF-IDF + SVM
-│   ├── aggregate_results.py          # Aggregates multi-seed results and computes paired t-tests
-│   └── utils/                        # Data processing and maintenance utilities
+│   └── aggregate_results.py          # Aggregates multi-seed results and computes paired t-tests
 ├── results/
 │   ├── metrics/                      # JSON metrics across all 21 runs (7 models x 3 seeds)
 │   ├── predictions/                  # Hold-out test set predictions CSV with P(defect) probabilities
