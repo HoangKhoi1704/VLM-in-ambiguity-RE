@@ -13,8 +13,12 @@ Using the exact same Stratified 80/10/10 Split & clean_requirement preprocessing
 
 import os
 import re
+import sys
 import json
 import argparse
+
+sys.stdout.reconfigure(encoding='utf-8')
+
 import numpy as np
 import pandas as pd
 
