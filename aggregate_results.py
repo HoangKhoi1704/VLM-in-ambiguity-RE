@@ -72,7 +72,7 @@ def summarize():
         summary_table[model] = {}
         json_export[model] = {}
         seeds = sorted(seed_dict.keys())
-        print(f"\n📌 Model: {model} (Đã chạy {len(seeds)} seeds: {seeds})")
+        print(f"\nModel: {model} (Đã chạy {len(seeds)} seeds: {seeds})")
         for m in METRIC_KEYS:
             vals = [seed_dict[s][m] for s in seeds if seed_dict[s].get(m) is not None]
             if vals:
@@ -88,7 +88,7 @@ def summarize():
 
     # Generate Markdown Table
     print("\n" + "=" * 95)
-    print("📋 MARKDOWN TABLE CHO BÀI BÁO (Paper Results Table)")
+    print("MARKDOWN TABLE CHO BÀI BÁO (Paper Results Table)")
     print("=" * 95)
     md_lines = [
         "# Results Summary (Ambiguity Detection in SRS)",
@@ -110,7 +110,7 @@ def summarize():
     ttest_results = {}
     if ref_model in summary_table:
         print("\n" + "=" * 95)
-        print(f"🔬 KIỂM ĐỊNH Ý NGHĨA THỐNG KÊ (Paired t-test so với {ref_model})")
+        print(f"KIỂM ĐỊNH Ý NGHĨA THỐNG KÊ (Paired t-test so với {ref_model})")
         print("=" * 95)
         md_lines.extend(["", "## Statistical Significance (Paired t-test vs. vlm_finetune)", ""])
         ref_f1_macro = summary_table[ref_model].get('f1_macro', (None, None, []))[2]
@@ -167,7 +167,7 @@ def summarize():
         f.write("\n".join(latex_lines) + "\n")
 
     print("\n" + "=" * 95)
-    print("💾 ĐÃ LƯU THÀNH CÔNG CÁC FILE KẾT QUẢ TỔNG HỢP:")
+    print("ĐÃ LƯU THÀNH CÔNG CÁC FILE KẾT QUẢ TỔNG HỢP:")
     print("   1. paper_results_summary.json  (Dữ liệu thô JSON đầy đủ Mean, Std & t-test)")
     print("   2. paper_results_table.md      (Bảng Markdown trực quan cho báo cáo)")
     print("   3. paper_results_table.tex     (Bảng LaTeX chuẩn để copy thẳng vào Overleaf/bài báo)")

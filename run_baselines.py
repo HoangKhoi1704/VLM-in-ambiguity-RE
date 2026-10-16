@@ -135,7 +135,7 @@ def run_experiment(dataset_path="datasetRE.csv", seeds=[42, 123, 456]):
             print("    Vui lòng copy file dataset vào đây và chạy lại lệnh: python run_baselines.py")
             return
 
-    print(f"📂 Đang tải dataset: {dataset_path}")
+    print(f"Đang tải dataset: {dataset_path}")
     df = pd.read_csv(dataset_path)
     
     # Bước 1: Làm sạch văn bản yêu cầu bằng hàm chuẩn
@@ -164,7 +164,7 @@ def run_experiment(dataset_path="datasetRE.csv", seeds=[42, 123, 456]):
     # LẶP QUA TỪNG RANDOM SEED ĐỂ ĐẢM BẢO TÍNH ĐỘC LẬP & TÁI LẬP (REPRODUCIBILITY)
     # =========================================================================
     for seed in seeds:
-        print(f"\n{'='*60}\n🎲 BẮT ĐẦU CHẠY VỚI SEED: {seed}\n{'='*60}")
+        print(f"\n{'='*60}\nBẮT ĐẦU CHẠY VỚI SEED: {seed}\n{'='*60}")
         
         # Bước 3: Phân chia tập dữ liệu 80/10/10 có Stratified (giữ nguyên tỷ lệ 70% ok : 30% defect)
         # - Tách 10% ra làm Test Set (219 mẫu)
