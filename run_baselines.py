@@ -81,9 +81,13 @@ def evaluate_predictions(y_true_bin, y_pred_bin, y_scores):
 
 def run_experiment(dataset_path="datasetRE.csv", seeds=[42, 123, 456]):
     if not os.path.exists(dataset_path):
-        print(f"⚠️  Không tìm thấy file {dataset_path} tại thư mục hiện tại.")
-        print("    Vui lòng copy file datasetRE.csv vào đây và chạy lại lệnh: python run_baselines.py")
-        return
+        if os.path.exists("QuRE.csv"):
+            dataset_path = "QuRE.csv"
+        else:
+            print(f"⚠️  Không tìm thấy file {dataset_path} hoặc QuRE.csv tại thư mục hiện tại.")
+            print("    Vui lòng copy file dataset vào đây và chạy lại lệnh: python run_baselines.py")
+            return
+
 
     print(f"📂 Đang tải dataset: {dataset_path}")
     df = pd.read_csv(dataset_path)
