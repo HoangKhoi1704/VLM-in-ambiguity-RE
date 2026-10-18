@@ -1,0 +1,47 @@
+{
+  "test": "Exact two-sided McNemar test (binomial formulation)",
+  "multiple_testing_correction": "Holm correction across three seed-specific tests",
+  "comparison": "VLM Fine-Tuned (QLoRA) vs LLM Fine-Tuned (QLoRA)",
+  "results": [
+    {
+      "comparison": "VLM Fine-Tuned (QLoRA) vs LLM Fine-Tuned (QLoRA)",
+      "seed": 42,
+      "n_paired_test_samples": 219,
+      "llm_accuracy": 0.8538812785388128,
+      "vlm_accuracy": 0.8858447488584474,
+      "vlm_correct_llm_wrong_b": 11,
+      "llm_correct_vlm_wrong_c": 4,
+      "discordant_pairs": 15,
+      "mcnemar_exact_two_sided_p": 0.11846923828124999,
+      "holm_adjusted_p_across_three_seeds": 0.35540771484374994,
+      "significant_at_0_05_after_holm": false
+    },
+    {
+      "comparison": "VLM Fine-Tuned (QLoRA) vs LLM Fine-Tuned (QLoRA)",
+      "seed": 123,
+      "n_paired_test_samples": 219,
+      "llm_accuracy": 0.8493150684931506,
+      "vlm_accuracy": 0.863013698630137,
+      "vlm_correct_llm_wrong_b": 13,
+      "llm_correct_vlm_wrong_c": 10,
+      "discordant_pairs": 23,
+      "mcnemar_exact_two_sided_p": 0.6776394844055176,
+      "holm_adjusted_p_across_three_seeds": 0.6776394844055176,
+      "significant_at_0_05_after_holm": false
+    },
+    {
+      "comparison": "VLM Fine-Tuned (QLoRA) vs LLM Fine-Tuned (QLoRA)",
+      "seed": 456,
+      "n_paired_test_samples": 219,
+      "llm_accuracy": 0.8721461187214612,
+      "vlm_accuracy": 0.8401826484018264,
+      "vlm_correct_llm_wrong_b": 4,
+      "llm_correct_vlm_wrong_c": 11,
+      "discordant_pairs": 15,
+      "mcnemar_exact_two_sided_p": 0.11846923828124999,
+      "holm_adjusted_p_across_three_seeds": 0.35540771484374994,
+      "significant_at_0_05_after_holm": false
+    }
+  ],
+  "interpretation": "These tests compare paired correctness on each seed's test split. They do not establish that multimodal pretraining caused any difference."
+}

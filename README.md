@@ -25,6 +25,11 @@ This repository contains the empirical code, benchmark dataset, notebooks, and m
 │   ├── paper_results_summary.json    # Complete statistical summary (Mean, Std, t-test p-values)
 │   ├── paper_results_table.md        # Formatted Markdown results table
 │   └── paper_results_table.tex       # Camera-ready LaTeX table for paper inclusion
+├── McNemar_verified_files/           # Reproducible paired LLM/VLM significance analysis
+│   ├── src/                           # McNemar analysis code
+│   ├── results/                       # JSON result and report for paired tests
+│   ├── README.md                      # Data flow and artifact ownership
+│   └── MCNEMAR_VALIDATION_NOTE.md     # Reproducibility and provenance note
 ├── aggregate_results.py              # Root runner for results aggregation
 ├── run_baselines.py                  # Root runner for classical ML baselines
 └── README.md
@@ -70,7 +75,15 @@ python aggregate_results.py
 ```
 This updates `results/paper_results_summary.json`, `results/paper_results_table.md`, and `results/paper_results_table.tex`.
 
-### 3. Notebook Execution on Google Colab / Local GPU
+### 3. Run the Verified McNemar Analysis
+```bash
+python McNemar_verified_files/src/mcnemar_analysis.py \
+	--results-dir results \
+	--output McNemar_verified_files/results/mcnemar_results.json
+```
+This compares paired correctness for the fine-tuned LLM and VLM on the same test IDs for seeds 42, 123, and 456. The result is supplementary to the aggregate metrics: all Holm-adjusted p-values are above 0.05, and the direction of the discordant pairs changes across seeds. See `McNemar_verified_files/README.md` for the artifact map.
+
+### 4. Notebook Execution on Google Colab / Local GPU
 Open any notebook inside `notebooks/`:
 * `notebooks/SRS_LLM_Zero_Shot.ipynb`
 * `notebooks/SRS_VLM_Zero_Shot.ipynb`
