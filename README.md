@@ -8,8 +8,8 @@ This repository contains the empirical code, benchmark dataset, notebooks, and m
 
 ```
 ├── data/
-│   ├── QuRE.csv                      # Benchmark dataset (2,187 requirements annotated for defects)
-│   └── datasetRE.csv                 # Dataset mirror
+│   ├── QuRE.csv                      # Benchmark dataset (2,109 deduplicated requirements annotated for defects)
+│   └── datasetRE.csv                 # Dataset mirror (2,109 deduplicated requirements)
 ├── notebooks/
 │   ├── SRS_LLM_Zero_Shot.ipynb       # LLM Zero-Shot local GPU inference
 │   ├── SRS_VLM_Zero_Shot.ipynb       # VLM Zero-Shot local GPU inference
