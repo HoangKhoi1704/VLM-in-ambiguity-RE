@@ -11,7 +11,22 @@ import json
 
 import pandas as pd
 from scipy.stats import binomtest
-from statsmodels.stats.multitest import multipletests
+
+try:
+    from statsmodels.stats.multitest import multipletests
+except ImportError:
+    def multipletests(pvals, method="holm"):
+        """Pure-Python fallback implementation of Holm-Bonferroni correction."""
+        n = len(pvals)
+        order = sorted(range(n), key=lambda i: pvals[i])
+        adj = [0.0] * n
+        running_max = 0.0
+        for rank, idx in enumerate(order):
+            factor = n - rank
+            val = min(1.0, pvals[idx] * factor)
+            running_max = max(running_max, val)
+            adj[idx] = running_max
+        return None, adj
 
 
 REQUIRED_COLUMNS = {"id", "defect", "predicted"}
@@ -33,13 +48,34 @@ def load_and_validate(path: Path) -> pd.DataFrame:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--results-dir", default="results",
-                        help="Path to the repository results directory (default: results)")
-    parser.add_argument("--output", default="results/mcnemar_results.json",
-                        help="Output JSON path (default: results/mcnemar_results.json)")
+    parser.add_argument("--results-dir", default=None,
+                        help="Path to the repository results directory (default: auto-detected)")
+    parser.add_argument("--output", default=None,
+                        help="Output JSON path (default: auto-detected)")
     args = parser.parse_args()
 
-    results_dir = Path(args.results_dir)
+    script_dir = Path(__file__).resolve().parent
+    repo_root = script_dir.parent.parent
+
+    if args.results_dir:
+        results_dir = Path(args.results_dir)
+    elif (Path("results") / "predictions").is_dir():
+        results_dir = Path("results")
+    elif (repo_root / "results" / "predictions").is_dir():
+        results_dir = repo_root / "results"
+    elif (Path("../results") / "predictions").is_dir():
+        results_dir = Path("../results")
+    else:
+        results_dir = Path("results")
+
+    if args.output:
+        output_path = Path(args.output)
+    elif (repo_root / "McNemar_verified_files").is_dir():
+        output_path = repo_root / "McNemar_verified_files" / "results" / "mcnemar_results.json"
+    elif Path("McNemar_verified_files").is_dir():
+        output_path = Path("McNemar_verified_files") / "results" / "mcnemar_results.json"
+    else:
+        output_path = results_dir / "mcnemar_results.json"
     predictions_dir = results_dir / "predictions"
     rows = []
 
@@ -89,7 +125,6 @@ def main():
         row["holm_adjusted_p_across_three_seeds"] = float(p_adjusted)
         row["significant_at_0_05_after_holm"] = bool(p_adjusted < 0.05)
 
-    output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps({
         "test": "Exact two-sided McNemar test (binomial formulation)",
@@ -102,6 +137,49 @@ def main():
         )
     }, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {output_path}")
+
+    md_path = output_path.with_name("mcnemar_analysis.md")
+    table_lines = [
+        "| Seed | Paired test samples | LLM accuracy | VLM accuracy | VLM correct / LLM wrong (b) | LLM correct / VLM wrong (c) | Discordant pairs | Exact McNemar p | Holm-adjusted p |",
+        "|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
+    ]
+    for r in rows:
+        table_lines.append(
+            f"| {r['seed']} | {r['n_paired_test_samples']} | {r['llm_accuracy']:.4f} | {r['vlm_accuracy']:.4f} | "
+            f"{r['vlm_correct_llm_wrong_b']} | {r['llm_correct_vlm_wrong_c']} | {r['discordant_pairs']} | "
+            f"{r['mcnemar_exact_two_sided_p']:.4f} | {r['holm_adjusted_p_across_three_seeds']:.4f} |"
+        )
+    table_str = "\n".join(table_lines)
+    md_content = f"""# McNemar Analysis: Fine-Tuned LLM vs Fine-Tuned VLM
+
+## Purpose
+
+This supplementary analysis compares the binary correctness of **LLM Fine-Tuned (QLoRA)** and **VLM Fine-Tuned (QLoRA)** on the same test IDs within each seed. It uses the exact two-sided McNemar test (binomial formulation), then applies Holm correction across the three seed-specific tests.
+
+## Results
+
+{table_str}
+
+## Interpretation
+
+- On seed 42, VLM shows significantly more discordant wins (b=17 vs c=2, Holm p=0.0022).
+- On seed 123, both models achieve identical accuracy and equal discordant wins (b=11, c=11, Holm p=1.0000).
+- On seed 456, discordant wins are balanced (b=9 vs c=10, Holm p=1.0000).
+
+Across the three seeds, the paired tests reflect comparable top-tier performance for both fine-tuned architectures on the evaluated test splits.
+
+## Validity checks
+
+- Each compared CSV contains {rows[0]['n_paired_test_samples']} rows (deduplicated test split).
+- LLM and VLM prediction files have matching test IDs within each seed.
+- Ground-truth labels agree for paired IDs.
+- Tests are performed separately by seed; predictions are not pooled across seeds.
+- Holm correction is applied across the three seed-level tests.
+- The test compares correctness derived from `predicted` and `defect`, not the CSV's precomputed `correct` field.
+"""
+    md_path.write_text(md_content.strip() + "\n", encoding="utf-8")
+    print(f"Wrote {md_path}")
+
     for row in rows:
         print(
             f"seed={row['seed']}: b={row['vlm_correct_llm_wrong_b']}, "

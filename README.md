@@ -20,21 +20,26 @@ This repository contains the empirical code, benchmark dataset, notebooks, and m
 ├── src/
 │   ├── run_baselines.py              # Evaluates Majority Classifier, TF-IDF + LR, TF-IDF + SVM
 │   ├── notebook_runner.py             # Runs one notebook/seed with isolated folder
-│   └── aggregate_results.py           # Aggregates multi-seed results and computes paired t-tests
+│   ├── aggregate_results.py           # Aggregates multi-seed results and computes paired t-tests
+│   └── generate_per_seed_table.py     # Generates per-seed breakdown table across all seeds
 ├── results/
 │   ├── metrics/                      # JSON metrics across all 21 runs (7 models x 3 seeds)
 │   ├── predictions/                  # Hold-out test predictions for models and seeds
 │   ├── figures/                      # Evaluation dashboards, ROC and PR curves
 │   ├── paper_results_summary.json    # Complete statistical summary (Mean, Std, t-test p-values)
 │   ├── paper_results_table.md        # Formatted Markdown results table
-│   └── paper_results_table.tex       # Camera-ready LaTeX table for paper inclusion
+│   ├── paper_results_table.tex       # Camera-ready LaTeX table for paper inclusion
+│   ├── per_seed_results_table.md     # Detailed per-seed metric breakdown (Markdown)
+│   └── per_seed_results_table.tex    # Camera-ready per-seed LaTeX multirow table
 ├── McNemar_verified_files/           # Reproducible paired LLM/VLM significance analysis
 │   ├── src/                           # McNemar analysis code
 │   ├── results/                       # JSON result and report for paired tests
 │   ├── README.md                      # Data flow and artifact ownership
 │   └── MCNEMAR_VALIDATION_NOTE.md     # Reproducibility and provenance note
 ├── aggregate_results.py              # Root runner for results aggregation
+├── generate_per_seed_table.py        # Root runner for per-seed results breakdown
 ├── run_baselines.py                  # Root runner for classical ML baselines
+├── run_mcnemar.py                    # Root runner for McNemar test analysis
 ├── run_notebooks.py                  # Portable batch runner for local Python/Colab
 └── README.md
 ```
@@ -52,22 +57,22 @@ All experiments are conducted across **three independent random seeds** (`42`, `
 
 | Model                                  |        Accuracy        |      Balanced Acc      |        F1-Macro        |          MCC          |    Standard ROC-AUC    |         PR-AUC         |
 | :------------------------------------- | :--------------------: | :--------------------: | :--------------------: | :--------------------: | :--------------------: | :--------------------: |
-| **Majority Classifier**          |      0.703±0.000      |      0.500±0.000      |      0.413±0.000      |      0.000±0.000      |      0.500±0.000      |      0.648±0.000      |
-| **TF-IDF + Logistic Regression** |      0.775±0.009      |      0.641±0.017      |      0.654±0.022      |      0.406±0.031      |      0.868±0.028      |      0.731±0.052      |
-| **TF-IDF + Linear SVM**          |      0.807±0.028      |      0.737±0.031      |      0.752±0.035      |      0.513±0.072      |      0.864±0.022      |      0.730±0.053      |
-| **LLM Zero-Shot**                |      0.464±0.028      |      0.487±0.030      |      0.453±0.027      |     -0.024±0.056     |      0.478±0.031      |      0.348±0.016      |
-| **VLM Zero-Shot**                |      0.571±0.019      |      0.462±0.016      |      0.458±0.016      |     -0.080±0.032     |      0.425±0.008      |      0.267±0.004      |
-| **LLM Fine-Tuned (QLoRA)**       |      0.858±0.010      |      0.824±0.006      |      0.828±0.008      |      0.659±0.018      |      0.925±0.010      |      0.851±0.020      |
-| **VLM Fine-Tuned (QLoRA)**       | **0.863±0.019** | **0.821±0.048** | **0.828±0.035** | **0.668±0.053** | **0.930±0.009** | **0.849±0.018** |
+| **Majority Classifier**          |      0.706±0.000      |      0.500±0.000      |      0.414±0.000      |      0.000±0.000      |      0.500±0.000      |      0.647±0.000      |
+| **TF-IDF + Logistic Regression** |      0.774±0.015      |      0.631±0.026      |      0.641±0.036      |      0.397±0.051      |      0.891±0.023      |      0.762±0.034      |
+| **TF-IDF + Linear SVM**          |      0.823±0.035      |      0.749±0.055      |      0.766±0.054      |      0.547±0.098      |      0.893±0.036      |      0.780±0.051      |
+| **LLM Zero-Shot**                |      0.490±0.032      |      0.510±0.035      |      0.476±0.032      |      0.018±0.064      |      0.496±0.046      |      0.373±0.042      |
+| **VLM Zero-Shot**                |      0.603±0.027      |      0.492±0.033      |      0.488±0.035      |     -0.018±0.071      |      0.455±0.059      |      0.273±0.037      |
+| **LLM Fine-Tuned (QLoRA)**       |      0.840±0.010      |      0.831±0.028      |      0.815±0.012      |      0.641±0.028      |      0.925±0.007      |      0.839±0.020      |
+| **VLM Fine-Tuned (QLoRA)**       | **0.863±0.027** | **0.843±0.048** | **0.836±0.036** | **0.675±0.076** | **0.937±0.012** | **0.863±0.028** |
 
 ### Statistical Significance (Paired $t$-test vs. VLM Fine-Tuned)
 
-* vs. **TF-IDF + Linear SVM**: $t = 20.43$, $p = 2.39 \times 10^{-3}$ ($p < 0.01$)
-* vs. **TF-IDF + Logistic Regression**: $t = 18.94$, $p = 2.78 \times 10^{-3}$ ($p < 0.01$)
-* vs. **Majority Classifier**: $t = 17.00$, $p = 3.44 \times 10^{-3}$ ($p < 0.01$)
-* vs. **LLM Zero-Shot**: $t = 34.86$, $p = 8.22 \times 10^{-4}$ ($p < 0.001$, statistically significant)
-* vs. **VLM Zero-Shot**: $t = 23.03$, $p = 1.88 \times 10^{-3}$ ($p < 0.01$)
-* vs. **LLM Fine-Tuned**: $t = -0.01$, $p = 0.993$ (comparable top-tier performance)
+* vs. **TF-IDF + Linear SVM**: $t = 1.15$, $p = 0.369$ (n.s.)
+* vs. **TF-IDF + Logistic Regression**: $t = 3.87$, $p = 0.061$ (n.s.)
+* vs. **Majority Classifier**: $t = 16.65$, $p = 3.59 \times 10^{-3}$ ($p < 0.01$)
+* vs. **LLM Zero-Shot**: $t = 17.45$, $p = 3.27 \times 10^{-3}$ ($p < 0.01$)
+* vs. **VLM Zero-Shot**: $t = 81.17$, $p = 1.52 \times 10^{-4}$ ($p < 0.001$, statistically significant)
+* vs. **LLM Fine-Tuned**: $t = 0.81$, $p = 0.505$ (n.s., comparable top-tier performance)
 
 ---
 
@@ -133,12 +138,17 @@ python generate_per_seed_table.py --all-models
 ### 4. Run the Verified McNemar Analysis
 
 ```bash
+python run_mcnemar.py
+```
+
+Alternatively, run with custom options:
+```bash
 python McNemar_verified_files/src/mcnemar_analysis.py \
 	--results-dir results \
 	--output McNemar_verified_files/results/mcnemar_results.json
 ```
 
-This compares paired correctness for the fine-tuned LLM and VLM on the same test IDs for seeds 42, 123, and 456. The result is supplementary to the aggregate metrics: all Holm-adjusted p-values are above 0.05, and the direction of the discordant pairs changes across seeds. See `McNemar_verified_files/README.md` for the artifact map.
+This compares paired correctness for the fine-tuned LLM and VLM on the same test IDs for seeds `42`, `123`, and `456`. The result is supplementary to the aggregate metrics: on seed 42, VLM demonstrates significantly more discordant wins ($b=17$ vs. $c=2$, Holm-adjusted $p = 0.0022$), while on seeds 123 and 456 the models exhibit comparable/balanced correctness (Holm-adjusted $p = 1.0000$). See `McNemar_verified_files/README.md` and `McNemar_verified_files/results/mcnemar_analysis.md` for the complete audit trail.
 
 ### 5. Notebook Execution on Google Colab / Local GPU
 
