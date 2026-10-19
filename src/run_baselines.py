@@ -125,7 +125,10 @@ def evaluate_predictions(y_true_bin, y_pred_bin, y_scores):
 # =============================================================================
 # 3. QUY TRÌNH THỰC NGHIỆM CHÍNH (TRAINING & EVALUATION PIPELINE)
 # =============================================================================
-def run_experiment(dataset_path="data/QuRE.csv", seeds=[42, 123, 456]):
+def run_experiment(dataset_path="data/QuRE.csv", seeds=None, output_dir="results", save_predictions=True):
+    if seeds is None:
+        seeds = [42, 123, 456]
+
     # Kiểm tra tự động file dataset (hỗ trợ cả QuRE.csv và datasetRE.csv ở data/, ../data/, .)
     candidate_paths = [
         dataset_path,
@@ -163,11 +166,11 @@ def run_experiment(dataset_path="data/QuRE.csv", seeds=[42, 123, 456]):
         'majority_classifier': lambda: DummyClassifier(strategy='most_frequent'),
         
         # Baseline 2: Hồi quy Logistic trên ma trận đặc trưng từ vựng TF-IDF
-        'tfidf_logistic_regression': lambda: LogisticRegression(C=1.0, max_iter=1000, random_state=42),
+        'tfidf_logistic_regression': lambda seed: LogisticRegression(C=1.0, max_iter=1000, random_state=seed),
         
         # Baseline 3: Linear SVM bọc bằng CalibratedClassifierCV (Platt Scaling)
         # Giúp SVM biến đổi khoảng cách siêu phẳng thành xác suất thực tế [0, 1] để tính ROC-AUC
-        'tfidf_linear_svm': lambda: CalibratedClassifierCV(LinearSVC(C=1.0, random_state=42, max_iter=2000), cv=3),
+        'tfidf_linear_svm': lambda seed: CalibratedClassifierCV(LinearSVC(C=1.0, random_state=seed, max_iter=2000), cv=3),
     }
 
     all_results = {name: [] for name in models_to_test}
@@ -200,7 +203,7 @@ def run_experiment(dataset_path="data/QuRE.csv", seeds=[42, 123, 456]):
 
         # Bước 5: Huấn luyện và kiểm thử từng mô hình
         for model_name, model_fn in models_to_test.items():
-            clf = model_fn()
+            clf = model_fn(seed) if model_name != 'majority_classifier' else model_fn()
             
             if model_name == 'majority_classifier':
                 # Majority chỉ cần đếm tần suất nhãn trên tập Train
@@ -224,13 +227,28 @@ def run_experiment(dataset_path="data/QuRE.csv", seeds=[42, 123, 456]):
             all_results[model_name].append(metrics)
 
             # Xác định thư mục lưu metrics
-            out_metrics_dir = "results/metrics" if os.path.exists("results/metrics") else ("../results/metrics" if os.path.exists("../results/metrics") else ".")
+            out_metrics_dir = os.path.join(output_dir, "metrics")
+            out_predictions_dir = os.path.join(output_dir, "predictions")
             os.makedirs(out_metrics_dir, exist_ok=True)
+            if save_predictions:
+                os.makedirs(out_predictions_dir, exist_ok=True)
 
             # Lưu file kết quả JSON riêng lẻ cho từng seed (ví dụ: metrics_tfidf_logistic_regression_seed_42.json)
             fname = os.path.join(out_metrics_dir, f"metrics_{model_name}_seed_{seed}.json")
             with open(fname, 'w', encoding='utf-8') as f:
                 json.dump(metrics, f, indent=2)
+
+            if save_predictions:
+                predictions = df_test[['id', 'requirement', 'defect', 'weak_word']].copy()
+                predictions['length'] = predictions['requirement'].astype(str).str.len()
+                predictions['predicted'] = np.where(y_pred == 1, 'defect', 'ok')
+                predictions['p_defect'] = y_scores
+                predictions['correct'] = predictions['predicted'].eq(predictions['defect'])
+                prediction_path = os.path.join(
+                    out_predictions_dir,
+                    f"predictions_{model_name}_seed_{seed}.csv"
+                )
+                predictions.to_csv(prediction_path, index=False, encoding='utf-8')
 
             print(f"[{model_name.upper()}] Acc: {metrics['accuracy']:.4f} | F1-macro: {metrics['f1_macro']:.4f} | ROC-AUC: {metrics['roc_auc']} | PR-AUC: {metrics['pr_auc']}")
 
