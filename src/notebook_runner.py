@@ -1,37 +1,15 @@
-"""Run one notebook for one seed with isolated artifacts and centralized logging."""
+"""Run one notebook for one seed with isolated artifacts."""
 
 from __future__ import annotations
 
 import argparse
-import csv
 import json
 import subprocess
 import sys
-import time
-import uuid
-from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-LOG_PATH = ROOT / "results" / "notebook_run_logs.csv"
 SEEDS = (42, 123, 456)
-LOG_FIELDS = [
-    "run_id",
-    "started_at",
-    "finished_at",
-    "notebook",
-    "seed",
-    "status",
-    "run_dir",
-    "executed_notebook",
-    "log_file",
-    "duration_seconds",
-    "return_code",
-]
-
-
-def utc_now() -> str:
-    return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
 def prepare_notebook(notebook_path: Path, seed: int, run_dir: Path) -> Path:
@@ -53,26 +31,11 @@ def prepare_notebook(notebook_path: Path, seed: int, run_dir: Path) -> Path:
     return patched_path
 
 
-def append_log(row: dict[str, str]) -> None:
-    LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
-    exists = LOG_PATH.exists()
-    with LOG_PATH.open("a", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=LOG_FIELDS)
-        if not exists:
-            writer.writeheader()
-        writer.writerow(row)
-
-
 def run_notebook(notebook: Path, seed: int) -> int:
-    started = time.monotonic()
-    started_at = utc_now()
     run_dir = ROOT / "notebook_runs" / f"seed_{seed}" / notebook.stem
     run_dir.mkdir(parents=True, exist_ok=True)
     patched = prepare_notebook(notebook, seed, run_dir)
     executed_name = f"{notebook.stem}_seed_{seed}_executed.ipynb"
-    executed_path = run_dir / executed_name
-    log_file = run_dir / "run.log"
-    run_id = str(uuid.uuid4())
     command = [
         sys.executable,
         "-m",
@@ -87,50 +50,10 @@ def run_notebook(notebook: Path, seed: int) -> int:
         patched.name,
     ]
 
-    status = "COMPLETED"
-    return_code = 0
-    try:
-        with log_file.open("w", encoding="utf-8") as handle:
-            handle.write(f"$ {' '.join(command)}\n\n")
-            handle.flush()
-            process = subprocess.Popen(
-                command,
-                cwd=run_dir,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.STDOUT,
-                text=True,
-                encoding="utf-8",
-                errors="replace",
-                bufsize=1,
-            )
-            assert process.stdout is not None
-            for line in process.stdout:
-                print(line, end="", flush=True)
-                handle.write(line)
-                handle.flush()
-            return_code = process.wait()
-        if return_code != 0:
-            status = "FAILED"
-    except Exception as exc:
-        status = "FAILED"
-        return_code = -1
-        log_file.write_text(f"Runner error: {exc}\n", encoding="utf-8")
-
-    append_log({
-        "run_id": run_id,
-        "started_at": started_at,
-        "finished_at": utc_now(),
-        "notebook": str(notebook.relative_to(ROOT)).replace("\\", "/"),
-        "seed": str(seed),
-        "status": status,
-        "run_dir": str(run_dir.relative_to(ROOT)).replace("\\", "/"),
-        "executed_notebook": str(executed_path.relative_to(ROOT)).replace("\\", "/"),
-        "log_file": str(log_file.relative_to(ROOT)).replace("\\", "/"),
-        "duration_seconds": f"{time.monotonic() - started:.1f}",
-        "return_code": str(return_code),
-    })
-    print(f"{status}: {notebook.name} seed={seed}; log={log_file}")
-    return return_code
+    process = subprocess.run(command, cwd=run_dir, check=False)
+    status = "COMPLETED" if process.returncode == 0 else "FAILED"
+    print(f"\n{status}: {notebook.name} seed={seed}")
+    return process.returncode
 
 
 def main() -> int:

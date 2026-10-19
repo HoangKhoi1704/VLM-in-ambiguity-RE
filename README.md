@@ -8,8 +8,8 @@ This repository contains the empirical code, benchmark dataset, notebooks, and m
 
 ```
 ├── data/
-│   ├── QuRE.csv                      # Benchmark dataset (2,187 requirements annotated for defects)
-│   └── datasetRE.csv                 # Dataset mirror
+│   ├── QuRE.csv                      # Benchmark dataset (2,109 deduplicated requirements annotated for defects)
+│   └── datasetRE.csv                 # Dataset mirror (2,109 deduplicated requirements)
 ├── notebooks/
 │   ├── SRS_LLM_Zero_Shot.ipynb       # LLM Zero-Shot local GPU inference
 │   ├── SRS_VLM_Zero_Shot.ipynb       # VLM Zero-Shot local GPU inference
@@ -19,10 +19,8 @@ This repository contains the empirical code, benchmark dataset, notebooks, and m
 │   └── README.md
 ├── src/
 │   ├── run_baselines.py              # Evaluates Majority Classifier, TF-IDF + LR, TF-IDF + SVM
-│   ├── notebook_runner.py             # Runs one notebook/seed and appends the run log
-│   ├── notebook_logging.py            # Logs each notebook cell and its errors
+│   ├── notebook_runner.py             # Runs one notebook/seed with isolated folder
 │   └── aggregate_results.py           # Aggregates multi-seed results and computes paired t-tests
-├── aggregate_notebook_logs.py         # Aggregates cell logs into run summaries
 ├── results/
 │   ├── metrics/                      # JSON metrics across all 21 runs (7 models x 3 seeds)
 │   ├── predictions/                  # Hold-out test predictions for models and seeds
@@ -41,10 +39,8 @@ This repository contains the empirical code, benchmark dataset, notebooks, and m
 └── README.md
 ```
 
-Notebook runs are isolated under `notebook_runs/seed_<seed>/<notebook>/`. The
-central run table is `results/notebook_run_logs.csv`; it records the notebook,
-seed, status, duration, executed notebook path, and `run.log` path for every
-attempt.
+Notebook runs are isolated under `notebook_runs/seed_<seed>/`.
+Source notebooks in `notebooks/` remain unchanged.
 
 ---
 
@@ -137,36 +133,15 @@ Open any notebook inside `notebooks/`:
 * `notebooks/SRS_VLM_Finetune.ipynb`
 	Configure `RANDOM_SEED` (`42`, `123`, or `456`) in the seed configuration cell and run all cells sequentially.
 
-When running a notebook directly with **Run all**, the first cell registers
-cell-level logging automatically. Logs are appended to:
-
-```text
-results/notebook_cell_logs.csv
-```
-
-After one or more notebook runs, create a compact summary table with:
-
-```powershell
-python aggregate_notebook_logs.py
-```
-
-The summary is written to `results/notebook_run_summary.csv`. A failed cell is
-recorded with `status=FAILED`, `error_type`, and `error_message`, so the
-corresponding notebook run can be debugged without rerunning all notebooks.
-
 For reproducible local runs with isolated folders, use the runner from the
 repository root. The original notebook is copied to a seed-specific run folder,
-its seed is set automatically, and the executed notebook plus all relative
-artifacts are kept there:
+its seed is set automatically, and the executed notebook is kept there:
 
 ```powershell
 python src/notebook_runner.py --notebook notebooks/SRS_LLM_Zero_Shot.ipynb --seed 42
 python src/notebook_runner.py --notebook notebooks/SRS_LLM_Zero_Shot.ipynb --seed 123
 python src/notebook_runner.py --notebook notebooks/SRS_LLM_Zero_Shot.ipynb --seed 456
 ```
-
-Replace the notebook path to run the VLM or fine-tuning notebooks. Each command
-appends one row to `results/notebook_run_logs.csv`.
 
 To run all four notebooks for all three seeds:
 
@@ -192,5 +167,5 @@ To test one notebook/seed first:
 
 Colab must have a GPU runtime for the LLM/VLM notebooks. Fine-tuning all 12
 runs may exceed one runtime session; use one notebook or one seed at a time if
-the runtime disconnects. Outputs and `results/notebook_run_logs.csv` are saved
+the runtime disconnects. Outputs are saved
 in the cloned Colab workspace, so download or push them after the runs finish.

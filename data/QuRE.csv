@@ -251,7 +251,6 @@ id,requirement,defect,weak_word
 249,"Telelog is a SNAP enabled HU native application, in which certain specified telematics feature usages are logged by the HU, and the logs are sent to the OEM Vehicle Backend (OEMVB) for further analysis.",defect,certain
 250,The Eventlog offers the possibility to look up certain events during development or for aftersales analysis.,defect,certain
 251,Under certain circumstances it might be necessary to change a value.,defect,certain
-252,The detection shall be done in a certain way and filter for error detection shall be used.,defect,certain
 253,The system shall provide an interface to import logfiles into the component to simulate certain driving situations.,defect,certain
 254,The supplier shall agree with the OEM on the CAN messages for certain temperature stages after awarding of contract.,defect,certain
 255,The TCU is connected to the ORC redundantly via CAN and LIN to execute automatic emergency calls on certain crash levels.,defect,certain
@@ -291,7 +290,6 @@ id,requirement,defect,weak_word
 289,The system will give him a close look onto the hitch and show dynamic guiding lines to support the driver to closely drive to the trailer without additionally help by passing pedestrians.,defect,close
 290,This includes the operation of portable electronic devises inside or in close vicinity of the vehicle.,defect,close
 291,Set the test level Ucal1 between DUT port A and DUT port B with the closed loop method.,ok,close
-292,With the closed relay the voltage difference has to be lower than a certain level.,ok,close
 293,"The deselection is possible if, for example, a child or a dog stays behind in the closed vehicle or the vehicle is to be transported.",ok,close
 294,The proof of concept includes the close collaboration with the mirror supplier and the demonstration of the specified performance values in a prototype hardware and measurements on vehicle level.,ok,close
 295,"The proof of concept includes the close collaboration with the supplier which component is regarded by the antenna, a complete set of simulation (see chapter simulation), the demonstration of the specified performance values in prototype hardware and measurements on vehicle level.",ok,close
@@ -349,7 +347,6 @@ id,requirement,defect,weak_word
 347,"When precharging is finished, the BMS shall close the main contactors along with deactivating the precharging circuit.",ok,close
 348,If the torque actuator implements a lower break torque than the break torque request because the [transmission] is not closed then the torque actuator must send this information (`` stop break torque '').,ok,close
 349,If after the time PPNM_IODCCloseAttemptTime the relay is not closed (T30gStatusOpen equal 1) the error signal IODCCloseError has to be set to 1 for one cycle.,ok,close
-350,"In case of reset, the central locking system will close the DDP-relay again after a certain wait time.",ok,close
 351,The Camera Dirt Protection shall close the Camera Covers.,ok,close
 352,"As soon as all preconditions in the DC-Box are fulfilled, the DC-Box shall close the DC contactors.",ok,close
 353,"As soon as the DC-Box recognizes that the battery contactors are closed, the DC-Box shall close S2.",ok,close
@@ -464,7 +461,6 @@ id,requirement,defect,weak_word
 462,"To monitor the temperature of the vehicle inlet close to the DC pins, a second temperature sensor (type PT1000) is integrated into the vehicle inlet.",defect,close
 463,"The dc / dc converter for model 342 is located within the vehicle trunk, close to the HV battery, close to the LV Battery and above the on board charger.",defect,close
 464,"The dc / dc converter for model 346 is located within the vehicle trunk, close to the on board charger and underneath the HV battery.",defect,close
-465,"(To avoid significant overshoot and oscillation of ouput voltage, and to fulfill the dynamic behaviour requirements, it is allowed to reduce output power, as appropriate, in case the actual LV voltage is close to the SDC 's LV voltage set point.)",defect,close
 466,Two Integrated interlock pilot contacts one close to the Motor phase Pins and the other close to the HVDC Pins shall be used.,defect,close
 467,The Safe Launch Concept shall include at least an OCV test of 1000 batteries at the logistics partner close to the OEM plant and directly before delivery to OEM.,defect,close
 468,The coaxial measurement cables shall be routed close to the car body and close to the original cabling (at least in the vicinity of the antennas) to suppress the generation and transmission of sheath waves and avoid interaction with the antenna under test.,defect,close
@@ -527,7 +523,6 @@ id,requirement,defect,weak_word
 525,"As soon as the EMM receives the information that the insulation measurement has stopped, the EMM sends the request to close the DC contactors, received by the DC-Box.",ok,close
 526,"As soon as the EMM receives the confirmation of the request to prepare the charging process, the EMM sends the request to close the battery contactors (PNHV_Energy_Rq equal CLS), received by the BMS.",ok,close
 527,The EMM sends the request to close the battery contactors to the BMS.,ok,close
-528,"For realization that preconditions are achieved, ACCSW sends out certain requests (e.g. to close windows, lock doors or engage parking brake).",ok,close
 529,"The ACCSW shall send the signal `` almaCC_ActvComf_Rq '' to activate the system Comfort Closing to close the sunroof blind, window blinds and rear window blind.",ok,close
 530,If both variants match together the display should work in the common way.,ok,common
 531,The fixation of the component in the common back housing of the display cluster shall be adjusted with the supplier of the assembly.,ok,common
@@ -580,13 +575,11 @@ id,requirement,defect,weak_word
 578,The contractor shall present frequently during common project meetings between contractor and client current state of actions.,ok,common
 579,The auxiliary audio input line shall be realized / implemented with a common mode rejection ratio (CMRR) of greater than 70 dB.,ok,common
 580,The assignment of drivers and front passengers HMI to the left or right view of the SplitView display (for left and right hand driving cars) shall be configurable either via CVI (common vehicle information) or diagnosis variant coding.,ok,common
-581,General specifications of the CAD product data are described in the Common Requirements [OEM 310 00x].,ok,common
 582,"The operating conditions shall be discussed and defined during common meetings between the supplier, the OEM Component responsible TCU and the OEM EMC responsible (refer to chap.)",ok,common
 583,"Also see document ""Common Requirements"", Chapter entitled ""Identification of Test Parts"", for the required information on the label.",ok,common
 584,"In addition to common quality requirements, specification ""Standardlastenheft QM Batterie_Li-Ion"" must be fulfilled by the contractor",ok,common
 585,Activation of the VTA and non active common alarm input: M:VTA active AND NOT M:Common Alarm Input Active,ok,common
 586,"If the timer is running and common alarm input is active: M:Common Alarm Input Active, the execution of the function is to be ended and can be restarted by deactivating the input: NOT M:Common Alarm Input Active",ok,common
-587,Function `` Activate Monitoring of Common Alarm Input '' is in state `` Delay Monitoring ''.,ok,common
 588,OEM wants to establish a common software framework called OEM Telematics framework (MTF).,ok,common
 589,When VCC receives in the signal the request to `` stop '' it shall perform a common transition to ''stop? (see VC-241).,ok,common
 590,The oscillation comfort of the total vehicle concerning roadway/engine and wheel-excited oscillations must be on the level of the comparable series vehicle.,ok,comparable
@@ -597,7 +590,6 @@ id,requirement,defect,weak_word
 595,Following equipment may be used but is only a recommendation; comparable equipment may also be used:,ok,comparable
 596,The supplier could use an internal test report template if the provided information is comparable to the requested information according to the OEM template,ok,comparable
 597,"The tolerance data on the left of the double lines must be kept by the control elements, if this close to comparable control elements,",ok,comparable
-598,"The tolerance data on the left of the double lines must be kept by the control elements, if this close to comparable control elements, e.g. in the same component or in two close together convenient components are blocked.",ok,comparable
 599,The probe temperatures are not comparable to the required application temperature in the engine.,ok,comparable
 600,Stationary or moving pickup trucks without trailer have to be classified as CAR because these exhibit a lateral dynamic comparable to passenger cars.,ok,comparable
 601,"Non-flashable modules (comparable to a BIOS) are not described in this section, as changes in these modules are only permissible along with new hardware development steppings (B,B/C,C stepping).",ok,comparable
@@ -610,7 +602,6 @@ id,requirement,defect,weak_word
 608,"In general, SCC provides additional environmental data that allow to analyse the reason for the failure in more detail.",defect,detail
 609,Details will be specified jointly.,defect,detail
 610,The original papers in every detail and sample phase have to be presented to and inspected from customer.,defect,detail
-611,For the development of the powertrain software on vehicle side a common understanding of the battery is required in some detail.,defect,detail
 612,"Unit numbers: all required prototype samples with their detail MRDs will be maintained by a separate file, and shared with supplier.",defect,detail
 613,Details to be discussed via Logistic.,defect,detail
 614,"Submittal of a change request project memo shall include an unambiguous clear technical description of the requested change including any details required for understanding reason, purpose and impact of the requested change as well as a risk assessment with regards of component timing, cost, quality, safety, weight, function and performance.",defect,detail
@@ -660,7 +651,6 @@ id,requirement,defect,weak_word
 658,"For details see chapter ""Subfunction"" Signal generation: SC_ActivationTime1Display_V2_MM `` '' [PLGW-2155]",ok,detail
 659,"For details see ""SCO module memory requirements"" [PLGW-5099].",ok,detail
 660,"For details refer to specification ""Masterdatenblatt Verdampferplatte - Batteriekühlung""",ok,detail
-661,For details refer to the appropriate VMM.,ok,detail
 662,"- relaxation behaviour vs temperature and SOC in relation to the capacity determined (HVBATT-23435), for more details see chapter Test related for Specific parts / Characterization of Cell",ok,detail
 663,"For details regarding accuracy and sampling rate see chapter ""Measured Battery Current"" [HVBATT-18002] and [HVBATT-18005].",ok,detail
 664,For details refer to SPEC 10746 (DPRS).,ok,detail
@@ -731,7 +721,6 @@ id,requirement,defect,weak_word
 729,"Please refer the ""Telematic5.5 - Diagnostic Specification SV and SPV Display"" [RD4528] for details.",ok,detail
 730,Please see the corresponding tecnical reference sheet for details regarding ordering of the information.,ok,detail
 731,(see HVBATT-23811 for details),ok,detail
-732,See the appropriate AUTOSAR specification for details.,ok,detail
 733,- DTC 0x1D27 is set (see diagnostic specification file .cdd for details),ok,detail
 734,Refer to current diagnostic data file (e.g. cdd) for details.,ok,detail
 735,See SPEC LV 123 (`` Reference List for Client Specifications '' [HVBATT R-111]) for details.,ok,detail
@@ -750,7 +739,6 @@ id,requirement,defect,weak_word
 748,The goal of Technical Specification is to inform the Client about implementation details of the system.,ok,detail
 749,"For further details see ""System Specification Telematic5STAR1 HU High Wireless Subsystem"" [RD3625]",ok,detail
 750,"For further details see ""System Specification Telematic5STAR1 HU Entry Wireless Subsystem"" [RD3651].",ok,detail
-751,"It does not define protocol, interconnect, or connector details because these details are application-specific.",ok,detail
 752,3. Store contact details of a received SMS or e-mail to the address book application.,ok,detail
 753,For further details on the ARMADA airbag sensor and the other sensors please contact EP / EKA,ok,detail
 754,"Further details: see ""EMC Requirements - component tests (Passenger Cars and Vans)"" [LH-3787] section 6.",ok,detail
@@ -788,7 +776,6 @@ id,requirement,defect,weak_word
 786,Further details: see SPEC 10284-1 DRAFT: EMC Requirements - vehicle tests> section 5.,ok,detail
 787,Further details: see Draft SPEC 10284-1 section 12.,ok,detail
 788,"Further details: see ""EMC Requirements - component tests"" SPEC 10284-2 section 10.",ok,detail
-789,For further details refer to the appropriate network VMM.,ok,detail
 790,For test details which are not given in the following short test description refer to Freedom Car Abuse Test Manual.,ok,detail
 791,Further details are listed in chapter 8.6.15 EMC Requirements.,ok,detail
 792,Further details regarding HV-Interface in agreement with the client.,ok,detail
@@ -797,7 +784,6 @@ id,requirement,defect,weak_word
 795,"Details concerning the operating modes, operating loads (e.g. actuation, original sensors, original actuators or replacement circuitry) and the required boundary conditions shall be coordinated between the contractor and client and documented.",ok,detail
 796,"The corresponding parameters, including their specification limits, must be defined in detail for the component by the contractor, coordinated with the client and documented in the technical specifications or in the component test specifications.",ok,detail
 797,"The parameter set and details of the measurements (resolution, sampling rate, etc.) must be coordinated with the client and documented in the technical specifications or in the component test specifications.",ok,detail
-798,"Details on replicating the installation situation (installation position, covers, trim, operating situations and in repair / maintenance) are to be proposed by the supplier and agreed on with OEM and documented in an appropriate manner (through design drawings and / or photos, for example) in the technical specification (supplier) or in the component test specification.",ok,detail
 799,Dimensional details and requirements as illustrated shall be applicable for both positive and negative main terminal.,ok,detail
 800,The Defect Manager shall be familiar with the details of the documented defects in the contractors defect management system.,ok,detail
 801,More details and network management signals or diagnostic signals are documented in the OEM Vehicle Message Matrix.,ok,detail
@@ -810,7 +796,6 @@ id,requirement,defect,weak_word
 808,The supplier has to agree to details of geometry with the client after component awarding.,ok,detail
 809,The supplier shall agree to all details of component styling after awarding of contract.,ok,detail
 810,Details of non-functional requirements of the display modules see document [RD4383].,ok,detail
-811,The goal of Technical Specification is to inform the Client about implementation details of the system.,ok,detail
 812,The contractor shall document the root causes for all occurring software errors and details about the removal of the error in the error tracking system (DANTE).,ok,detail
 813,"For details about ""Kleer"" technology please refere to chapter ""Kleer""",ok,detail
 814,"For details about required WLAN interface see also chapter ""WLAN"".",ok,detail
@@ -880,7 +865,6 @@ id,requirement,defect,weak_word
 878,The occurence of a cycle violation which requires an enhancement of the signal values of the signal DTR_Obj_TmDelay because no new object data are available until the starting time of the object list Fleyray transmission or because the detection point of time for the data of the object list is earlier for a multiple of system cycles shall be signalized in the signal DTR_SwCycl by the number of system cycles added to the signal values of DTR_Obj_TmDelay.,defect,early
 879,"If the history of more than 10 seconds is relevant to the resimulation result, measures shall be taken in an early stage of development to solve that problem.",defect,early
 880,The delivery of the SIM-cards needs to start earlier with the needed lead time of the manufacturer of the communication unit (KOM-Modul).,defect,early
-881,"The supplier shall put appropriate measures in place in its production to ensure that, for example, early failures typically occurring in semiconductors are detected and do not occur after handover to the customer.",defect,early
 882,"The use of early defect detection is intended to detect pre-damage of devices (e.g. manufacturing-related pre-damage, ESD pre-damage, ?Â&brvbar;) or to detect early device failures which cannot be detected using a component end-of-line test.",defect,early
 883,Changes in function blocks which have been transferred from earlier projects as well as function changes during the development phase have to be agreed with the responsible OEM division,defect,early
 884,An incorrect too high clutch torque may lead to an early release of the electric parking brake and consequently to an inadvertent rolling of the vehicle.,defect,early
@@ -919,8 +903,6 @@ id,requirement,defect,weak_word
 917,After detection of tG the recharging thresholds of IP and IS have to be activated and realized as short as possible to assure fast follow-on ignitions.,defect,fast
 918,This procedure is to guarantee that the energy management gets the duration since the contactors were opened in case of fast switch on sequences.,defect,fast
 919,This causes a high battery charging current and the energy taken out during ignition off is recharged fast.,defect,fast
-920,In certain critical states of the car (e.g. emergency braking or an accident) some convenience consumers can be switched off very fast to guarantee the safety functions.,defect,fast
-921,"To prevent a very fast consumer deacitivation by the DLM when the windshield heater is turned on, there is a certain offset voltage which is allowed during the defrosting cycle.",defect,fast
 922,"The standard Brake-Assistant is a system which brakes more than the driver, if the driver touches the brake pedal fast but not deep enough.",defect,fast
 923,"It shall allow complete updates of the database as well as partial and incremental updates of parts like map areas, satellite and aerial imagery, DTM, POI data, TMC tables, language files, SW-updates etc. For fast update of data content, the Headunit shall provide an interface for connection to an external standard device.",defect,fast
 924,The Sound Amplifier shall be able to realize very fast time delay between MOST message input to loudspeaker output.,defect,fast
@@ -991,7 +973,6 @@ id,requirement,defect,weak_word
 989,The thermal shock corresponds to the largest deviation of the differential curve (Kistler vs. CPS).,ok,large
 990,- in The laboratory with The given measurement-setups adapted to The larger frequency ranges.,ok,large
 991,"The large modules are mounted by means of nuts, shown in the following illustration.",ok,large
-992,A constant manner of driving with few steering corrections and no large accelarations respectively decelerations accelerates the determination of the alignment accuracy.,defect,large
 993,"The specified maximum and minimum value shall not be exceeded during transmission, especially in situations with very strong bending of the predicted ego vehicle path or a large slip angle of the vehicle.",defect,large
 994,"One application is the determination of object miss or number of phantom objects over a large time / milage, especially in evaluations which would require a large amount of labelling activities.",defect,large
 995,The SIM shall provide enough memory to store at least three large profiles.,defect,large
@@ -1005,14 +986,12 @@ id,requirement,defect,weak_word
 1003,The sensor shall calculate the standard deviation of the estimated distance to the road border and report a correction value for which the reported distance to the road border may be larger.,defect,large
 1004,"First extrapolations show that within the FoV of the near range scan and the far range scan about 150 stationary objects can be detected, tracked and/or predicted within a range of 100m in complex environments on highways; taking into account the additional range needed for obstacle classification the detection range and hence the number of detectable objects will be even larger.",defect,large
 1005,The contractor shall consolidate small plug connections found on one component to form a larger plug connection.,defect,large
-1006,This area will either be a separate display panel or a certain area within a larger display.,defect,large
 1007,"Vehicle odometry data from the ESP to the radar sensor, may have a larger delay due to routing from Flexray to Ethernet via gateways and switches in between; to date one gateway (EIS) and one switch (IDC) is planned.",defect,large
 1008,The component design shall allow to upgrade in a later design step to larger memory with the same footprint and the same interface without PCB modification.,defect,large
 1009,Memory shall be chosen of a family which allows upgrade to larger memory capacity with the same footprint and processor interface.,defect,large
 1010,PN may be superimposed by a larger error offset due to incorrect stored face proportions according to AGMR-1315.,defect,large
 1011,Delivery status: The Dimensions of the amplifier housing may be extended to 1.5 of the specified dimension in chapter ANTA-1895 `` Large Module ''.,ok,large
 1012,- Large parameter test: Full scope of testing as described in The instruction.,ok,large
-1013,"The function shall be available as fast as possible, for this reason the range estimation statistics shall start for velocities not larger than 5km/h and typically above 0.5km/h.",ok,large
 1014,The detection distance shall be larger than 60m.,ok,large
 1015,The offset error of the EgoLane to the driven trajectory shall not be larger than the offset error of the DTR_LaneRadius to the driven trajectory within 90 % of the time period.,ok,large
 1016,"Internal tracked objects with lateral relative distance larger than the specified maximum (102.3m, left hand side of vehicle) are masked and therefore not signalized on bus (all object attributes except Object ID are default values).",ok,large
@@ -1046,7 +1025,6 @@ id,requirement,defect,weak_word
 1044,Note: this feature may not be activated automatically in case of large influence on system performance or function of the component.,defect,large
 1045,For large cells and batteries the duration of exposure to the test temperature extremes should be at least 12 hours.,defect,large
 1046,"Especially when testing a large number of fuse-links, allow sufficient cooling time to prevent the test fixture from overheating.",defect,large
-1047,Note: This feature may not be activated automatically in case of large influence on system performance or function of the component.,defect,large
 1048,If output power is not longer reduced and detection of an object is possible in the same system cycle the component has to set the signal '' DTR_SensOut_Rdc equal 0?Â on bus object interface.,defect,long
 1049,"The long range radar information is needed for an increased performance using information of oncoming vehicles, normal traffic and stationary objects using the information of the relative longitudinal velocity.",ok,long
 1050,"The long range radar shall support the function by the detection of PD ahead of the system vehicle and by providing necessary information like position (x, y), velocity (vx, vy) and quality measures.",ok,long
@@ -1066,7 +1044,6 @@ id,requirement,defect,weak_word
 1064,If the ON-button is pressed long the RCU shall deactivate the chosen display and turn into OFF-modus.,defect,long
 1065,Easy Listening Moderate sound impression for relaxed long term listening,defect,long
 1066,[SRC004d] It is possible to miss some restarts in 3S seconds operation mode because the rail pressure goes down if the stop mode lasts very long and there is not enough time to raise it up for restart.,defect,long
-1067,In certain cases it may be necessary to limit engine speed as a long term adjustment.,defect,long
 1068,Description: The precharging time for the on-board charger is too long.,defect,long
 1069,The OBC shall monitor the Precharging functionality for being too long.,defect,long
 1070,Description: The precharging time of the high-voltage on-board electrical system is too long.,defect,long
@@ -1082,7 +1059,6 @@ id,requirement,defect,weak_word
 1080,The real time clock must be able to cover longer periods of time and schedule events without inbetween wake ups.,defect,long
 1081,If the parking time is longer the calculation has to be stopped.,defect,long
 1082,"In this case, the ARC will be active for a much longer time compared to when used for regular Augmented Reality.",defect,long
-1083,"In this case, the ARC will be active for a much longer time compared to when used for regular Augmented Reality.",defect,long
 1084,There are no specific basic driving functions for component Long Range Radar.,ok,long
 1085,"The Long Range Radar is called ""LRR"" in the OEM communication specification (""[K-Matrix]"").",ok,long
 1086,If a button is kept pressed the RCU shall set the Long Press Bit 0 in Key Identifier Byte.,ok,long
@@ -1128,7 +1104,6 @@ id,requirement,defect,weak_word
 1126,"At ignition restart after a parking time longer than T_STANDBY, start filling detection automatically.",ok,long
 1127,Status display at ignition start after parking time longer than T_STANDBY:,ok,long
 1128,"The KNFE-Mode shall be suitable for long time verification, especially to verify criteria which need an extensive testing to reach the needed confidence level (i.e. greater than 1000 km, greater than 50 h testing).",ok,long
-1129,"For details on short and long pushing and pressing see ""Feature List Telematic5STAR1 HU Entry Main"" [RD3582].",ok,long
 1130,After starting a long distance route calculation (e.g. across whole Europe or across whole US) the route guidance (incl. ADRs & map display in all zoom-levels) shall be available within 5 s.,ok,long
 1131,The connector shall either be placed on the long side of the housing (30 millimetres x 120 millimetres) or on the short side of the housing (30 millimetres x 100 millimetres).,ok,long
 1132,"Under all circumstances the sensor 's output pulses must be a true image of the moving target teeth, e.g. while change of rotational direction at any angle position, under vibration effects or at strong temperature change no ""missing tooth"" or additional pulse may occur, also after longer stop-periods and temperature changes (stop-start-mode of the engine).",ok,long
@@ -1185,10 +1160,7 @@ id,requirement,defect,weak_word
 1183,Test pulse duration shall be as short as possible (but long enough to allow safe error detection by the hardware).,ok,long
 1184,"If IBS_ParkingTime - EPNM_BCD_LastParkingTime greater than PPNM_BCDLongParkTime and PPNM_BCDUseLongPark equal 1 the parking time is long enough to trust the discharge LUT, i.e. an internal signal LongPark is true while the conditions are true",ok,long
 1185,At the end of a long enough (i.e. t greater than 60 seconds) drive cycle the percentages of the times the rpm value was in the different categories compared to the duration of the whole drive cycle is calculated.,ok,long
-1186,If the ON-button is pressed long the RCU shall deactivate the chosen display and turn into OFF-modus.,defect,long
-1187,The fading between peak and long term current threshold must be based on the specification of the components inside the battery system.,defect,long
 1188,For long term tests the following SOC setting shall be repeated:,defect,long
-1189,"In case required due to long distance ground, sea or air freight transportation the contractor shall execute LISB battery re-charging and PDI re-testing within not more than one calendar week prior to delivery to any OEM location at a logistics & PDI testing facility close to the OEM shipping location if battery SOC falls below 80 % SOC.",defect,long
 1190,To ensure a long battery life it is important to keep the cell strings balanced.,defect,long
 1191,To prevent battery damage on long descending roads and on high temperature a protection has to be implemented that deactivates the recuperation if the battery is completely full.,defect,long
 1192,"However, long pressing must not lead to the triggering of a new alarm.",defect,long
@@ -1212,13 +1184,11 @@ id,requirement,defect,weak_word
 1210,"· CPU load measurement under worst case condition (CCp, regeneration active, high engine speed, ...) with detailed information which new function is consuming how much CPULoad in %",ok,much
 1211,The organization chart must show in percent of total availability how much time each individual will spend on the development of the Component described in the specifications.,ok,much
 1212,"If a battery change was detected mileage and time of this change are stored with the information, how much the old battery has been discharged.",ok,much
-1213,The driver parks into a really small parking space and wants to have a close look on how much space is left.,ok,much
 1214,A detailed view on how much space is still left is given by the system.,ok,much
 1215,Premium Traffic: Premium Traffic provides high quality traffic information based on floating car data (GPS- or GSM-probes) using a digital bearer with a bandwidth much higher than the currently used FM-RDS channel.,defect,much
 1216,During Dynamic Roller Test environment temperature may be much higher or lower than intake air temperature.,defect,much
 1217,x is much bigger at low temperatures due to unequal warming.,defect,much
 1218,Thus the battery will be much more cycled throughout the vehicle life compared to a lead-acid battery.,defect,much
-1219,"In this case, the ARC will be active for a much longer time compared to when used for regular Augmented Reality.",defect,much
 1220,Application recommendation can include much more content in quality testing which leads to better qualification and characterization of tested MOST devices.,defect,much
 1221,"This ""switch off"" will happen in normal cases 1 to 6 hours after switching off terminal 15, but when the battery has a bad charge condition this ""Switch off"" might happen much earlier.",defect,much
 1222,Especially the hybrid could lead to very high engine speed gradients that are much higher than those of conventional starters.,defect,much
@@ -1234,7 +1204,6 @@ id,requirement,defect,weak_word
 1232,The signal state LONG_COLLISION_WARN has to be determined preferably in the complete detection field of the component and may not be limited to the overlap region of the near range scan and the far range scan.,ok,near
 1233,"This signal state signalizes the nearest comoving, stopped or a priori stationary object (Dist_X) on the ego lane of the system vehicle which is outside of the respective range limit.",ok,near
 1234,This signal transmits the level of the system damping of the near range sensors.,ok,near
-1235,"First extrapolations show that within the FoV of the near range scan and the far range scan about 150 stationary objects can be detected, tracked and/or predicted within a range of 100m in complex environments on highways; taking into account the additional range needed for obstacle classification the detection range and hence the number of detectable objects will be even larger.",ok,near
 1236,The ABC-Preview Function is calculating a road profile in the near range in front of the vehicle with higher accuracy than the road profile specified in AGMR-726.,ok,near
 1237,"In order to improve the road profile in near range, data from the road surface scan can be used.",defect,near
 1238,To achieve a faster battery charging a higher voltage is set after the start of the engine until the battery is nearly fully charged.,defect,near
@@ -1251,7 +1220,6 @@ id,requirement,defect,weak_word
 1249,- near the roof console about 10 cm distance to the HF-MIC,ok,near
 1250,The second case for determining a near deployment shall be defined per the NHTSA entry requirement.,ok,near
 1251,The component shall include sophisticated algorithms for calculating the nearest object within the estimated vehicle path.,ok,near
-1252,The nearest object to estimated vehicle path has the nearest lateral position to the estimated vehicle path but is still on the left lane.,ok,near
 1253,"If multiple objects are detected for a physically real vehicle, the signal shall be ``1'' only for the nearest object if possible and the object shall be described using length and width.",ok,near
 1254,"If the longitudinally nearest object classified as TRUCK or CAR leaves the detection field of the sensor, relating objects classified as MULTIPLE have to be labelled still as MULTIPLE.",ok,near
 1255,This signal state signalizes the nearest object (Dist_X) on the ego lane of the system vehicle which fulfills the object criteria for DTR+ and CMS for RADAR based only system function.,ok,near
@@ -1310,7 +1278,6 @@ id,requirement,defect,weak_word
 1308,Particular Contract requirements for Remanufacturing HINVs,ok,particular
 1309,"DS / DZ features have to be in accordance with SPEC 10317 ""Documentation Requirement, Identification of parts, assemblies and particular features"" [LH-2221].",ok,particular
 1310,"Therefore, particular security measures (redundancy + checksum) are to be taken when storing the ID code in the siren and master.",ok,particular
-1311,The frequency details for all antenna measurements are specified in the particular sections below.,ok,particular
 1312,OEMMLER requires in particular the definition and implementation of avoidance and detection measures when one of the following System-FMEA criteria is fulfilled:,ok,particular
 1313,Such a necessity may arise in particular because of system changes or because of the measures presented in the FMEAs / ETAs.,ok,particular
 1314,The contents of the database - in particular the selection of overrunnable objects to be tested - shall be agreed on between OEM not later than dealine of tbd,ok,particular
@@ -1319,9 +1286,7 @@ id,requirement,defect,weak_word
 1317,"For the D-sample and for all subsequent releases (in particular for the PPF report), automated testing must be contribute at least 80 % to the overall test coverage.",ok,particular
 1318,"The contractor shall comply with the fundamental aftersales requirements for the components as defined and specified in the ""Aftersales Vehicle Standards"" [LH-2178], and with the requirements of the ""OEM Special Terms"" [LH-3010], in particular OEM Special Terms 34: ""Supply of Replacement Parts for OEM Products"".",ok,particular
 1319,In particular those tests cases that detected the corrected defect shall be repeated.,ok,particular
-1320,"The performance of the Navigation function shall be state-of-the-art and in particular comparable to (high-end) PNDs on the consumer market after 2014 (e.g. TomTom, Garmin, Navigon, Medion, Falk, etc.).",ok,particular
 1321,"In case of of limited angle ranges the contractor must represent the maximum angle range, in particular including to the final attacks.",ok,particular
-1322,"In particular, all measurement boundary conditions, for example supply voltages, input signals and bus messages, shall be listed in detail for each and every test step and the measuring accuracies and sampling rates shall be defined for the parameters to be measured.",ok,particular
 1323,"Immersion of the coils in water, in particular in contaminated water (e.g. rust etc.), is not permitted.",ok,particular
 1324,"In particular, these include the current MDS quality gates, and also sample statuses, deadlines for testing and technology test drives.",ok,particular
 1325,In particular a inverse-polarity protection is to be realized as well as the EMC- / ESD requirements are to be fulfilled.,ok,particular
@@ -1341,12 +1306,8 @@ id,requirement,defect,weak_word
 1339,In particular the components for the ESD-protection at the antenna input have to be applicably dimensioned.,ok,particular
 1340,"Depending on the type of cellular antenna interface available in a particular vehicle, the TCU shall configure to the appropriate interface.",ok,particular
 1341,This will be used to change camera image settings depending on a particular use-case.,ok,particular
-1342,"In order to ensure that the severity of this test corresponds to the real requirements in the field, particular care must be taken during the test to generally simulate the installation situation of the component in the vehicle adequately in accordance with SPEC 10305-1 Draft 1: E / E Environmental Testing; Part 1: Test Specifications>.",ok,particular
-1343,"In order to ensure that the severity of this test corresponds to the real requirements in the field, particular care must be taken during the test to generally simulate the installation situation of the component in the vehicle adequately in accordance with `` Environmental Testing-Part 1: Test Specifications '' [LH-2160], Chapter 5.5.",ok,particular
-1344,"In order to ensure that the severity of this test corresponds to the actual requirements in the field, particular care must always be taken during the performance of this test to simulate the mounting situation of the component in the vehicle adequately in accordance with `` E / E Environmental Testing; Part 1: Test Specifications '' [LH-2160], chapter 5.5",ok,particular
 1345,"Based on the challenges of electric mobility and the increasing complexity of HV parts, technical cleanliness is of particular importance for the automotive industry.",ok,particular
 1346,The representation of the activity status (the immediate selectability) of an area or particular content is done by different color and graphical design.,defect,particular
-1347,"For particular features, it may be required to specify further details during this workshop.",defect,particular
 1348,"When a particular temperature level is exceeded, the corresponding derating functions must be activated in the control electronics in order to protect the electric motor against overheating.",defect,particular
 1349,"This numbering is appplied for diagnostic services as well as for diagnostic trouble codes, which are defined for a particular installation position of wheel sensors.",defect,particular
 1350,"If is changed twice and the value of a particular offset / threshold was not changed in between, the original value of the setting shall be restored.",defect,particular
@@ -1355,7 +1316,6 @@ id,requirement,defect,weak_word
 1353,The supplier shall built up (if not already available) several supplier owned cars for supplier organized verification and development.,ok,several
 1354,The external FAN Module is a composite of several parts:,ok,several
 1355,"For the different markets several component variants shall be developed, see chapter `` Variants to be offered [LH-836] ''.",ok,several
-1356,"The component shall implement high performance MOST communication which is required for several features (e.g. fast software download, entertainment metadata transfer).",ok,several
 1357,"The navigation application shall have access to several Headunit-hardware-components, e.g.:",ok,several
 1358,"The HMI of the component shall provide the ability to switch between several languages (with Latin characters, Asian character sets, and also other languages with different writing directions, e.g. Arabic) immediately (max. 5 seconds delay).",ok,several
 1359,"The system shall provide the ability to activate text-to-speech in the headunit HMI for several functions like reading out text messages, TMC-messages etc.",ok,several
@@ -1377,7 +1337,6 @@ id,requirement,defect,weak_word
 1375,Several single functions like seat or aircondition or light or music and others are grouped together as `` well beeing programs '' which can be selected and activated by the headunit HMI.,ok,several
 1376,"The component supports several settings concerning drive programs (e.g. suspension setting, gear shift characteristics).",ok,several
 1377,The supplier shall store an instruction video file and several audiofiles in different languages provided by OEM on the persistent HU memory.,ok,several
-1378,The supplier shall store training video files and several audiofiles in different languages provided by OEM in the persistent memory (the training video files may vary depending on a certain headunit hardware version for a specific region).,ok,several
 1379,The component has to have algorithms to separate stationary objects into several categories:,ok,several
 1380,The calculated relevant object is used for several applications in the vehicle:,ok,several
 1381,"The OEM Vehicle PC vehicle measurement system is a special system to collect measurement data from several sources and suppliers e.g. ABR, RDU, analogue voltages, several CAN and FR buses etc.",ok,several
@@ -1391,7 +1350,6 @@ id,requirement,defect,weak_word
 1389,"In order to manage the overall 2.4 GHz ISM band allocation, an appropriate software application shall be implemented to allow configuration, prioritization and management of 2.4 GHz ISM band allocation by the several components wireless interfaces.",ok,several
 1390,"To adapt the headunit to the several car lines, the Head Unit will be equipped with different front panels.",ok,several
 1391,In case of variations of the hardware the project specific definition concerning the allocation of the starter activation in the several levels has to be agreed with the responsible OEM division.,ok,several
-1392,"In order to manage the overall ISM band allocation, an appropriate software application shall be implemented to allow configuration, priorization and management of ISM band allocation by the several components wireless interfaces.",ok,several
 1393,The ACCSW is responsible for the execution of the several Active Comfort programs.,ok,several
 1394,The output of the object fusion is a merged object of interest for the several functions.,ok,several
 1395,The specification is merged from several system requirements.,ok,several
@@ -1530,7 +1488,6 @@ id,requirement,defect,weak_word
 1528,"Electrical interfaces shall always be designed so that destruction through a possible short circuit during adaptation or when components, which are under voltage, are being handled can be avoided.",ok,short
 1529,A short circuit or a wire break of an output does not impair the function of the other outputs.,ok,short
 1530,"The USB 2.0 interface shall be protected against misuse (e.g. IT security issues, short cut or load, defect file systems, ...).",ok,short
-1531,"This serves to prevent damage that may be caused to the hardware by excessively long screws, short circuits, etc.",ok,short
 1532,The contractor shall ensure that energy can be supplied at any time during the assembly process without the risk of a short circuit to the vehicle body.,ok,short
 1533,The contractor shall likewise consider time factors when defining fault setting conditions such as open load or short circuit detection.,ok,short
 1534,The contractor shall ensure that the control unit sets a fault code in the control unit for each short circuit and open load detected in the inputs and outputs.,ok,short
@@ -1575,7 +1532,6 @@ id,requirement,defect,weak_word
 1573,The interlock control logic (IL-logic) as per Fig. 5-2 shall be designed so that a short circuit between the interlock lines can be detected.,ok,short
 1574,"In the event of such a short circuit, the interlock CAN message shall be sent by an HV component.",ok,short
 1575,A short circuit shall be detected in an HV component if the short circuit occurred in the signal connector or between the interlock lines that are routed between the signal driver circuit and this component.,ok,short
-1576,"If the control logic is designed appropriately, a short circuit can also be detected by the signal driver circuit.",ok,short
 1577,The monitoring of the interlock circuit for a short circuit is an additional supervision of the interlock circuit.,ok,short
 1578,"Intention of mode `` LOCKED '' is a basic self protection of the DC / DC converter in case of technical problems, e.g. short output circuit, internal voltage measurement break down etc.",ok,short
 1579,"The LBC shall be self protected for over current and short circuit, in case of over current requested by load, the LBC shall limit the output current to its max output current for max duration (TBD), then disable the output for self protection.",ok,short
@@ -1647,9 +1603,7 @@ id,requirement,defect,weak_word
 1645,"All sensors shall have electrical circuit checks (short to battery, short to ground, open circuit), signal out of range high or low (signal is in the physical range, but the signal value is not a reasonable / acceptable operating range), and signal plausibility (signal stuck, signal bias / shifted).",ok,short
 1646,Full diagnostic capability is expected to be supported (open circuit diagnostics continously and short to battery / short to ground at initialization) for the AHR output.,ok,short
 1647,"All pins (D+, D-, VBus, GND) have to be permanently protected at least against short-circuit to GND and short to USB VBusmax.",ok,short
-1648,"Multiple route calculation, i.e. several routes shall be calculated in parallel, for short, fast, dynamical, and economical route with the possibility to avoid specific street classes (e.g. freeway, vignette, toll, ferries, car carrying trains, tunnel, high-occupancy vehicle, unpaved, controlled access, express lanes...) and under consideration of the current time and day.",ok,short
 1649,After starting a short distance route calculation (e.g. within 50 km) the route guidance (incl. ADRs & map display in all zoom-levels) shall be available within 1 s.,ok,short
-1650,Most keys shall have short and long press functionality.,ok,short
 1651,"In the case of an IPE failure AND loss of coolant, the maximum operation time will be significantly reduced due to the additional IGBT losses associated with a 3-phase short.",ok,short
 1652,Therefore the appropriate fault reaction is a three phase short using all the IGBTs located on the same side as the faulted IGBT.,ok,short
 1653,Max peak phase current during three phase short can be very high: TBD A for 2 milliseconds,ok,short
@@ -1667,11 +1621,8 @@ id,requirement,defect,weak_word
 1665,"3. Settings for the camera features e.g. Image Brightness, Service, Short Range Camera Object Detection, Parking Mode, Activation by Reverse Gear.",ok,short
 1666,The algorithm shall calculate the accuracy less than 1.0° for a valid alignment with an accuracy of less than 0.3° at a short as possible driving distance (less than 500m).,ok,short
 1667,"On the object interface the provided yaw-rate value is signaled ""default"" sometimes for a short period, typically less than 1 second. The sensor-cluster performs a self-test during this time.",ok,short
-1668,"For the implementation of DSRC functionalities on the Telematic5@Star1 HU, the contractor shall consider the contents of ""Feature List Telematic5.STAR1 HU High Dedicated Short Range Communication"" [RD 3539].",ok,short
-1669,"For details on short and long pushing and pressing see ""Feature List Telematic5STAR1 HU Entry Main"" [RD3582].",ok,short
 1670,"The GPS-Receiver shall offer autonomous aid for ephemeris prediction, leading to shorter ""time to first fix warm"" values of 15 s",ok,short
 1671,The connectivity must be on the short side: 170 millimetres x 54 millimetres.,ok,short
-1672,The connector shall either be placed on the long side of the housing (30 millimetres x 120 millimetres) or on the short side of the housing (30 millimetres x 100 millimetres).,ok,short
 1673,"For every possible error (open load, short, ...) a description is provided by the contractor how the monitoring is realized in hardware and software.",ok,short
 1674,The extent of the short Test is defined by OEM.,ok,short
 1675,For the component of the auxiliaries the maximum temperature is 85°C for a long time and 125°C for a short time for maximum 30 minutes.,ok,short
@@ -1684,10 +1635,7 @@ id,requirement,defect,weak_word
 1682,If the parking time is shorter than 5 seconds then BCDChargeBalanceSt equal 0 else,ok,short
 1683,Else if the parking time is shorter than 5 seconds then BCDChargeBalanceSt equal 0,ok,short
 1684,"If the button press is shorter than the LIN cycle time, the signal is to be set to `` TRUE '' for one communication cycle.",ok,short
-1685,System reaction after parking time greater than or equal to 5 minutes but shorter than T_STANDBY:,ok,short
-1686,"If bad wheather conditions or a visual range shorter than 20 meters do not allow a valid measurement for all sample points, the SMPC shall deliver only valid measurements.",ok,short
 1687,The IDC shall send the DTR+ trace instead of the DTR+Q lateral guidance trajectory in situations in which the steering angle is greater a specific value or the quality of the lateral guidance is not sufficient or the range of sight is shorter than a specific value.,ok,short
-1688,Test pulse duration shall be as short as possible (but long enough to allow safe error detection by the hardware).,ok,short
 1689,"Lifetime assurance test of 2 cells (with regard to highest possible deloading current) under the following conditions (Test Number equal az1, Art equal cyclic, Deloading Current equal 15,5C, Mean Energy Level equal 31Wh (55%-SOC EOL), Energy deloaded per cycle equal 50,8Wh (90%-SOC EOL) ,Current Pulse time equal 20 seconds, Current break time equal as short as possible (depending on temperature regeneration), Daily operational time equal 4,5h)",ok,short
 1690,Short disturbing signals (<10 milliseconds) on the VIN control pulse must be suppressed by filtering.,ok,short
 1691,Short disturbing signals (<10µs) on the Vin control pulse must be suppressed by filtering.,ok,short
@@ -1702,7 +1650,6 @@ id,requirement,defect,weak_word
 1700,The USV shall provide a signal to the measurement tool to power down after ignition is switched off and in case the program has to power down the complete system after a short delay.,defect,short
 1701,"After ignition on or after a reset, the component signalizes for a short time the signal state SNA until the component works in the usual system cycle and is able to read NVM data.",defect,short
 1702,The dedicated short range communication application is an information agent for road and traffic conditions.,defect,short
-1703,After detection of tG the recharging thresholds of IP and IS have to be activated and realized as short as possible to assure fast follow-on ignitions.,defect,short
 1704,"For a transferation time as short as possible from the flashware to the control unit, the following protol parameters have to be supported:",defect,short
 1705,"A short signal problem on the crank signal that could lead to a short switching from crank signal to cam signal does not have to raise a visible fault, but every permanent fault reaction (e.g. a permanent limp-home mode) has to set a fault.",defect,short
 1706,The automatic gear must additionally be tested with a short test.,defect,short
@@ -1795,7 +1742,6 @@ id,requirement,defect,weak_word
 1793,The component has to consider the classification MOTORBIKE during the lane allocation of objects because these objects require different lane allocation and overlap criteria due to their small lateral dimension and very high lateral dynamic.,defect,small
 1794,- The horizontal angle of reflection ?_r shall refer to the center of the eye-box of a small woman.,defect,small
 1795,To achieve small package the headphone shall be folding.,defect,small
-1796,"This test works with helium gas is injected into the engine, a sensor which can be held near the sensors outside detects small amounts of escaped helium.",defect,small
 1797,The development samples / prototypes have internal the status small batch series.,defect,small
 1798,The criteria for predicted power shall be applied in a way that the battery is protected even if the loads are small leading to a deep discharge protection for small loads.,defect,small
 1799,The distance (in Z and Y axis) must be as small as possible between the free-standing glass edge and the active area.,defect,small
@@ -1809,22 +1755,17 @@ id,requirement,defect,weak_word
 1807,"In convertibles, all components needed for AM reception are integrated in a small amplifier housing.",defect,small
 1808,The FM nad DAB antennas are combined FM / DAB-III integrated antennas in the car windows and / or the plastic spoiler in station wagons with small rear side windows.,defect,small
 1809,This chapter is only relevant for station wagons with small rear side windows.,defect,small
-1810,The driver parks into a really small parking space and wants to have a close look on how much space is left.,defect,small
 1811,The driver wants to drive into a car wash or workshop and has to guide the vehicle very exactly on a small ramp.,defect,small
 1812,"If both services TV and DAB are requested in station wagons with small rear side windows and in convertibles, the DAB signal is derived from the TV antenna using a splitter.",defect,small
 1813,The simpler EMC-filter for the station wagons and the convertibles or sedans with small rear windows are derived removing the second connection to the window.,defect,small
 1814,Components with measurement interface have typically additional only a small probe connector.,defect,small
 1815,Small deviations of the signal value are only allowed based on lane approximation of stationary or moving objects or based on tolerance deviations of adjustment values for vehicle data.,defect,small
-1816,The data has to be stored in several small application specific data segments.,defect,small
 1817,Stationary and moving objects having a very small lateral and longitudinal dimension get the classification POINT.,defect,small
 1818,"To compensate small yaw rate offsets, the yaw rate used to calculate the lane radius has to be compensated using information from standing objects.",defect,small
-1819,An appropriate algorithm has to be chosen to compensate for small offset drifts of VehYaw Rate in a way that does not compromise LaneRadius dynamic performance.,defect,small
 1820,The connector at the sample is typically a small probe and shall not interfere with serial component fixations and cables.,defect,small
 1821,Guide ribs: The sensor housing must have small guide ribs to ensure that the sensor fits backlash-free into the engine mounting bore.,defect,small
 1822,Note: The current implementation separates two NvM blocks for those small parameters.,defect,small
 1823,"The contractor has to ensure a component design, which enables the client to use different mounting locations (engine compartment, trunk, under body) with no or small modifications of the component.",defect,small
-1824,In case of a CAN communication failure while the contactors are already closed the contactors remain closed until a small battery current is measured.,defect,small
-1825,Exceeding the long term current limit by a small amount shall expand the duration of higher current.,defect,small
 1826,Electrical loads permanently connected to the LISB battery draw a small quiescient current even when in sleep mode and permanently drain the battery.,defect,small
 1827,The computing platform shall be scalable to an entry platform without the need of changes in layout or by exchanging a small PCB for the computing platform.,defect,small
 1828,As an option to AAA-batteries the supplier shall propose a concept with smaller batteries.,defect,small
@@ -1851,7 +1792,6 @@ id,requirement,defect,weak_word
 1849,"Connectors, couplers or plugs must not have sharp edges or any radius smaller than 0.5 millimetres, to avoid damages of cable harness or injuring of assembler.",ok,small
 1850,The depth of the component shall be smaller than 20 millimetres.,ok,small
 1851,Power input shall be smaller than 11 milliampere.,ok,small
-1852,Ear-cap diameter shall be smaller than 60 millimetres.,ok,small
 1853,The filter calculation ends when the negative permissible torque is smaller than the `` shaped negative permissible torque '' once again.,ok,small
 1854,"If the unlimited torque requests from the operating strategy are smaller than M_Grenz_pos, the limitation requests to level 1 must be reset and the desired electric motor torque of the operating strategy must be used for the CAN output.",ok,small
 1855,OR the expiration date of one of the received certificates in Scc_SAProvisioningCertificateChaein is smaller than Scc_EvEVSETimeStamp.,ok,small
@@ -1862,8 +1802,6 @@ id,requirement,defect,weak_word
 1860,The symbol `` less than '' in this drawing is assigned to `` shall be smaller than ''.,ok,small
 1861,"The y-axis displays the frequent occurrence (in percent) of this level, which means the probability that the received level is equal or smaller than the x-axis value.",ok,small
 1862,On the other hand the routine will be stopped if the battery current does not become small enough while zero current control is forced.,ok,small
-1863,"If the forces are actually higher, the contractor shall submit to the client, without specific request, a cost calculation with which a decision can be made as whether to use several small plug sockets with a plug force of less than 70 N or a large socket combined with aids for inserting and pulling the plug.",defect,small
-1864,The microphone shall be snapped in on a small mounting plate which also acts as the microphone cover with adequate openings.,defect,small
 1865,As the HF-MIC is a very small component the label shall be fixed at the cable.,defect,small
 1866,Module 1 in station wagons with a small rear side window and a plastic spoiler is mounted on the right side tail gate above the window.,defect,small
 1867,Module 7 in station wagons with small rear side windows contacts the antennas via kapton tape (windshield).,defect,small
@@ -1880,7 +1818,6 @@ id,requirement,defect,weak_word
 1878,Precharging-Mode shall be available again as soon as possible within a self-healing process that the battery has to monitor as well.,defect,soon
 1879,After the trigger signal PNHV_Energy_Rq equal 1 the precharging procedure shall be started as soon as possible.,defect,soon
 1880,Stop signs shall be signalized as soon as possible while maintaining the false positive rates stated in TSA5_Func-39.,defect,soon
-1881,Also the ASIL relevant functions will be added soon.,defect,soon
 1882,"Charging process shall be stopped, as soon as efficiency is dropping below 50 %.",ok,soon
 1883,This data shall change to `` 1 '' as soon as a signal of the above described type is detected on the separate wire.,ok,soon
 1884,In case the status of PNHV_GenIntrlk_Rdy is not known (CAN communication errors or signal time out) the supervision is deactivated as soon as the vehicle HVDC Bus voltage is below HvilDeactivationThreshold.,ok,soon
@@ -1891,7 +1828,6 @@ id,requirement,defect,weak_word
 1889,"The change from UpStatUa1 to UpStatUa0 happens, as soon as ISPBatVoltFilt1 greater than PPNMBSBUpLim1.",ok,soon
 1890,"As soon as one of the following signals becomes 1, a timer with the value PPNM_BSBFailDebounceTime is started.",ok,soon
 1891,"If there is a request of the EMM to unlock the vehicle inlet and AC current is above the AC current threshold, the inlet shall be unlocked as soon as the AC current is below the AC current threshold.",ok,soon
-1892,"As soon as the SC has the information that S2 is closed, the SC shall request a cable and insulation check at the EVSE.",ok,soon
 1893,"As soon as the DCB enters the state `` Standby '', the DC box opens S2.",ok,soon
 1894,"As soon as the DC Box enters the `` Standby '' State, the DC Box has to perform a welded check of its contactors.",ok,soon
 1895,"If the state of the Vehicle Inlet LEDs is `` Charging '' AND as soon as the trigger `` battery is fully charged '' occures, the status LED shall be glowing green.",ok,soon
@@ -1934,7 +1870,6 @@ id,requirement,defect,weak_word
 1932,"As soon as the HV battery charging is complete (SOC ~ 100 %), the dc / dc converter will be used to charge the LV battery via power net and on board charger.",ok,soon
 1933,"As soon as the HV and LV battery charging is complete (SOC ~ 100 %), the vehicle mode `` charging '' is completed.",ok,soon
 1934,The request will be reset as soon as the combustion engine is running.,ok,soon
-1935,"If PNHV_EMM_LHOM is set and contactors are closed, the contactors shall open as soon as low current (e.g. 3 A) has been reached.",ok,soon
 1936,Capacitor discharging starts as soon as a valid CAN-signal indicates that the contactors are opened.,ok,soon
 1937,The model based prediction shall be adapted as soon as measured values are available.,ok,soon
 1938,In case of a CAN error the contactors are opened as soon as a small current is measured or a time threshold is exceeded.,ok,soon
@@ -1946,13 +1881,11 @@ id,requirement,defect,weak_word
 1944,"As soon as a crash threshold has been crossed, a crash telegram is to be stored in the memory area allocated for this purpose according to the `` Technical Specifications for Diagnosis ''.",ok,soon
 1945,"As soon as DDPMonLevel equal 2, the opening procedure is active and all other procedures are stopped.",ok,soon
 1946,"If the state of the Vehicle Inlet LEDs is `` Vehicle Inlet unlocked, no connector '' AND as soon as the trigger `` plugging the connector and locking the Vehicle Inlet '' occures with a locking fault, the locking LED shall be blinking.",ok,soon
-1947,"If the state of the Vehicle Inlet LEDs is `` Charging '' AND as soon as the trigger `` charge pause '' occures, the status LED shall be glowing orange.",ok,soon
 1948,"The OEM Special Terms, hereinafter referred to as `` OEM-ST '', are definitions which regulate the flow of information and smooth processing of processes between OEM, hereinafter referred to as `` OEM '', and its suppliers.",ok,special
 1949,OEM Special Terms 2007,ok,special
 1950,The basic FMEA-procedure and the basic scope of the FMEA-documentation are stated in the OEM Special Terms Data Sheet No.,ok,special
 1951,OEM Special Terms 2012-Benz Special Terms 2012,ok,special
 1952,The contractor must make the samples with PPF report for sampling available at the client (in accordance with ``OEM Special Terms'' [LH-3010]): 01.07.2016,ok,special
-1953,"The contractor shall comply with the fundamental aftersales requirements for the components as defined and specified in the ""Aftersales Vehicle Standards"" [LH-2178], and with the requirements of the ""OEM Special Terms"" [LH-3010], in particular OEM SPecial Terms 34: ""Supply of Replacement Parts for OEM Products"".",ok,special
 1954,``System Specification Telematic5.STAR1 HU High Special Purpose Vehicles'' [RD3659],ok,special
 1955,"For the implementation of the Special Purpose Vehicles functionality on the Telematic5@Star1 HU, the contractor shall consider the contents of specification ``Feature List Telematic5STAR1 HU High Special Purpose Vehicles'' [RD3561].",ok,special
 1956,"For the implementation of the Special Purpose Vehicles functionality on the Telematic5@Star1 HU Entry, the contractor shall consider the contents of specification `` Feature List Telematic5STAR1 HU Entry Special Purpose Vehicles '' [RD3590].",ok,special
@@ -1973,7 +1906,6 @@ id,requirement,defect,weak_word
 1971,SE Special Equipment,ok,special
 1972,The following requirements describe special requirements regarding the testing of radar sensor in the end of line area of the supplier.,ok,special
 1973,"Additionally, the IC shows various information of the telematics system like radio, TV, audio, telephone, navigation etc. and special data like navigation arrow guidance information, telephone memory lists and other content on IC screen.",ok,special
-1974,"Additionally, the IC shows various information of the telematics system like radio, TV, audio, telephone, navigation etc. and special data like navigation arrow guidance information, telephone memory lists and other content on IC screen.",ok,special
 1975,"But there are special driving events like Stopp / Start with swinging crank / camshaft, starting and clutching in, bad shifting, braking down to zero without using the clutch, correct and incorrect push- and tow-starting, high engine speed gradients and similar that must not lead to a false diagnosis.",ok,special
 1976,During special or synchronisation operation modes (see chapter `` Measures regarding the monitoring of special operation modes for P2 hybrid '') an additional extension of the +Offset1 or +Offset2 maps is necessary.,ok,special
 1977,"To compensate influences like component drifts, aging and dirt, in special operating modes like foot-off operation, learning methods (adaptive controllers) have to be utilised.",ok,special
@@ -2004,11 +1936,9 @@ id,requirement,defect,weak_word
 2002,The component shall have a special diagnostic mode for end of production line testing at OEM.,ok,special
 2003,The component shall have a special diagnostic mode for roller test bench (switch off the functions).,ok,special
 2004,bus fault detection is activated/deactivated via a special operating signals on bus messages during special vehicle conditions e.,ok,special
-2005,As special equipment and additional production time is necessary for end of line alignment on special radar target within production causes costs which may be avoided in the following an automatic end of line alignment of the component ist described.,ok,special
 2006,The contractor shall coordinate special cases on an individual basis with assembly planning.,ok,special
 2007,6. Development support: The system provides a special engineering mode for development purposes displaying additional information and providing the option to set not user-accessible paramters.,ok,special
 2008,RD1969 SPEC 10233 - OEM Toleranznorm SPEC 10233: Geometrical tolerancing - Special cases for shape tolerances DocMaster,ok,special
-2009,"In addition to these common gateway requirements, special requirements for emission related ECUs have to be observed and implemented.",ok,special
 2010,OEM will give Supplier a special specification in electronic form to the Diagnostic Services above.,ok,special
 2011,It could be that the normal fault debouncing and healing would never raise a fault in special cases although there are many sync losts ?Â? in those circumstances a fault has to be raised.,ok,special
 2012,The actions listed in the picture `` Extended monitoring measures regarding special operation modes with the P2 hybrid '' must be implemented.,ok,special
@@ -2028,7 +1958,6 @@ id,requirement,defect,weak_word
 2026,The COM stack is a special case.,ok,special
 2027,The cameras are special equipment.,ok,special
 2028,Power nap is a special programm which allows the vehicle occupants to have a convenient rest in the vehicle.,ok,special
-2029,"The OEM Vehicle PC vehicle measurement system is a special system to collect measurement data from several sources and suppliers e.g. ABR, RDU, analogue voltages, several CAN and FR buses etc.",ok,special
 2030,"- that automatically measured ground truth infos (i.e. ADMA reference sensor on bord, automatically recogniced reference objects/specially marked surrounding cars) can be read and processed",ok,special
 2031,"Filtering of object values (distance, relative speed and relative acceleration) has to be specially trimmed for smooth system operation of the ACC Longitudinal Control if object relative speed is around +/- 5 km/h.",ok,special
 2032,The functional safety requirements of this chapter are derived from the functional safety LV Bordnet and are based on safety goals of other safety relevant components in the LV Bordnet and are specially related to the DC/DC-Converter,ok,special
@@ -2060,14 +1989,12 @@ id,requirement,defect,weak_word
 2058,"No special adaptation of the measurement tool shall be needed by the supplier to change between different K-Matrix versions, except the change of the arxml-file.",ok,special
 2059,Unplugging shall be possible without special tools and without causing any damage.,ok,special
 2060,No special tool needed to replace the control unit,ok,special
-2061,The BLURAY-drive-variant shall fullfill all requirements defined for DVD-drive versions as long as no special requirement for BLURAY drive variants is defined.,ok,special
 2062,The contractor shall ensure that disconnection can be done without the need for a special tool and without causing any damage.,ok,special
 2063,All full bandwidth channels have to be decoded and transported with full bandwidth and without any special audio treatment (e.g. ?Â?Small Speaker Type?Â?),ok,special
 2064,No special tool shall be necessary to uninstal the component from the car.,ok,special
 2065,"There is no special requirement to the count of cells, as long as the specified power and energy requirements will be met in compliance with the maximum specified currents and voltage levels.",ok,special
 2066,Further parts have to be mounted without any special tool.,ok,special
 2067,"The possibility for dispatching the accumulators in the international road, sea and air traffic must be without use of special permissions ensured, excluded the agreement for the transport of accumulators with more than 35 kg gross mass in accordance with Special Provision A99 of the IATA-DGR",ok,special
-2068,"There is no special requirement to the count of cells, as long as the specified power, voltage and energy requirements will be met in compliance with the maximum specified currents and voltage levels.",ok,special
 2069,This shall be possible without using special tools.,ok,special
 2070,There shall be no special tool necessary for connection of HV-harness (Adapterplatte) to PEB (assembly in marriage station).,ok,special
 2071,No special reset handling required.,ok,special
@@ -2075,8 +2002,6 @@ id,requirement,defect,weak_word
 2073,"Hence, no special Japan TV amplifier is requested.",ok,special
 2074,"All need for action on the part of OEMMLER resulting from the FMEAs from the consideration of special features (safety-critical, certification-relevant, possibly other features) must be provided to OEMMLER by the supplier in a written summary.",ok,special
 2075,"For special applications, a0 shall be considered to be programmable at end of line.",ok,special
-2076,"Remark: ""Power supply Radom Heating 0.75 millimetres ² only active in special conditions"" In case of short circuit up to 36 ampere could occur over connector pins and cable harness.",ok,special
-2077,PWM-Output Radom-Heating only active in special conditions In case of short circuit up to 36 ampere could occur over connector pins and cable harness. '',ok,special
 2078,"- special high data rate cable (separate to the Sensor Ethernet connecting to the vehicle bus, i.e. separate LVDS / Ethernet line)",ok,special
 2079,"If special issues (i.e. ghost targets, antenna related issus, object separation) require raw data, at least 1 car shall be suitable to support that mode with any radar sample.",ok,special
 2080,"All need for action for OEMMLER resulting from the consideration of special characteristics (e.g. safety-critical, certification-relevant) must be provided to OEMMLER by the supplier in a written summary.",ok,special
@@ -2096,7 +2021,6 @@ id,requirement,defect,weak_word
 2094,"See definition ``Special features (, )''",ok,special
 2095,Component and subcomponents must be according to special provision 230 of UN Orange Book in the most recent version.,ok,special
 2096,"These modes are ``standard mode'', ``standby/sleep'' and ``special function''.",ok,special
-2097,Special conditions for sending real values: None,ok,special
 2098,"4. Special functions: The air-condition application provides access to all other features of the climate control system: e.g. demist windows, air-recirculation, air ionization, residual heat control, preconditioning, etc.",ok,special
 2099,Remark: This includes special adjustments (e.g. mute behavior) for audio connection.,ok,special
 2100,Remark: `` Power supply Radom Heating 0.75 millimetres Â² only active in special conditions '',ok,special
@@ -2174,7 +2098,6 @@ id,requirement,defect,weak_word
 2172,This list is meant to be an outline of various tasks that may occur during the program and its associated build cycles.,ok,various
 2173,"In addition to the touch screen, various hard keys are on the remote.",defect,various
 2174,The headunit provides a screen with various information about the ABC chassis and information about driving dynamics.,defect,various
-2175,"Data, which due to their importance are stored several times in the EEPROM memory (e.g. drive authorisation data), are stored in various blocks.",defect,various
 2176,Modelling of the O2-ratio at various positions in the airsystem,defect,various
 2177,The progress of changes is implemented in various consecutive engine batches.,defect,various
 2178,The P-Codes of possibly necessary various software lines within the program are identical with each delivery.,defect,various
@@ -2185,4 +2108,3 @@ id,requirement,defect,weak_word
 2183,The system provides the ability to switch on / off various signal processing algorithms while the system performance can be observed.,defect,various
 2184,"Furthermore, it is possible to simulate various system states.",defect,various
 2185,"The system shall provide the ability to switch on / off, respectively to change the mode of various modules of the InCarCom signal processing by the head unit engineering mode.",defect,various
-2186,Active Comfort is the combination of various interior functions to several programs.,defect,various
