@@ -20,7 +20,7 @@ This repository contains the empirical code, benchmark dataset, notebooks, and m
 │   └── aggregate_results.py          # Aggregates multi-seed results and computes paired t-tests
 ├── results/
 │   ├── metrics/                      # JSON metrics across all 21 runs (7 models x 3 seeds)
-│   ├── predictions/                  # Hold-out test set predictions CSV with P(defect) probabilities
+│   ├── predictions/                  # Hold-out test predictions for models and seeds
 │   ├── figures/                      # Evaluation dashboards, ROC and PR curves
 │   ├── paper_results_summary.json    # Complete statistical summary (Mean, Std, t-test p-values)
 │   ├── paper_results_table.md        # Formatted Markdown results table
@@ -68,6 +68,32 @@ All experiments are conducted across **three independent random seeds** (`42`, `
 ```bash
 python run_baselines.py
 ```
+
+The baseline runner evaluates the Majority Classifier, TF-IDF + Logistic Regression,
+and TF-IDF + Linear SVM on stratified 80/10/10 splits for seeds `42`, `123`, and
+`456`. It writes one metrics JSON and one prediction CSV per model and seed:
+
+```text
+results/metrics/metrics_<model>_seed_<seed>.json
+results/predictions/predictions_<model>_seed_<seed>.csv
+```
+
+Useful options:
+
+```bash
+# Run selected seeds on a different dataset
+python run_baselines.py --dataset data/datasetRE.csv --seeds 42 123
+
+# Write artifacts to a different directory
+python run_baselines.py --output-dir results/my_baselines
+
+# Write metrics only
+python run_baselines.py --no-predictions
+```
+
+Each prediction CSV contains `id`, `requirement`, `defect`, `weak_word`,
+`length`, `predicted`, `p_defect`, and `correct`. The `p_defect` column is the
+model score for the `defect` class and can be used for ROC-AUC or PR-AUC analysis.
 
 ### 2. Aggregate Multi-Seed Results
 ```bash
