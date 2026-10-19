@@ -1,220 +1,212 @@
 id,requirement,defect,weak_word,length,predicted,p_defect,correct
-1107,If (ISPBatVolt less than 12.1 volts AND ISPBatCurr greater than 0 ampere AND PPNM_BCMGM1SOCContrlEnbl equal 1) for longer than 5 seconds a flag SOCContrlLowBatStopRq has to be set for 300 seconds.,ok,long,196,ok,0.10164751028950487,True
-587,Function `` Activate Monitoring of Common Alarm Input '' is in state `` Delay Monitoring ''.,ok,common,92,ok,0.13282719830557885,True
-1476,Several tests over the complete current range have to be carried out.,defect,several,69,ok,0.43181625128735973,False
-308,The OBC shall monitor the Control Pilot Signal for a voltage level change when closing S2.,ok,close,90,ok,0.30398927261092573,True
-687,"The system shall provide the ability to enter or edit the telephone number used for a `` OEM Workshop '' call according to restrictions for entering or editing telephone numbers specified in detail within the telephone application, see chapter (`` Phone '').",ok,detail,258,ok,0.23451296265463398,True
-508,The OBC shall not request the EVSE AC Contactors to close while the supervisory control unit does not request Standby.,ok,close,118,ok,0.15341071453278046,True
-1246,For this function it is important that the component can exactly measure in the near field down to 1 m and the component shall have a wide horizontal field of view in the near field.,ok,near,182,ok,0.3234804133971087,True
-2154,"Furthermore, functional test maneuvers, demonstration maneuvers and release maneuvers with various additional objects like traverse structures, infrastructures, observers and route markers (e.g. cones) are to be assumed.",ok,various,220,ok,0.3328442165409232,True
-914,"The signal has to signalize (signal state 0 equal NACPT) that an object does not fulfill the requirements for an object with longitudinally pronounced moving direction (codriving and oncoming traffic) as well as stopped or stationary obstacles for a fast functional reaction exclusively after a fusion with a camera, i.",defect,fast,319,defect,0.5036831478708804,True
-2107,"If requested the component shall have algorithms for aligment within the factory under special conditions, e.g. defined radar target, etc. In the following the necessary requirement for such an algorithm are described.",ok,special,218,ok,0.18678159319213983,True
-162,The contractor shall target an architecture that allows an exchange of radio technologies without requiring PCB modification (for example by selecting an appropriate chipset).,ok,appropriate,175,defect,0.5834983003132665,False
-1884,In case the status of PNHV_GenIntrlk_Rdy is not known (CAN communication errors or signal time out) the supervision is deactivated as soon as the vehicle HVDC Bus voltage is below HvilDeactivationThreshold.,ok,soon,206,ok,0.21202807523761996,True
-864,"Fault paths with safety-critical impact (S equal 10 and imminent danger to life) whose occurences cannot be ruled out (O greater than 1ppm over lifetime) and whose on-board diagnosis does not permit early detection (D greater than 3), so that severe injury to people or danger to life must be expected.",ok,early,302,ok,0.3757261139580071,True
-1081,If the parking time is longer the calculation has to be stopped.,defect,long,64,ok,0.3585183891331322,False
-393,The OBC shall sendOBL_Chrg_Flap_Stat equal CLOSE to the EMM.,ok,close,60,ok,0.45082198636937215,True
-1177,No resident engineer is requested as long as client support is available on short call.,ok,long,87,ok,0.12660520995805666,True
-1011,Delivery status: The Dimensions of the amplifier housing may be extended to 1.5 of the specified dimension in chapter ANTA-1895 `` Large Module ''.,ok,large,147,ok,0.370291850356382,True
-1052,In the following all information periodically sent by the long range radar sensor will be described.,ok,long,100,ok,0.1188586468381911,True
-2000,"For test cases, the variants for which the test cases are to be executed, e.g. markets, model series, body types, special equipment codes, shall be specified.",ok,special,158,ok,0.3124114070066548,True
-2006,The contractor shall coordinate special cases on an individual basis with assembly planning.,ok,special,92,ok,0.26375105927305253,True
-2112,"There are special situations where mode change is allowed without CAN commanding (e.g. crash, DC / DC converter error, interlock fault...)",ok,special,138,ok,0.17853582567866394,True
-1082,"In this case, the ARC will be active for a much longer time compared to when used for regular Augmented Reality.",defect,long,112,ok,0.2971771665670431,False
-344,In case that a CAN-Limphome-Mode or a CAN-error is identified the opened contactors are not closed and precharging is not startet.,ok,close,130,ok,0.12428390467918521,True
-2045,Requirements relying on the special characteristics of a sensor are mentioned in the corresponding chapter of the sensor.,ok,special,121,ok,0.12108471758515597,True
-1427,"The component performs software download including switching from application to bootloader, CRC, signature check, and restart with a throughput of at least 1 GByte / 15 minutes. The component software consists of several parts each with its own part number.",ok,several,258,ok,0.39892978287676195,True
-1635,Short to ground failure of a digital output shall be detected by the driver (if hardware supports that).,ok,short,104,ok,0.27288719386121757,True
-129,The adherence of the code to the planned architecture has to be verified by the Contractor with appropriate methods.,defect,appropriate,116,ok,0.49881462396238796,False
-1830,"If a small approaching object e.g. a motorcycle is driving in front of a larger object e.g. a truck in a relative distance larger than 3 m, both objects have to be detected unambiguously.",ok,small,187,ok,0.415624998591484,True
-460,"In case, the interface of MetaCore can not be discussed close between the actors, the affected actors shall join a SA Meeting (Software architecture meeting) at OEM side by request of OEM.",defect,close,188,ok,0.23676121291096303,False
-278,If the Control pilot signal changes the state from `` charging allowed '' to `` not allowed '' the OBC shall fall asleep after a number of changes in a certain time.,defect,certain,165,defect,0.524234828623172,True
-1336,In particular the different battery categories with their pass / fail criteria shall be defined.,ok,particular,96,ok,0.19725421201332274,True
-639,For details see the applicable LIN definition file (LDF) [RD3137].,ok,detail,66,ok,0.07457461832021839,True
-445,"When the energy request becomes inactive while the main contactors are closed, the main contactors shall be opened.",ok,close,115,ok,0.1764810752874848,True
-196,The value BSBRange1 indicates a bad power network state.,defect,bad,56,ok,0.314698576478773,False
-706,"After the fixation of the technology the materials, surfaces and colours will be defined in detail according to the MDS-process.",ok,detail,128,ok,0.26678073104033817,True
-1376,"The component supports several settings concerning drive programs (e.g. suspension setting, gear shift characteristics).",ok,several,120,ok,0.38451284287231896,True
-1785,Small objects next to big objects,defect,small,33,ok,0.4886966538532107,False
-343,In case of a CAN error precharging is not allowed and the contactors must not close.,ok,close,84,ok,0.22229050455856125,True
-1313,Such a necessity may arise in particular because of system changes or because of the measures presented in the FMEAs / ETAs.,ok,particular,124,ok,0.2632989611890739,True
-645,"Start / Stop supported (down to 6,3 V) SPEC 10615 ""For details see [RD2083]""",ok,detail,76,ok,0.09351889856432193,True
-154,"For each frequency band, an appropriate reference antenna is used.",defect,appropriate,66,defect,0.5945740283164545,True
-1803,Module 3 is a small antenna module.,defect,small,35,defect,0.6150671637682084,True
-840,The Details of the circuit design are TBD and Charge inlet suppliers should submit their own design proposals.,ok,detail,110,ok,0.09326000721042943,True
-1702,The dedicated short range communication application is an information agent for road and traffic conditions.,defect,short,108,ok,0.2634663404582641,False
-1784,equal greater than small losses,defect,small,31,ok,0.23199647556847586,False
-134,SCC shall ignore any SDP response message that was sent from an IP Adress which is not valid or regarded as not appropriate.,defect,appropriate,124,ok,0.3211460216186075,False
-13,The contractor shall apply adequate software version management for the source code files received from OEM.,ok,adequate,108,ok,0.2481219997589022,True
-60,"The system shall set the value of the `` HU_Start '' signal to the appropriate value (see [KMATRIX_HU]), when the user starts the selected Active Comfort program.",ok,appropriate,162,ok,0.2637449023033812,True
-933,"In case that the measurement of single cell voltages is fast enough, the overall battery voltage is simply the sum of all single cell voltages.",defect,fast,143,ok,0.4590985387226768,False
-1669,"For details on short and long pushing and pressing see ""Feature List Telematic5STAR1 HU Entry Main"" [RD3582].",ok,short,109,ok,0.11050713812833668,True
-1279,"Wire installation near weld flanges is permissible, but safety measures (edge protection profiles or cable channels) shall be used.",defect,near,131,ok,0.32575740187623636,False
-734,Refer to current diagnostic data file (e.g. cdd) for details.,ok,detail,61,ok,0.09976588269191103,True
-1180,"As long as DDPMonLevel equal 0, the DDP state remains in idle, meaning DDP is closed.",ok,long,85,ok,0.13117987780099802,True
-1609,"For calculating and / or measuring the overvoltage during turn-off, inductivities of 50µH and maximum short circuit currents of 3500 ampere shall be taken into account.",ok,short,168,ok,0.18895345277677228,True
-2140,This will be done by a special diagnostic routine.,defect,special,50,ok,0.25967758718088607,False
-772,For further details see SCC-DIS-3979,ok,detail,36,ok,0.08096742801511304,True
-1349,"This numbering is appplied for diagnostic services as well as for diagnostic trouble codes, which are defined for a particular installation position of wheel sensors.",defect,particular,166,ok,0.20865949881713222,False
-67,"Therefore, each application that uses LVDS should also refer to the appropriate protocol and interconnect standard.",ok,appropriate,115,ok,0.3258905646673149,True
-1694,The application software e.g. path prediction has to check if calculation could be done without a value e.g. for a short time or not.,defect,short,133,ok,0.30679114328135665,False
-467,The Safe Launch Concept shall include at least an OCV test of 1000 batteries at the logistics partner close to the OEM plant and directly before delivery to OEM.,defect,close,161,defect,0.5142113223860965,True
-447,"Certain states of the car and currently running functions or events are a requirement to keep the IOD relay closed or close it, if it is open.",ok,close,142,ok,0.4003173565741491,True
-2080,"All need for action for OEMMLER resulting from the consideration of special characteristics (e.g. safety-critical, certification-relevant) must be provided to OEMMLER by the supplier in a written summary.",ok,special,204,ok,0.3021425737174916,True
-311,After closing the contactors this time is set to zero.,ok,close,54,ok,0.22993780630549543,True
-921,"To prevent a very fast consumer deacitivation by the DLM when the windshield heater is turned on, there is a certain offset voltage which is allowed during the defrosting cycle.",defect,fast,177,defect,0.5957242973893879,True
-1840,Small load containers (SLC) should preferably be used (see logistical requirements in the logistics CRS).,ok,small,105,ok,0.2154325001549984,True
-1333,"Thees bondary conditions refer in particular to space requirement investigations with the corresponding tolerance considerations, installation, mounting possibility, ease of servicing, visual matching with trim parts (inside and outside), environmental compatibility, national variants and the use of modular systems.",ok,particular,317,ok,0.2738190339207165,True
-369,"While activating the precharging circuit, the BMS shall first close one main contactor and then provide the limited precharging current.",ok,close,136,ok,0.2565321942053047,True
-2116,"If possible, it should be suitable to be mounted on stadard radar samples without additional special modification of the samples.",defect,special,129,ok,0.40076933958195554,False
-1027,"If the maximum value is reported on bus, the deviation of the reported distance is equal or larger than 2.8m and function reactions should be plausibilized using independent information.",ok,large,186,ok,0.24009675661243987,True
-963,Therefore the operating strategy of the vehicle needs to know how fast the temperature drops during parking.,ok,fast,108,ok,0.45353073984829423,True
-1089,"The sensor must not miss more than 50 objects of object category TAF-Ordinary per hour in ODA-Standing, where the objects movement category is either Moving or Stationary and the object is missed for longer than 1 sensor cycle and less than 8 sensor cycles.",ok,long,257,ok,0.15345287133800561,True
-1989,"For the design of the controller unit, special attention shall be payed to the following points:",ok,special,96,ok,0.19670942610776312,True
-24,The filtering shall be adequate to the update rate.,defect,adequate,51,ok,0.44163396885639705,False
-842,Details of operating conditions in coordination with OEM.,ok,detail,57,ok,0.11460417842697701,True
-1598,In case that the interlock loop is open the BMS shall distinguish the following error conditions: signal loop interrupted or no HVIL signal short circuit against LV+ short circuit against vehicle ground,ok,short,202,ok,0.08304065180195873,True
-182,Worst case scenario must be established by the contractor and approved by the client.,ok,bad,85,ok,0.14735477345928247,True
-1640,Description: Voltage threshold for Charger Coupler Temperature Sensor Short to Ground.,ok,short,86,ok,0.23110817184547863,True
-648,"For details see picture ""Emergency line Level1 content""",ok,detail,55,ok,0.06331709264933882,True
-413,"As the control-unit housing the PNM has no power supply if the DDP-relay is open, the relay can only be closed by the central locking system (EIS).",ok,close,147,ok,0.17324665684817037,True
-800,The Defect Manager shall be familiar with the details of the documented defects in the contractors defect management system.,ok,detail,124,ok,0.11851346579728086,True
-69,The gear recognition is made possible by the determination of the control shaft angle plus the appropriate 2D sensing of the control shaft.,ok,appropriate,139,ok,0.40321450535587056,True
-2172,This list is meant to be an outline of various tasks that may occur during the program and its associated build cycles.,ok,various,119,defect,0.6315841140898879,False
-1419,"Data, which due to their importance are stored several times in the EEPROM memory (e.g. drive authorisation data), are stored in various blocks.",ok,several,144,ok,0.4821637313403214,True
-426,The in this document used definition of contact open / closed relates to the logical state and not to the electrical status of the input signal.,ok,close,144,ok,0.1199038137816256,True
-1212,"If a battery change was detected mileage and time of this change are stored with the information, how much the old battery has been discharged.",ok,much,143,ok,0.4955620544092818,True
-1248,``2'' equals ``Blockage ''at least at one near range sensor / FULL_DAMP,ok,near,71,ok,0.2505228217051109,True
-710,For details concerning Software Quality Gates see separate chapter.,ok,detail,67,ok,0.07270126797556603,True
-732,See the appropriate AUTOSAR specification for details.,ok,detail,54,ok,0.07237255088461386,True
-1044,Note: this feature may not be activated automatically in case of large influence on system performance or function of the component.,defect,large,132,ok,0.4585976197478447,False
-1408,"Estimation has to be done permanently because the self steering gradient is different from vehicle to vehicle and depends on several factors e.g. tires, vehicle life etc.",ok,several,170,defect,0.6306794156721841,False
-423,The door contact may have the status `` open '' or `` closed ''.,ok,close,64,ok,0.16716244683119288,True
-564,"On expiration of the timer, monitoring of the Common Alarm Input is to be activated and the execution of the function is to be stopped:",ok,common,135,ok,0.1779315627313005,True
-22,The requirements concerning failure detection philosophy which are described in the E-Gas work group specification (see chapter `` definitions of terms '') have to be taken into account for supposed malfunctions and for the definition of adequate measures.,defect,adequate,256,ok,0.1968680111817312,False
-1238,To achieve a faster battery charging a higher voltage is set after the start of the engine until the battery is nearly fully charged.,defect,near,133,defect,0.5083734294572798,True
-712,"See internet for more details (for example Subversion, GIT, Perforce ,..)",ok,detail,73,ok,0.1715261802992329,True
-1895,"If the state of the Vehicle Inlet LEDs is `` Charging '' AND as soon as the trigger `` battery is fully charged '' occures, the status LED shall be glowing green.",ok,soon,162,ok,0.18453600191131928,True
-852,"According to the algorithm, activation steps are recommended at the earliest after 30 minutes., relaxation steps are recommended at the earliest after five to ten minutes.",ok,early,171,ok,0.32607996085795005,True
-1475,"The advantage of this solution is that a lengthy and costly connection via the motor / vehicle wiring harness, possibly containing several separating plugs is no longer required and the possibility of interference is therefore reduced.",defect,several,235,ok,0.4516423763735749,False
-923,"It shall allow complete updates of the database as well as partial and incremental updates of parts like map areas, satellite and aerial imagery, DTM, POI data, TMC tables, language files, SW-updates etc. For fast update of data content, the Headunit shall provide an interface for connection to an external standard device.",defect,fast,324,ok,0.3695495128648094,False
-99,An appropriate algorithm has to be chosen to compensate for small offset drifts of VehYaw Rate in a way that does not compromise LaneRadius dynamic performance.,defect,appropriate,160,defect,0.826178592831989,True
-1385,The required functional state is not achieved or the fault memory of the component has one or several entries after the test.,ok,several,125,ok,0.33680764163376237,True
-677,The tests shall be done in accordance with IEC 61000-6-2 on the HV-DC connections as described below in more detail.,ok,detail,116,ok,0.1959292110446452,True
-394,The EMM shall receive OBL_Chrg_Flap_Stat equal CLOSE from the OBC.,ok,close,66,ok,0.3564791033923815,True
-1207,"This application displays which power sources (combustion engine, electrical engine) are currently active, how much energy is currently consumed or recuperated (e.g. while braking) and the history of average energy consumption.",ok,much,227,ok,0.25400420629964676,True
-248,The component shall implement a possibility to shut down certain hardware parts depending on the components internal temperature.,defect,certain,129,ok,0.41444924547214457,False
-104,An unique appropriate diagnostic operating instruction shall be provided for each DTC.,defect,appropriate,86,ok,0.4869188288492377,False
-669,The latest Buckle sensor specification shall be referenced for detail regarding sensor output characteristics.,ok,detail,110,ok,0.18861394813885424,True
-1980,There are special behaviours for the setting of some Bits depending on the conditions defined below.,ok,special,100,ok,0.13433879780670593,True
-378,The IDC shall provide objects reliable if they are closer than 100 m to ensure a synchronisation to the ADAS graphic in the IC.,ok,close,127,ok,0.2607118566582818,True
-1651,"In the case of an IPE failure AND loss of coolant, the maximum operation time will be significantly reduced due to the additional IGBT losses associated with a 3-phase short.",ok,short,174,ok,0.3222541606594541,True
-1141,"If an object leaves the ODAs, the sensor shall deliver the corresponding sensor object as long as the sensor object is verified by sensor measurements.",ok,long,151,ok,0.1680876308163751,True
-47,The supplier is expected to use appropriate tools to read interface definition specifications (e.g. Enterprise Architect for UML interface definitions).,ok,appropriate,152,ok,0.42571473724638303,True
-1294,Detection of Motorcycles near Trucks,defect,near,36,ok,0.4317732737913357,False
-1590,The main contactors must open under short circuit condition at least for one situation.,ok,short,87,ok,0.095587397675658,True
-2019,"To identify special updates to PNM, the releases can be taged by a defined number (FunctionID).",ok,special,95,ok,0.29909188430299055,True
-792,Further details regarding HV-Interface in agreement with the client.,ok,detail,68,ok,0.08995280840923287,True
-813,"For details about ""Kleer"" technology please refere to chapter ""Kleer""",ok,detail,69,ok,0.10747569566684077,True
-1170,After this first trigger the signal `` SC_ChargeRemainingTime '' shall be updated with each change on the value of `` Ecpm_TMinsFullChDurn '' as long as [PLGW-2704] does not apply.,ok,long,180,ok,0.24245757069514393,True
-1682,If the parking time is shorter than 5 seconds then BCDChargeBalanceSt equal 0 else,ok,short,82,ok,0.1441522036458957,True
-976,The application '' menu?Â represents a menu structure with few options (3 to 7 positions).,ok,few,91,ok,0.4937343919420234,True
-916,"3. Media Search Engine: The player application scans all available sources for supported media and stores the metadata from each file (e.g. cover art, title, artist, album, genre) in a central database, which allows fast browsing and searching of the available media.",defect,fast,267,ok,0.3460904726271856,False
-1634,Note 2: The RF switch output must be set to the inactive state to detect short to battery and set to the active state to detect open or short to ground.,ok,short,152,ok,0.177915883109085,True
-1362,"If several link-versions are necessary in one software release (e.g. for 6 and 8 cylinders), the same functions have to be used.Different programm lines are not allowed.",ok,several,169,ok,0.4100175673786721,True
-1472,This function allows the application software to switch the PLC modems configuration between several PIBs.,defect,several,106,ok,0.43412329425228774,False
-1930,A specific message sequence is started as soon as Download_Contract_Certificate.Set message is received indicating that the sequence is not complete (Sequence Transmission State equal sequence in progress).,ok,soon,206,ok,0.2176586692694049,True
-715,"For Details, Failure Type etc see CandelaFile.",ok,detail,46,ok,0.06052889914616084,True
-1337,"When doing so, in particular for water-tight plug connectors, a tension-free radial routing (overbending directly on contact housing) is to be additionally ensured (e.g. risk of leakage).",ok,particular,187,ok,0.37793987826367936,True
-1106,1: If the timer has been enabled for longer than PPNM_ISPLongStopTWait since the last reset.,ok,long,92,ok,0.22090228295220166,True
-2082,"Beyond this, it may be necessary to identify and label relevant special features as per Chapter LH-193 `` Safety and Certification Relevant Features ''.",ok,special,152,ok,0.32399000331714983,True
-581,General specifications of the CAD product data are described in the Common Requirements [OEM 310 00x].,ok,common,102,ok,0.07104826685328842,True
-1218,Thus the battery will be much more cycled throughout the vehicle life compared to a lead-acid battery.,defect,much,102,defect,0.6516011604692798,True
-91,The system shall use the appropriate signals `` HU_SelDuration '' to communicate the duration setting with the ACCSW.,ok,appropriate,117,ok,0.37268640045613544,True
-1429,The data has to be stored in several small application specific data segments.,defect,several,78,defect,0.667100467616529,True
-1521,The short designation of the component is VTA_SM,ok,short,48,ok,0.23326578002473436,True
-1039,"Remark: This yaw angle difference affects the neccessary FoV for the sensor due to the tilt of the lanes to be surveyed and the specified minimum lane radius; the vehicle is positioned with a maximum lateral deviation to the lane so large, that the vehicle does not drive beyond the lane mark.",ok,large,293,defect,0.5758640888922595,False
-1440,It consists of a Sound Amplifier which can provide audio surround features and several sound loudspeakers.,defect,several,106,ok,0.4163504007380676,False
-209,"The contractor has to proof during development period, that there is no gap at a certain current level between the two reaction methods.",ok,certain,136,ok,0.49509471608350386,True
-505,"V2G2-860 ensures that the EVSE has to close the contactors prior sending the PowerDeliveryRes, in case of START.",ok,close,112,ok,0.23296398344418726,True
-135,SCC shall ignore any SDP response message that provides an SECC server IP address which is not valid or regarded as not appropriate.,defect,appropriate,132,ok,0.31102866955200065,False
-2002,The component shall have a special diagnostic mode for end of production line testing at OEM.,ok,special,93,ok,0.23455955811771012,True
-2089,Signal behavior after power-on: `` Real/special value/not available '',ok,special,70,ok,0.19598690376975686,True
-1224,"Exceeding the guaranteed write cycles shall not automatically result in the lock out of a cell, since the number of actual write cycles is usually much higher than the guaranteed number.",defect,much,186,ok,0.25530467127338685,False
-1956,"For the implementation of the Special Purpose Vehicles functionality on the Telematic5@Star1 HU Entry, the contractor shall consider the contents of specification `` Feature List Telematic5STAR1 HU Entry Special Purpose Vehicles '' [RD3590].",ok,special,241,ok,0.12342945268625516,True
-1906,"As soon as the `` ADAPT user name '' and the allocated `` ADAPT position NUM '' have been saved, the System shall delete the received `` Data Set '' in the temporary storage.",ok,soon,174,ok,0.15931518301796438,True
-1026,"If the maximum value for DTR_DistRoadBorder_Lt_MaxNegDev is reported on bus, the real distance to the road border may be larger than DTR_DistRoadBorder_Lt + DTR_DistRoadBorder_Lt_MaxNegDev.",ok,large,189,ok,0.39393647456616976,True
-1655,The EDS shall set the inverter into three phase short.,ok,short,54,ok,0.19781736655534546,True
-31,If TBCC_Reg_Actv is 2 then the acceleration requests must be implemented by an adequate control algorithm.,defect,adequate,106,ok,0.4336058722693419,False
-1226,"Due to higher electrical power when DC-charging Mode 4, the cooling power needed is much higher than the AC-cooling power.",defect,much,122,ok,0.21757732204750396,False
-1986,"In addition to other relevant industry standards, the mentioned standards have a special relevance.",ok,special,99,ok,0.3089039736293879,True
-1518,In the short test all tests which have a significant vehicle reaction must be included.,ok,short,87,ok,0.31053079365302433,True
-1251,The component shall include sophisticated algorithms for calculating the nearest object within the estimated vehicle path.,ok,near,122,ok,0.3321384096302885,True
-1433,"This path prediction is based on several vehicle signals, which have to be first compensated and then combined to minimize estimation derivation.",defect,several,145,defect,0.5339472439049117,True
-224,A basic set of up to 3 alarm files will be stored on the HU durable storage (the alarm files may vary depending on a certain headunit hardware version for a specific region).,ok,certain,174,ok,0.2415202328208087,True
-1186,If the ON-button is pressed long the RCU shall deactivate the chosen display and turn into OFF-modus.,defect,long,101,defect,0.5507701320449977,True
-1319,In particular those tests cases that detected the corrected defect shall be repeated.,ok,particular,85,ok,0.18623764446173416,True
-983,When the IBS wakes up the LIN bus it sends a `` wake-up reason '' in the first few data frames.,defect,few,95,ok,0.4389095715136241,False
-70,On demand the client shall be provided with the appropriate documentation.,ok,appropriate,74,ok,0.2576883883304866,True
-1858,Lettering of the supplier 's name and supplier identification shall be designed smaller than the OEM-identification.,ok,small,116,ok,0.09081502591867294,True
-1652,Therefore the appropriate fault reaction is a three phase short using all the IGBTs located on the same side as the faulted IGBT.,ok,short,129,ok,0.33293877739895644,True
-1188,For long term tests the following SOC setting shall be repeated:,defect,long,64,ok,0.23863269948573362,False
-818,"For details about video processing and transmission (also splitview processing) see ""System Specification Telematic5STAR1 HU High Video Processing and Transmission"" [RD3623]",ok,detail,173,ok,0.13570500871698127,True
-2084,Amp shut down by special CAN message (emergency shut down),ok,special,58,ok,0.1930444981410805,True
-620,The details are to be coordinated with the client,ok,detail,49,ok,0.11458212437520833,True
-606,"In particular, all measurement boundary conditions, for example supply voltages, input signals and bus messages, shall be listed in detail for each and every test step and the measuring accuracies and sampling rates shall be defined for the parameters to be measured.",defect,detail,267,ok,0.25480722275569656,False
-909,The software download access to the vehicle is realized by a Fast Ethernet link.,ok,fast,80,ok,0.3114226290072492,True
-1888,"EngStartDebounced is set, as soon as ISPEngStartComb equal 1 is logical true.",ok,soon,77,ok,0.10886422710066672,True
-1087,The component LRR is a 76-77 GHz Long Range Radar Sensor with a wide horizontal field of view (+ / -,ok,long,100,ok,0.18073074665639757,True
-777,"Further details: see ""IEC 61000-6-3""",ok,detail,36,ok,0.05820329930458157,True
-541,Each audio stage shall be developed in a way that all audio stage ouputs share a common ground potential.,ok,common,105,ok,0.3281270621600474,True
-246,The antenna amplifier needs a certain immunity against interference of its phantom power supply.,defect,certain,96,ok,0.34514627872747805,False
-293,"The deselection is possible if, for example, a child or a dog stays behind in the closed vehicle or the vehicle is to be transported.",ok,close,133,ok,0.4107729472638702,True
-943,"Signal which describes the fast task sample time, inverse of the switching frequency",ok,fast,84,ok,0.3809859235119593,True
-1093,"2. invalid PWM-frequency: if the PWM-frequency is longer out of range of the specifications than the fault tolerance time, the control behaviour must be given (threshold, error message, temporal resolution, temporal correcting errors)",ok,long,234,ok,0.19503815835217447,True
-1601,Short circuit of battery system with 100 % SOC.,ok,short,47,ok,0.12833421364626704,True
-634,"For details see chapter ""CTA-cable detect"".",ok,detail,43,ok,0.04666178596136499,True
-1853,The filter calculation ends when the negative permissible torque is smaller than the `` shaped negative permissible torque '' once again.,ok,small,137,ok,0.1795805268016708,True
-1506,"If the locking of the Vehicle Inlet is not possible, the OBC shall trigger the locking of the Vehicle Inlet several times.",defect,several,122,ok,0.38152007926792725,False
-1905,"When the player is paused because of `` Vehicle in motion '', the system shall resume playing the current video file as soon as `` Vehicle in motion '' does not apply anymore.",ok,soon,175,ok,0.369287699910154,True
-1445,"The MOST network master and network management functionality shall not be deployed over several CPUs, in order to achieve short network startup times and avoid communication overhead.",defect,several,183,ok,0.3236912712260428,False
-1372,"The HMI contains several graphical elements (e.g. icons, buttons, menus, lists, text, pictures, ...) for the display of information and user operation.",ok,several,151,ok,0.3308635236261478,True
-742,Condition: According specified field of views; see [MMS213-74] for details.,ok,detail,75,ok,0.050293661877985854,True
-146,The effectiveness of the line protection shall be verified by the system supplier by carrying out appropriate tests.,defect,appropriate,116,ok,0.3827130173072331,False
-1234,This signal transmits the level of the system damping of the near range sensors.,ok,near,80,ok,0.30950039584326655,True
-1171,The battery management system should follow this request as long as this is not critical for the battery.,ok,long,105,ok,0.24746740624317123,True
-609,Details will be specified jointly.,defect,detail,34,ok,0.10245296724829611,False
-1804,Module 8 in station wagons with small rear side windows contacts the antennas via cables soldered on glassantennas / kapton tape.,defect,small,129,defect,0.7977898909402499,True
-755,"Further details: see ""EMC Performance Requirements - Components Test (Passenger Cars and Vans"" [SPEC 10284-2] section 10.",ok,detail,121,ok,0.09160666428316629,True
-10,The Contractor shall ensure that adequate test resources are available for every market specific version of the component.,ok,adequate,122,ok,0.356255646684211,True
-586,"If the timer is running and common alarm input is active: M:Common Alarm Input Active, the execution of the function is to be ended and can be restarted by deactivating the input: NOT M:Common Alarm Input Active",ok,common,211,ok,0.12500224015228187,True
-126,The proof of competence shall be attested by submission of certificates of attendance of appropriate training events.,defect,appropriate,117,ok,0.4548106274276439,False
-284,The system provides the ability to start an Active Comfort program (`` Program Recommendation '') when the attention assist issues a certain level or a drowsiness warning.,defect,certain,171,defect,0.5142041251959996,True
-1066,[SRC004d] It is possible to miss some restarts in 3S seconds operation mode because the rail pressure goes down if the stop mode lasts very long and there is not enough time to raise it up for restart.,defect,long,201,ok,0.34188178622447085,False
-1132,"Under all circumstances the sensor 's output pulses must be a true image of the moving target teeth, e.g. while change of rotational direction at any angle position, under vibration effects or at strong temperature change no ""missing tooth"" or additional pulse may occur, also after longer stop-periods and temperature changes (stop-start-mode of the engine).",ok,long,359,ok,0.41983930315037027,True
-718,Details shall be confirmed between customer and client.,ok,detail,55,ok,0.11031086384113081,True
-869,THEN TSA display content shall be updated according to TSA display strategy earliest 200 milliseconds before passing the sign and no later than the EV is passing the sign.,ok,early,171,ok,0.1582522184227016,True
-317,This operating status describes the situation in a parked and closed vehicle.,ok,close,77,ok,0.18231613997592336,True
-417,If the decouple relay opens by a defect while the car is driving or in an automatic stop the backup relay has to be closed immediately and power is provided to the powernet by the backup battery,ok,close,194,ok,0.4248106669305898,True
-539,"The common requirements for the development or series production of component parts, modules, systems or components (referred to as ""component"" in the following) are listed in the document [LH-3791].",ok,common,199,ok,0.16689966868320597,True
-108,An appropriate debouncing shall be implemented for the detection of every error.,defect,appropriate,80,defect,0.6326640401489424,True
-1032,"[out]: When TblEntries is larger than the available number of valid entries within the attenuation table, it shall be adapted to the number of valid entries.",ok,large,157,ok,0.28944688033400684,True
-929,For fast adaptation after exceeding threshold the control should use only a integrating controller.,defect,fast,99,ok,0.4506616780375711,False
-725,"Labelling details: brief description of labelling content, e.g.",ok,detail,63,ok,0.13068506274334707,True
-261,"Further it is possible to reset Production Mode, Transport Mode, EU5 Manipulation Protection, Charge Current Evaluation and IOD Measurement when certain conditions are given.",defect,certain,174,defect,0.5585257382481403,True
-807,Details of display-related functional requirements see document [RD4384].,ok,detail,73,ok,0.0752653931457794,True
-1438,It consists of two variants (Premium and High End) of a Sound Amplifier which can provide audio surround features and several sound loudspeakers.,defect,several,145,ok,0.38879158469632386,False
-501,The Top View Front Zoom assists the driver to maneuver the vehicle close to obstacles in front of the vehicle.,defect,close,110,defect,0.6854803345901002,True
-1619,Exception: PN14_BackupRelay_Rq is set to 2 (open) while a short circuit in the backup battery path occurs (BackupShortCircuit equal 1),ok,short,134,ok,0.09261390733068231,True
-20,"The component shall be able to handle at least 1,000 graphical icons (e.g. POI-symbols) simultaneously on the display and apply an adequate grouping principle if necessary.",defect,adequate,172,ok,0.4236819979990425,False
-2093,"Since CAN communication errors in case of ``Ignition Status NOT equal ON'' are basically not considered and stored, for the Partial Network Operation a special CAN signal was introduced: 222-EMM_Data1_AR / Bus_Actv_Stat (message 0x2FA), 166-ECM_A13 / Bus_Actv_Stat (message 0x226).",ok,special,281,ok,0.1825155154279381,True
-947,"While the car is parked, the fast deflation warning shall be suppressed as long as the pressure is above (P_MIN - DP_TOLERANCE).",ok,fast,128,ok,0.23468563707249157,True
-2127,The component shall provide a special sound setting for speech in the telephone / SDS mode.,defect,special,91,ok,0.23934206488288923,False
-2125,The corresponding data and operations of those applications that can be displayed on the IC or be operated via the IC shall be sent between the Head Unit and the IC using a special protocol.,defect,special,190,ok,0.3227646665310121,False
-589,When VCC receives in the signal the request to `` stop '' it shall perform a common transition to ''stop? (see VC-241).,ok,common,120,ok,0.18712313356721705,True
-1273,With this signal the detected systemdamping of the near range radar sensors is transmitted.,ok,near,91,ok,0.24716526188725899,True
-820,For Details about the support of GSM / GPRS radio technology the document `` Remote Vehicle Data Access '' [RD4117] shall be mandatory.,ok,detail,135,ok,0.19033311632537772,True
-789,For further details refer to the appropriate network VMM.,ok,detail,57,ok,0.12877821689791347,True
-169,It shall be possible to change the sensor to compare a bad sensor to a good sensor under equal condition on raw data level within a FAP5-system vehicle.,defect,bad,152,ok,0.48032166150423616,False
-1329,"For components which in an overload condition (current, voltage, temperature) can automatically shut off and on again (or can be caused to do so or which in an overload condition are without any defined antirepeat), it shall be verified that when there is a permanent activate condition, this will not result in any damage of the component and the control unit (in particular the PCB).",ok,particular,385,ok,0.31191430096397543,True
-1073,After relaxation the cell voltage is measured two times with a sufficiently long time interval in between.,defect,long,106,ok,0.39515600261162115,False
+277,The counter shall be resettable under certain conditions.,defect,certain,57,defect,0.5639746973668991,True
+1201,The returned table shall contain as much entries as specified by the returned value of TblEntries.,ok,much,98,ok,0.20074238181908305,True
+152,All frequency dependent properties must be appropriate for the incident frequency.,defect,appropriate,82,ok,0.441191945400208,False
+786,Further details: see SPEC 10284-1 DRAFT: EMC Requirements - vehicle tests> section 5.,ok,detail,85,ok,0.09146742808467809,True
+1456,The Head Unit shall provide several keys and slots for a mechanical fixation to other devices for example the OBF to ensure a definite position and alignment.,defect,several,158,defect,0.6825511230545405,True
+2172,This list is meant to be an outline of various tasks that may occur during the program and its associated build cycles.,ok,various,119,defect,0.5678630034090187,False
+47,The supplier is expected to use appropriate tools to read interface definition specifications (e.g. Enterprise Architect for UML interface definitions).,ok,appropriate,152,ok,0.42889306343636735,True
+1106,1: If the timer has been enabled for longer than PPNM_ISPLongStopTWait since the last reset.,ok,long,92,ok,0.20041067353524497,True
+1542,"The CPS shall provide the diagnosis of interruption or short circuits of the sensor lines (supply, output and gnd.) or any internal failure mode in consideration of possible shunt resistances (see chapter 8.3.2)",ok,short,211,ok,0.14064012396463932,True
+70,On demand the client shall be provided with the appropriate documentation.,ok,appropriate,74,ok,0.24100645280783592,True
+1439,The HU is planned for several market specific variants.,defect,several,55,ok,0.42316709109494216,False
+1184,"If IBS_ParkingTime - EPNM_BCD_LastParkingTime greater than PPNM_BCDLongParkTime and PPNM_BCDUseLongPark equal 1 the parking time is long enough to trust the discharge LUT, i.e. an internal signal LongPark is true while the conditions are true",ok,long,242,ok,0.21507979345325445,True
+1522,The short wave test frequencies are transmitted from public radio stations receptable at the suppliers test side or generated by the suppliers far field measurement test side.,ok,short,175,ok,0.2660917108850286,True
+964,The signal has to be designed in a way that the quality is determined as fast as possible without significant delay.,defect,fast,116,defect,0.5281056106795738,True
+676,"The following tests are described in detail in chapter [OBC-3366] ""Electrical tests"".",ok,detail,85,ok,0.10836327176941103,True
+750,"For further details see ""System Specification Telematic5STAR1 HU Entry Wireless Subsystem"" [RD3651].",ok,detail,100,ok,0.0858198044314046,True
+395,state of the Vehicle Inlet Flap information open OPEN close CLOSE flap status not relevant OR system start up SNA,ok,close,113,ok,0.2780382799761271,True
+812,The contractor shall document the root causes for all occurring software errors and details about the removal of the error in the error tracking system (DANTE).,ok,detail,160,ok,0.1987174028265302,True
+2096,"These modes are ``standard mode'', ``standby/sleep'' and ``special function''.",ok,special,78,ok,0.15982285102479618,True
+1687,The IDC shall send the DTR+ trace instead of the DTR+Q lateral guidance trajectory in situations in which the steering angle is greater a specific value or the quality of the lateral guidance is not sufficient or the range of sight is shorter than a specific value.,ok,short,265,ok,0.2041254446481043,True
+918,This procedure is to guarantee that the energy management gets the duration since the contactors were opened in case of fast switch on sequences.,defect,fast,145,ok,0.43773482568938543,False
+1629,Each microphone input shall tolerate a permanent short circuit to terminal 31.,ok,short,78,ok,0.13140139191647215,True
+939,Especially for the software download a high bandwidth of the Fast Ethernet link is used to transfer data into the system.,ok,fast,121,ok,0.3667260667324196,True
+2087,Special Values:,ok,special,15,ok,0.14442784344190376,True
+713,"The details described in Other Applicable Document SPEC LV 124-2, Appendix A [LH-5383] shall be taken into account when conducting the tests.",ok,detail,141,ok,0.1802820344039422,True
+719,The settings have to be agreed in detail between client and contractor.,ok,detail,71,ok,0.3170447596734499,True
+122,The system shall guarantee appropriate speech intelligibility of speech transmitted from the front seat row to the rear seat row.,defect,appropriate,129,defect,0.5252554363773106,True
+13,The contractor shall apply adequate software version management for the source code files received from OEM.,ok,adequate,108,ok,0.2951132816420745,True
+1339,In particular the components for the ESD-protection at the antenna input have to be applicably dimensioned.,ok,particular,107,ok,0.33879899526252844,True
+592,"In all modes of operation, the noise level must not be greater than that of the comparable base vehicle.",ok,comparable,104,ok,0.2488182148683266,True
+1294,Detection of Motorcycles near Trucks,defect,near,36,ok,0.4517955648032198,False
+725,"Labelling details: brief description of labelling content, e.g.",ok,detail,63,ok,0.1325984338880255,True
+1784,equal greater than small losses,defect,small,31,ok,0.2276935593778082,False
+1998,Special tools that are necessary for recycling shall be made available to the client and third parties.,ok,special,103,ok,0.2898435761492351,True
+224,A basic set of up to 3 alarm files will be stored on the HU durable storage (the alarm files may vary depending on a certain headunit hardware version for a specific region).,ok,certain,174,ok,0.277425722900474,True
+425,On triggering of an alarm are to be written as base data into the alarm history: the alarm source and the current status of the door switches (open / closed),ok,close,157,ok,0.21057953758828918,True
+396,- Open and close menus,ok,close,22,ok,0.18278670375327802,True
+312,After CAN initialization the duration since the contactors were opened shall be sent to the energy management at least for 200 milliseconds even if in the meantime the contactors are closed.,ok,close,190,ok,0.19920545814665291,True
+1809,This chapter is only relevant for station wagons with small rear side windows.,defect,small,78,defect,0.7598535844316424,True
+169,It shall be possible to change the sensor to compare a bad sensor to a good sensor under equal condition on raw data level within a FAP5-system vehicle.,defect,bad,152,ok,0.4119240387812514,False
+371,The mechanical integration of the antennas in the mirror will be defined in close collaboration with the mirror supplier.,ok,close,121,ok,0.2537951508910556,True
+1665,"3. Settings for the camera features e.g. Image Brightness, Service, Short Range Camera Object Detection, Parking Mode, Activation by Reverse Gear.",ok,short,146,ok,0.2585573794184066,True
+947,"While the car is parked, the fast deflation warning shall be suppressed as long as the pressure is above (P_MIN - DP_TOLERANCE).",ok,fast,128,ok,0.1954408850338419,True
+1711,Note: If this is only necessary for the certificate update process the charge break can be as short as possible to trigger a new SCC communication setup.,defect,short,153,ok,0.33629458147904495,False
+1120,A state change must only happen if the change condition is true longer than 50 milliseconds.,ok,long,92,ok,0.1932598281955308,True
+318,After a successful precharging procedure the second contactor is closed and the precharging current is interrupted.,ok,close,115,ok,0.2544988039744578,True
+1204,"Since the HU may be used in different, incompatible car architectures, it is necessary to separate the vehicle domain from the telematic domain as much as possible.",ok,much,164,defect,0.5318766766759572,False
+472,Using the system shall bring the driver so close to the trailer that just attachment is left doing.,defect,close,99,defect,0.6160730509198946,True
+1691,Short disturbing signals (<10µs) on the Vin control pulse must be suppressed by filtering.,ok,short,90,ok,0.26226297370383145,True
+863,"The supervision of the quality limiting constraints of the driving course have to be designed in the way that even in dynamic driving situations and particularly in test szenarios no limitation of the braking functionality CMS ES1, ES2 and CMS2+ occurs due to a not sufficiently early (TTC) signaling of the signal state EGO.",ok,early,325,ok,0.34839058001910655,True
+1915,"As soon as a validation ends successfully, the remaining items in the list shall be skipped.",ok,soon,92,ok,0.13899229158086218,True
+2065,"There is no special requirement to the count of cells, as long as the specified power and energy requirements will be met in compliance with the maximum specified currents and voltage levels.",ok,special,191,ok,0.12342334220629908,True
+764,For further details see [RD2459].,ok,detail,33,ok,0.05669359435928632,True
+1944,"As soon as a crash threshold has been crossed, a crash telegram is to be stored in the memory area allocated for this purpose according to the `` Technical Specifications for Diagnosis ''.",ok,soon,188,ok,0.2251791028160501,True
+608,"In general, SCC provides additional environmental data that allow to analyse the reason for the failure in more detail.",defect,detail,119,ok,0.3417179323337802,False
+651,"For details see [PLGW_R-109] chapter ""Delivery / handling of provisioning certificates"" [SCC-3363].",ok,detail,99,ok,0.08473050622429615,True
+345,The BMS will not close contactors for active x-crash error in combination with isolation error even if requested by any control unit,ok,close,132,ok,0.194931678516794,True
+684,These options will be explained in greater detail in subsequent sections.,ok,detail,73,ok,0.27660006620716315,True
+108,An appropriate debouncing shall be implemented for the detection of every error.,defect,appropriate,80,defect,0.6447868994675747,True
+483,`` Hotfix '' A hotfix is a small bugfix in source code which covers an issue found for SW versions close to publishing.,defect,close,119,defect,0.6481714660706481,True
+1188,For long term tests the following SOC setting shall be repeated:,defect,long,64,ok,0.23976716712180263,False
+908,The access to the system for diagnosis and software download purposes is realized by a Fast Ethernet link to the system as defined in [RD2181].,ok,fast,143,ok,0.25565019094648567,True
+1220,Application recommendation can include much more content in quality testing which leads to better qualification and characterization of tested MOST devices.,defect,much,156,ok,0.4013880896892823,False
+1015,The offset error of the EgoLane to the driven trajectory shall not be larger than the offset error of the DTR_LaneRadius to the driven trajectory within 90 % of the time period.,ok,large,177,ok,0.26106798395427666,True
+927,The CurrentDemandRequest message will be send as fast as possible.,defect,fast,66,ok,0.48870433525286,False
+645,"Start / Stop supported (down to 6,3 V) SPEC 10615 ""For details see [RD2083]""",ok,detail,76,ok,0.09236188442484637,True
+626,For details refer to component requirement specification.,ok,detail,57,ok,0.08453986742626525,True
+1886,"In case of a CAN error the contactors are opened as soon as a small current is measured (for example 7 ampere, application parameter).",ok,soon,134,ok,0.15515870848156368,True
+594,"The performance of the Navigation function shall be state-of-the-art and in particular comparable to (high-end) PNDs on the consumer market after 2014 (e.g. TomTom, Garmin, Navigon, Medion, Falk, etc.).",ok,comparable,202,ok,0.23036227130673415,True
+2121,Descreption: Shows actual special filtered angle,defect,special,48,ok,0.21239416296212718,False
+1102,"If the activation phase is longer than tLEDon, the LED is illuminated.",ok,long,70,ok,0.17714276150854344,True
+993,"The specified maximum and minimum value shall not be exceeded during transmission, especially in situations with very strong bending of the predicted ego vehicle path or a large slip angle of the vehicle.",defect,large,204,ok,0.3796470748066578,False
+542,The component shall realize the two mirror microphone inputs with a common ground line.,ok,common,87,ok,0.1935234046137936,True
+248,The component shall implement a possibility to shut down certain hardware parts depending on the components internal temperature.,defect,certain,129,ok,0.3917661254931412,False
+461,"In order to guarantee best possible mountability also at oblique insertion directions the cam sensor 's geometry and shape must keep clearance as low as possible between sensor and bore while inserting the sensor and the sensor 's shape must provide a good insertion guide, sensor 's middle axis must be as close as possible to bore 's middle axis while insertion.",defect,close,364,ok,0.45338369860527067,False
+447,"Certain states of the car and currently running functions or events are a requirement to keep the IOD relay closed or close it, if it is open.",ok,close,142,ok,0.36219538244426486,True
+419,"If the timer is running and doors are open M:Door XY open, the execution of the function is to be ended and can be restarted by closing the doors.",ok,close,146,ok,0.1462646065100252,True
+1387,These report the logical state of a signal as one of several values based on the discrete state of a controller signal.,ok,several,119,ok,0.3179179269011316,True
+1146,The events shall be active in diagnosis as long as SRD_SysDamp is NO_DAMP again.,ok,long,80,ok,0.16121228586047673,True
+1284,The algorithms shall calculate for each sampling point the confidence based on the presence of measured targets near the sampling point and is signalize the confidence on bus with the signal `` DTR_PolyRightY0_conf '' for the first and `` DTR_PolyRightYi_conf '' for the following sampling points.,defect,near,297,ok,0.4594320802393753,False
+1075,Further it calculates the current charge level of the battery by integration and determines the SOC by the quiescent voltage if the standby time is long enough.,defect,long,160,ok,0.288805260966387,False
+803,"For details of ""measurement interface"" see also FBR5-8954!",ok,detail,58,ok,0.1418448053325362,True
+1362,"If several link-versions are necessary in one software release (e.g. for 6 and 8 cylinders), the same functions have to be used.Different programm lines are not allowed.",ok,several,169,ok,0.4255946509562504,True
+585,Activation of the VTA and non active common alarm input: M:VTA active AND NOT M:Common Alarm Input Active,ok,common,105,ok,0.11929781828253248,True
+1089,"The sensor must not miss more than 50 objects of object category TAF-Ordinary per hour in ODA-Standing, where the objects movement category is either Moving or Stationary and the object is missed for longer than 1 sensor cycle and less than 8 sensor cycles.",ok,long,257,ok,0.16969279825310643,True
+1398,"Requested typical realignment time, if necessary cumulated over several ignition cycles, shall typically last 10 minutes. In maximum the auto alignment shall be completed after 40 minutes.",ok,several,188,ok,0.38115790989160936,True
+239,If the internal resistance of the battery is above a certain value the maximum charge of the battery is limited to an upper value.,defect,certain,130,defect,0.5359100889735802,True
+1983,The acceptance and the release of the component results exclusively on base of vehicle crash tests of the client's special departments.,ok,special,135,ok,0.23490316093458982,True
+1024,"For turning vehicles or objects migrating from an obtuse orientation angle to an acute orientation angle or vice versa, the transmitted values for the longitudinal and lateral relative velocity and the longitudinal acceleration shall not exhibit discontinuities larger than the specified accuracies.",ok,large,299,ok,0.24089538969362329,True
+1286,Temperature shall be measured near the MOST FOT.,defect,near,48,defect,0.5773664289497127,True
+116,- Work with CPG and Bumper Lab and seat structure / complete supplier or their appropriate testing facilities to ensure that data collection method is compatible with existing equipment for ease of downloading and processing.,defect,appropriate,225,defect,0.5282471146188082,True
+1119,"If ISASDCDCFlt equal 1 for longer than 10 s, then an error has to be stored",ok,long,75,ok,0.24363880495707999,True
+196,The value BSBRange1 indicates a bad power network state.,defect,bad,56,ok,0.3053432439346167,False
+104,An unique appropriate diagnostic operating instruction shall be provided for each DTC.,defect,appropriate,86,ok,0.45028720226742275,False
+147,"The ORC uses acceleration and air pressure signals, measured by appropriate sensors to determine a crash event.",defect,appropriate,111,ok,0.42976419894161805,False
+1454,The Head Unit shall provide several screw holes for a mechanical fixation of other devices for example the OBF.,defect,several,111,defect,0.6044350697775794,True
+31,If TBCC_Reg_Actv is 2 then the acceleration requests must be implemented by an adequate control algorithm.,defect,adequate,106,ok,0.4172876288838899,False
+309,The pressure compensation membrane is held closed by fingers and the test sample is submerged in water.,ok,close,103,ok,0.1888777933132142,True
+1699,In service alignment mode the component shall be aligned during a short test drive in city conditions as well as driving on highways with no guardrails etc.,defect,short,156,ok,0.3120724086916957,False
+1040,The intermediate measurements shall be performed as a parameter test (large) as per Chapter 5.5 of Appendix A of SPEC LV 124-2 [LH-5383].,ok,large,137,ok,0.2015036623575243,True
+1289,The TEM shall be instrumented with a single microphone positioned near the motor housing.,defect,near,89,ok,0.44315081602091144,False
+1084,There are no specific basic driving functions for component Long Range Radar.,ok,long,77,ok,0.21108805061080638,True
+209,"The contractor has to proof during development period, that there is no gap at a certain current level between the two reaction methods.",ok,certain,136,defect,0.5118323160395857,False
+2051,"If an object fulfills all characteristics, a special state is calculated.",ok,special,73,ok,0.33147019102329267,True
+1100,"The OBC shall detect a Circuit Low fault, if the output current of pin R_U exceeds 3.5 ampere for longer than 20 milliseconds.",ok,long,126,ok,0.10000763430136811,True
+1664,DZ12: Short Circuit Fuses of the battery (R100; GB / T18384),ok,short,60,ok,0.10717331286013244,True
+1191,To prevent battery damage on long descending roads and on high temperature a protection has to be implemented that deactivates the recuperation if the battery is completely full.,defect,long,178,defect,0.5624860152414205,True
+381,On function wake-up all timers are reset and IODCPreOpenState is set to 0 (Close),ok,close,81,ok,0.22054212351184158,True
+134,SCC shall ignore any SDP response message that was sent from an IP Adress which is not valid or regarded as not appropriate.,defect,appropriate,124,ok,0.3842820298438498,False
+91,The system shall use the appropriate signals `` HU_SelDuration '' to communicate the duration setting with the ACCSW.,ok,appropriate,117,ok,0.31579297490735325,True
+244,"If this voltage is below a certain level, the automatic stop is disabled and the GM1 is ended.",defect,certain,94,ok,0.4163471403469235,False
+1548,This current must be limited (by the short cut impedance of the EM) down on a secure level without demagnetization.,ok,short,115,ok,0.23372619190212968,True
+640,"The TCU shall connect to the Head Unit Hang Up Button using the ExtKI protocol, for details see the ExtKI specification [RD2206].",ok,detail,129,ok,0.1812386607646879,True
+507,The OBC shall not request the EVSE AC Contactors to close while the Charge Coupler is unlocked.,ok,close,95,ok,0.13660857493445178,True
+1910,"If the call stack cannot be output via the logging interface, it shall be saved and, following system restart, output via the logging interface as soon as logging is available again and a client can record the output.",ok,soon,217,ok,0.21741733475125835,True
+1637,Description: The Interlock circuit of the high-voltage-on-board electrical system has a short to ground.,ok,short,104,ok,0.17608770676290125,True
+428,Fakra 1 is a DIN 72594 plug E coded for AMout for opened and closed top.,ok,close,72,ok,0.1694842015058226,True
+1933,"As soon as the HV and LV battery charging is complete (SOC ~ 100 %), the vehicle mode `` charging '' is completed.",ok,soon,114,ok,0.18252172210071924,True
+1358,"The HMI of the component shall provide the ability to switch between several languages (with Latin characters, Asian character sets, and also other languages with different writing directions, e.g. Arabic) immediately (max. 5 seconds delay).",ok,several,241,ok,0.3675516744698453,True
+1244,``1'' equal ``Pre-blocked'' at least at one near range sensor / INC_DAMP,ok,near,72,ok,0.23333257286008366,True
+852,"According to the algorithm, activation steps are recommended at the earliest after 30 minutes., relaxation steps are recommended at the earliest after five to ten minutes.",ok,early,171,ok,0.328350049326945,True
+1738,The sensor shall separate objects with similar RCS values (for example 2 cars) with equal velocity (velocity difference less than or equal to 0.5m / s) in a distance of 30 meters when the two objects are more or equal than 1 meter apart from each other.,ok,similar,253,ok,0.19700474096678047,True
+344,In case that a CAN-Limphome-Mode or a CAN-error is identified the opened contactors are not closed and precharging is not startet.,ok,close,130,ok,0.1513896232832361,True
+1044,Note: this feature may not be activated automatically in case of large influence on system performance or function of the component.,defect,large,132,ok,0.32796949608391096,False
+733,- DTC 0x1D27 is set (see diagnostic specification file .cdd for details),ok,detail,72,ok,0.06750046987477028,True
+2094,"See definition ``Special features (, )''",ok,special,40,ok,0.11500509936630145,True
+959,The crash values must be available in the central unit with a tact time which is fast enough to meet the requirements for activation.,ok,fast,133,ok,0.374272061582465,True
+1751,"Function execution with precondition, function trigger, etc., is carried out similar to the function ``ITS Deselection Acknowledge'', instead of flashing the LED is switched on for 2 seconds.",ok,similar,191,ok,0.18545096341086742,True
+469,A pedestrian shall be considered close to the crosswalk when his projected movement will bring him into the pedestrian warning area (TSA5_Func-319) at the time of the EV reaching the crosswalk.,defect,close,193,defect,0.6644099105414598,True
+242,Therefore the load and the maximum alternator current at certain engine speeds is calculated and the desired engine speed is sent to the engine controller.,defect,certain,155,ok,0.42764156256143226,False
+1626,"As example, a zero-power consumption flags a non-connected cable, a high power consumption a short circuit in the cable or the active antenna element.",ok,short,150,ok,0.13565003819415505,True
+294,The proof of concept includes the close collaboration with the mirror supplier and the demonstration of the specified performance values in a prototype hardware and measurements on vehicle level.,ok,close,195,ok,0.33639474557236393,True
+567,The function sets a signal that incorporates the `` Common Alarm Input '' into the monitoring.,ok,common,94,ok,0.12595299538278718,True
+1618,"If theres a short circuit in the backup battery path (BackupShortCirctuit equal 1), the test sequence is aborted in any state and the following values are set:",ok,short,159,ok,0.10038838478007177,True
+591,The noise level may be higher in no operating condition than with the comparable base vehicle.,ok,comparable,94,ok,0.3020488104408151,True
+69,The gear recognition is made possible by the determination of the control shaft angle plus the appropriate 2D sensing of the control shaft.,ok,appropriate,139,ok,0.4407716101162728,True
+602,The supplier has to agree all constraints by the dashboard mounting slot in detail with the OEM after awarding of contract.,defect,detail,123,ok,0.3743786751036265,False
+1333,"Thees bondary conditions refer in particular to space requirement investigations with the corresponding tolerance considerations, installation, mounting possibility, ease of servicing, visual matching with trim parts (inside and outside), environmental compatibility, national variants and the use of modular systems.",ok,particular,317,ok,0.2966863034872005,True
+1827,The computing platform shall be scalable to an entry platform without the need of changes in layout or by exchanging a small PCB for the computing platform.,defect,small,156,ok,0.4889400551178328,False
+60,"The system shall set the value of the `` HU_Start '' signal to the appropriate value (see [KMATRIX_HU]), when the user starts the selected Active Comfort program.",ok,appropriate,162,ok,0.2545210095661539,True
+1185,At the end of a long enough (i.e. t greater than 60 seconds) drive cycle the percentages of the times the rpm value was in the different categories compared to the duration of the whole drive cycle is calculated.,ok,long,212,ok,0.19651561624809655,True
+654,"If a condition to activate the PLC chipset is present (for details see [PLGW_R-109] chapter ""Starting the PLC modem"" [SCC-6187]) the component shall go to state ""PLC enabled"".",ok,detail,175,ok,0.12245106870048793,True
+864,"Fault paths with safety-critical impact (S equal 10 and imminent danger to life) whose occurences cannot be ruled out (O greater than 1ppm over lifetime) and whose on-board diagnosis does not permit early detection (D greater than 3), so that severe injury to people or danger to life must be expected.",ok,early,302,ok,0.3886465075185602,True
+1897,"If the state of the Vehicle Inlet LEDs is `` Locking fault '' AND as soon as the trigger `` using service release '' occures, the locking LED shall be switched on.",ok,soon,163,ok,0.18697653470757958,True
+1263,The radar shall have an independent far range scan and near range scan.,ok,near,71,ok,0.26470296388332964,True
+1945,"As soon as DDPMonLevel equal 2, the opening procedure is active and all other procedures are stopped.",ok,soon,101,ok,0.16232734270477925,True
+1053,"Due to the long term availability of the DSP, Power-IC 's, ... the component shall be handeled as a critical part.",ok,long,114,ok,0.27166415372805064,True
+832,The details of the interface between the rotor hub and the rotor segments (laminations / stack) shall be designed by the contractor.,ok,detail,132,ok,0.1307662547785619,True
+1309,"DS / DZ features have to be in accordance with SPEC 10317 ""Documentation Requirement, Identification of parts, assemblies and particular features"" [LH-2221].",ok,particular,157,ok,0.22126947930346602,True
+1673,"For every possible error (open load, short, ...) a description is provided by the contractor how the monitoring is realized in hardware and software.",ok,short,149,ok,0.24059417564537977,True
+126,The proof of competence shall be attested by submission of certificates of attendance of appropriate training events.,defect,appropriate,117,ok,0.48895366244012367,False
+740,For all other CAN failures please refer the `` Diagnostic Specification Central Display Telematic5 '' [DSPC-4585] for details.,ok,detail,126,ok,0.12288859472832132,True
+819,"For details about switching off terminal 30g and other specific implementation regulations please refer to ""System Specification Telematic5STAR1 HU Voltage and Temperature"" [RD3650].",ok,detail,182,ok,0.13857860776994593,True
+717,Details see test plan.,ok,detail,22,ok,0.06655250027150156,True
+67,"Therefore, each application that uses LVDS should also refer to the appropriate protocol and interconnect standard.",ok,appropriate,115,ok,0.28904245419471764,True
+955,BCMFastChargeOver equal 1 (No fast charging),ok,fast,44,ok,0.22842039743038545,True
+481,"In minimum the component shall be equipped with two temperature sensors, one at the MOST FOT and the other one in the Disc Drive close to the optical pick up.",defect,close,158,defect,0.5018656227093528,True
+1216,During Dynamic Roller Test environment temperature may be much higher or lower than intake air temperature.,defect,much,107,ok,0.37746405228739366,False
+1019,This case has to be fulfilled without object loss to a large extent (according to CMSturn-Fkt_817 and CMSturn-Fkt_1646).,ok,large,120,ok,0.3567600750859303,True
+1684,"If the button press is shorter than the LIN cycle time, the signal is to be set to `` TRUE '' for one communication cycle.",ok,short,122,ok,0.23088808330319321,True
+722,Details can be found in section 8.6.5.7.15 HVIL [HVC_OEM-153].,ok,detail,62,ok,0.24459343508010004,True
+279,"For the case a vehicle starts hurtling on the street before the restraint system gets activated and therefore an OEM eCall gets triggered, a memory always contains the direction of travel from a certain timeframe in the past.",defect,certain,225,defect,0.5292947090871059,True
+1268,"- at the outer edge of the near range scan, or",ok,near,46,ok,0.19936551091030985,True
+1971,SE Special Equipment,ok,special,20,ok,0.17141652676187563,True
+119,"In order to manage the overall ISM band allocation, an appropriate software application shall be implemented to allow configuration, priorization and management of ISM band allocation by the several components wireless interfaces.",defect,appropriate,230,ok,0.43531757262510473,False
+1155,The component shall ensure a proper phantom supply as long as the system is able to output audio.,ok,long,97,ok,0.21799317070293764,True
+1411,"Depending on vehicle architecture this might be several pumps, valves or the like.",ok,several,82,ok,0.3803361666254477,True
+510,The OBC shall not request the EVSE AC Contactors to close while the Control Pilot state is not equal to CONNECTED and VALID.,ok,close,124,ok,0.13959882284110675,True
+1366,"The Combined Charging System, including the interface of the DC charging station, is described in several standards, listed below.",ok,several,130,ok,0.27400705537820724,True
+825,Details of the signal group and the application ID are within the actual CAN matrix.,ok,detail,84,ok,0.12423270224395683,True
+1236,The ABC-Preview Function is calculating a road profile in the near range in front of the vehicle with higher accuracy than the road profile specified in AGMR-726.,ok,near,162,ok,0.2548628317630394,True
+1534,The contractor shall ensure that the control unit sets a fault code in the control unit for each short circuit and open load detected in the inputs and outputs.,ok,short,160,ok,0.1415691197891656,True
+2140,This will be done by a special diagnostic routine.,defect,special,50,ok,0.2975118331724432,False
+1697,"To avoid the EOL alignment mode the component shall have the oportunity to be aligned within a very short time of driving, mostly indepentenly of driving conditions for an alignment of the component.",defect,short,199,defect,0.5858592737892417,True
+1922,The interlock error condition is reset as soon as a closed interlock loop is detected.,ok,soon,86,ok,0.10954800162506659,True
+162,The contractor shall target an architecture that allows an exchange of radio technologies without requiring PCB modification (for example by selecting an appropriate chipset).,ok,appropriate,175,defect,0.5732673493124096,False
+2083,For this reason a special kind of ``resistor diagnosis'' should be implemented.,ok,special,79,ok,0.25011079900077604,True
+114,The central activation device uses the crash acceleration and pressure forces measured by appropriate sensors and the resulting values to determine whether the threshold value for firing the seat belt tightener and / or the airbag firing squibs or for activation of the crash switches has been reached (see the `` Technical Specifications for Algorithms '').,defect,appropriate,358,ok,0.2775536787960478,False
+854,n.a.a.a Basic Set Value for second Early Post Injection for combustion mode DPF-Reg,ok,early,83,ok,0.18094611447187853,True
+1826,Electrical loads permanently connected to the LISB battery draw a small quiescient current even when in sleep mode and permanently drain the battery.,defect,small,149,defect,0.5016791317620756,True
+1287,Mobile Phones can be placed/mounted near the USB-Hub.,defect,near,53,ok,0.4431749812443074,False
+1254,"If the longitudinally nearest object classified as TRUCK or CAR leaves the detection field of the sensor, relating objects classified as MULTIPLE have to be labelled still as MULTIPLE.",ok,near,184,ok,0.242378674104148,True
+781,See also chapter Pseudo Random Number Generator (PRNG) [PLGW-3505] for further details.,ok,detail,87,ok,0.10144297208037488,True
+1443,"However, according to market requirements several variants are necessary.",defect,several,73,ok,0.29233726322136405,False
+1265,- longitudinal velocity separation for near range radar scan greater than 11 km/h,ok,near,81,ok,0.14443135346329167,True
+2047,"If additional special equipment is needed (which is not in part of the standard FAP5-System vehicles), it shall be easily added into the FA5-system vehicle for analysis purpouses.",ok,special,179,ok,0.33723563444060084,True
+2024,For closed and totally open position there are special requirements:,ok,special,68,ok,0.0649691697726995,True
+1217,x is much bigger at low temperatures due to unequal warming.,defect,much,60,ok,0.3573241766412286,False
+1039,"Remark: This yaw angle difference affects the neccessary FoV for the sensor due to the tilt of the lanes to be surveyed and the specified minimum lane radius; the vehicle is positioned with a maximum lateral deviation to the lane so large, that the vehicle does not drive beyond the lane mark.",ok,large,293,ok,0.4977574882152424,True
+2110,"In case the OEM insist on the usage of a special third party SW (e.g. Gracenote), OEM will provide a licence.",ok,special,109,ok,0.2858106872038281,True
+10,The Contractor shall ensure that adequate test resources are available for every market specific version of the component.,ok,adequate,122,ok,0.3875301049865205,True
+830,The details of the mounting the magnet as well as tolerance design between the magnets and the rotor lamination / stacks shall be designed by the supplier.,ok,detail,155,ok,0.11741049643622382,True
+1722,"For calibration tasks, the SVS ECU is allowed to leave the camera cover opened for a short time until the tasks are finished",defect,short,124,ok,0.3241883105346151,False
+694,"The Software Quality Gate ""Delivery"" specifies the date of every Software and / or Hardware release where the contractor gives detailed information about the release to the client.",ok,detail,180,ok,0.29981702311306835,True
+457,"Remark: For example positioning of all HSD connectors in the same area is helpfully for a closer binding of the wire harness, so that less space is needed.",defect,close,155,ok,0.3993273918654138,False
+1647,"All pins (D+, D-, VBus, GND) have to be permanently protected at least against short-circuit to GND and short to USB VBusmax.",ok,short,125,ok,0.18384795093070858,True
+800,The Defect Manager shall be familiar with the details of the documented defects in the contractors defect management system.,ok,detail,124,ok,0.12862992358054984,True
+462,"To monitor the temperature of the vehicle inlet close to the DC pins, a second temperature sensor (type PT1000) is integrated into the vehicle inlet.",defect,close,149,defect,0.5031436282589755,True
+1719,During startup a shorter filtering time constant is required.,defect,short,61,ok,0.359660244632451,False
+1402,"The microphones will be used for several applications (e.g. telephone, speech dialog system etc.).",ok,several,98,ok,0.43698770055794445,True
+544,"In addition to these common gateway requirements, special requirements for emission related ECUs have to be observed and implemented.",ok,common,133,ok,0.26886731722505935,True
+182,Worst case scenario must be established by the contractor and approved by the client.,ok,bad,85,ok,0.1512014712396004,True
+415,"If a correctly opened relay was detected and ISPBatVoltFilt1 greater than PPNM_SSMUDiagStart, the relay is now closed by setting DiagBackupRelayRq equal 1",ok,close,154,ok,0.08453766764075465,True
+1545,"In this way any sharp current rise will be detected (primary short circuit, secondary ECU defect).",ok,short,98,ok,0.14121448283032603,True
+1926,The Control Pilot is considered as `` Connected '' as soon as the Control Pilot Pin changes its state from the unconnected state (this might be Hardware specific behavior).,ok,soon,172,ok,0.20657728085029123,True
+30,"If the EMM receives the information about an invalid Control Pilot (via the corresponding coupler states) while transferring energy, the EMM shall use adequate substitute values.",defect,adequate,178,ok,0.441448226917033,False
+1365,Several engine tests or service routines (e.g. DPF service regeneration) can cause an increased idle speed which might be higher than the permissible tolerances of Level 2.,ok,several,172,ok,0.3920723101086498,True
+449,Wait until all doors and the Deck Lid are closed: NOT (M:Door FL Open OR M:Door FR Open OR M:Door RL Open OR M:Door RR Open OR M:Deck Lid Open),ok,close,143,ok,0.09071326597610507,True
+742,Condition: According specified field of views; see [MMS213-74] for details.,ok,detail,75,ok,0.05504124283154926,True
+1808,The FM nad DAB antennas are combined FM / DAB-III integrated antennas in the car windows and / or the plastic spoiler in station wagons with small rear side windows.,defect,small,165,defect,0.6343006290598023,True
+131,Remark: The HU shall provide the ability to change this frame rate by an appropriate diagnosis service.,defect,appropriate,103,defect,0.5030372041307799,True
