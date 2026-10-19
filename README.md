@@ -20,7 +20,9 @@ This repository contains the empirical code, benchmark dataset, notebooks, and m
 ├── src/
 │   ├── run_baselines.py              # Evaluates Majority Classifier, TF-IDF + LR, TF-IDF + SVM
 │   ├── notebook_runner.py             # Runs one notebook/seed and appends the run log
-│   └── aggregate_results.py          # Aggregates multi-seed results and computes paired t-tests
+│   ├── notebook_logging.py            # Logs each notebook cell and its errors
+│   └── aggregate_results.py           # Aggregates multi-seed results and computes paired t-tests
+├── aggregate_notebook_logs.py         # Aggregates cell logs into run summaries
 ├── results/
 │   ├── metrics/                      # JSON metrics across all 21 runs (7 models x 3 seeds)
 │   ├── predictions/                  # Hold-out test predictions for models and seeds
@@ -52,28 +54,31 @@ All experiments are conducted across **three independent random seeds** (`42`, `
 
 ### Performance Comparison (Mean ± Std)
 
-| Model | Accuracy | Balanced Acc | F1-Macro | MCC | Standard ROC-AUC | PR-AUC |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Majority Classifier** | 0.703±0.000 | 0.500±0.000 | 0.413±0.000 | 0.000±0.000 | 0.500±0.000 | 0.648±0.000 |
-| **TF-IDF + Logistic Regression** | 0.776±0.010 | 0.645±0.018 | 0.660±0.022 | 0.410±0.033 | 0.869±0.029 | 0.726±0.060 |
-| **TF-IDF + Linear SVM** | 0.807±0.030 | 0.740±0.034 | 0.753±0.037 | 0.515±0.077 | 0.866±0.022 | 0.732±0.059 |
-| **LLM Zero-Shot** | 0.464±0.028 | 0.487±0.030 | 0.453±0.027 | -0.024±0.056 | 0.478±0.031 | 0.348±0.016 |
-| **VLM Zero-Shot** | 0.571±0.019 | 0.462±0.016 | 0.458±0.016 | -0.080±0.032 | 0.425±0.008 | 0.267±0.004 |
-| **LLM Fine-Tuned (QLoRA)** | 0.858±0.010 | 0.824±0.006 | 0.828±0.008 | 0.659±0.018 | 0.925±0.010 | 0.851±0.020 |
-| **VLM Fine-Tuned (QLoRA)** | **0.865±0.021** | **0.824±0.051** | **0.830±0.037** | **0.673±0.057** | **0.932±0.007** | **0.852±0.013** |
+| Model                                  |        Accuracy        |      Balanced Acc      |        F1-Macro        |          MCC          |    Standard ROC-AUC    |         PR-AUC         |
+| :------------------------------------- | :--------------------: | :--------------------: | :--------------------: | :--------------------: | :--------------------: | :--------------------: |
+| **Majority Classifier**          |      0.703±0.000      |      0.500±0.000      |      0.413±0.000      |      0.000±0.000      |      0.500±0.000      |      0.648±0.000      |
+| **TF-IDF + Logistic Regression** |      0.775±0.009      |      0.641±0.017      |      0.654±0.022      |      0.406±0.031      |      0.868±0.028      |      0.731±0.052      |
+| **TF-IDF + Linear SVM**          |      0.807±0.028      |      0.737±0.031      |      0.752±0.035      |      0.513±0.072      |      0.864±0.022      |      0.730±0.053      |
+| **LLM Zero-Shot**                |      0.464±0.028      |      0.487±0.030      |      0.453±0.027      |     -0.024±0.056     |      0.478±0.031      |      0.348±0.016      |
+| **VLM Zero-Shot**                |      0.571±0.019      |      0.462±0.016      |      0.458±0.016      |     -0.080±0.032     |      0.425±0.008      |      0.267±0.004      |
+| **LLM Fine-Tuned (QLoRA)**       |      0.858±0.010      |      0.824±0.006      |      0.828±0.008      |      0.659±0.018      |      0.925±0.010      |      0.851±0.020      |
+| **VLM Fine-Tuned (QLoRA)**       | **0.863±0.019** | **0.821±0.048** | **0.828±0.035** | **0.668±0.053** | **0.930±0.009** | **0.849±0.018** |
 
 ### Statistical Significance (Paired $t$-test vs. VLM Fine-Tuned)
-* vs. **TF-IDF + Linear SVM**: $t = 61.72$, $p = 2.62 \times 10^{-4}$ ($p < 0.001$, extremely statistically significant)
-* vs. **TF-IDF + Logistic Regression**: $t = 9.95$, $p = 9.95 \times 10^{-3}$ ($p < 0.01$)
-* vs. **LLM Zero-Shot**: $t = 29.52$, $p = 1.15 \times 10^{-3}$ ($p < 0.01$)
-* vs. **VLM Zero-Shot**: $t = 21.94$, $p = 2.07 \times 10^{-3}$ ($p < 0.01$)
-* vs. **LLM Fine-Tuned**: $t = 0.05$, $p = 0.961$ (comparable top-tier performance)
+
+* vs. **TF-IDF + Linear SVM**: $t = 20.43$, $p = 2.39 \times 10^{-3}$ ($p < 0.01$)
+* vs. **TF-IDF + Logistic Regression**: $t = 18.94$, $p = 2.78 \times 10^{-3}$ ($p < 0.01$)
+* vs. **Majority Classifier**: $t = 17.00$, $p = 3.44 \times 10^{-3}$ ($p < 0.01$)
+* vs. **LLM Zero-Shot**: $t = 34.86$, $p = 8.22 \times 10^{-4}$ ($p < 0.001$, statistically significant)
+* vs. **VLM Zero-Shot**: $t = 23.03$, $p = 1.88 \times 10^{-3}$ ($p < 0.01$)
+* vs. **LLM Fine-Tuned**: $t = -0.01$, $p = 0.993$ (comparable top-tier performance)
 
 ---
 
 ## Quickstart & Replication
 
 ### 1. Run Classical Baselines
+
 ```bash
 python run_baselines.py
 ```
@@ -105,26 +110,49 @@ Each prediction CSV contains `id`, `requirement`, `defect`, `weak_word`,
 model score for the `defect` class and can be used for ROC-AUC or PR-AUC analysis.
 
 ### 2. Aggregate Multi-Seed Results
+
 ```bash
 python aggregate_results.py
 ```
+
 This updates `results/paper_results_summary.json`, `results/paper_results_table.md`, and `results/paper_results_table.tex`.
 
 ### 3. Run the Verified McNemar Analysis
+
 ```bash
 python McNemar_verified_files/src/mcnemar_analysis.py \
 	--results-dir results \
 	--output McNemar_verified_files/results/mcnemar_results.json
 ```
+
 This compares paired correctness for the fine-tuned LLM and VLM on the same test IDs for seeds 42, 123, and 456. The result is supplementary to the aggregate metrics: all Holm-adjusted p-values are above 0.05, and the direction of the discordant pairs changes across seeds. See `McNemar_verified_files/README.md` for the artifact map.
 
 ### 4. Notebook Execution on Google Colab / Local GPU
+
 Open any notebook inside `notebooks/`:
+
 * `notebooks/SRS_LLM_Zero_Shot.ipynb`
 * `notebooks/SRS_VLM_Zero_Shot.ipynb`
 * `notebooks/SRS_LLM_Finetune.ipynb`
 * `notebooks/SRS_VLM_Finetune.ipynb`
-Configure `RANDOM_SEED` (`42`, `123`, or `456`) in Cell 3 and run all cells sequentially.
+	Configure `RANDOM_SEED` (`42`, `123`, or `456`) in the seed configuration cell and run all cells sequentially.
+
+When running a notebook directly with **Run all**, the first cell registers
+cell-level logging automatically. Logs are appended to:
+
+```text
+results/notebook_cell_logs.csv
+```
+
+After one or more notebook runs, create a compact summary table with:
+
+```powershell
+python aggregate_notebook_logs.py
+```
+
+The summary is written to `results/notebook_run_summary.csv`. A failed cell is
+recorded with `status=FAILED`, `error_type`, and `error_message`, so the
+corresponding notebook run can be debugged without rerunning all notebooks.
 
 For reproducible local runs with isolated folders, use the runner from the
 repository root. The original notebook is copied to a seed-specific run folder,
@@ -152,7 +180,7 @@ installing the notebook dependencies. Colab uses the portable Python runner:
 ```python
 !git clone <repository-url>
 %cd VLM-in-ambiguity-RE
-# Chạy cell cài đặt dependency ở đầu notebook trước khi gọi runner.
+# Run dependency installation cell at the top of the notebook before calling the runner.
 !python run_notebooks.py
 ```
 

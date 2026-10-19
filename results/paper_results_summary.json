@@ -525,7 +525,7 @@
     },
     "llm_zero_shot": {
       "t_stat": 34.85961472972145,
-      "p_value": 0.0008219003342498689,
+      "p_value": 0.000821900334249869,
       "significance": "***"
     },
     "majority_classifier": {
@@ -545,7 +545,7 @@
     },
     "vlm_zero_shot": {
       "t_stat": 23.031200847354718,
-      "p_value": 0.0018799263161955943,
+      "p_value": 0.0018799263161955945,
       "significance": "**"
     }
   }

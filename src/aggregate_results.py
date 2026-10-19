@@ -49,8 +49,8 @@ def load_all_metrics():
             break
 
     if not files:
-        print("⚠️  Chưa tìm thấy file metrics JSON nào dạng `metrics_<model>_seed_<seed>.json`.")
-        print("    Sau khi chạy các notebook/baselines, các file kết quả sẽ tự động được sinh ra.")
+        print("⚠️  No metrics JSON files found matching `metrics_<model>_seed_<seed>.json`.")
+        print("    Results will be automatically generated after running the notebooks/baselines.")
         return {}
 
     data_by_model = {}
@@ -64,7 +64,7 @@ def load_all_metrics():
                 data_by_model[model] = {}
             data_by_model[model][seed] = d
         except Exception as e:
-            print(f"Lỗi đọc file {f}: {e}")
+            print(f"Error reading file {f}: {e}")
 
     return data_by_model
 
@@ -74,7 +74,7 @@ def summarize():
         return
 
     print("=" * 95)
-    print("                      BẢNG TỔNG HỢP KẾT QUẢ ĐA SEED (Mean ± Std)")
+    print("                    MULTI-SEED AGGREGATE RESULTS SUMMARY (Mean ± Std)")
     print("=" * 95)
 
     summary_table = {}
@@ -84,7 +84,7 @@ def summarize():
         summary_table[model] = {}
         json_export[model] = {}
         seeds = sorted(seed_dict.keys())
-        print(f"\nModel: {model} (Đã chạy {len(seeds)} seeds: {seeds})")
+        print(f"\nModel: {model} (Evaluated {len(seeds)} seeds: {seeds})")
         for m in METRIC_KEYS:
             vals = [seed_dict[s][m] for s in seeds if seed_dict[s].get(m) is not None]
             if vals:
@@ -100,7 +100,7 @@ def summarize():
 
     # Generate Markdown Table
     print("\n" + "=" * 95)
-    print("MARKDOWN TABLE CHO BÀI BÁO (Paper Results Table)")
+    print("MARKDOWN TABLE FOR PAPER (Paper Results Table)")
     print("=" * 95)
     md_lines = [
         "# Results Summary (Ambiguity Detection in SRS)",
@@ -122,7 +122,7 @@ def summarize():
     ttest_results = {}
     if ref_model in summary_table:
         print("\n" + "=" * 95)
-        print(f"KIỂM ĐỊNH Ý NGHĨA THỐNG KÊ (Paired t-test so với {ref_model})")
+        print(f"STATISTICAL SIGNIFICANCE TESTING (Paired t-test vs. {ref_model})")
         print("=" * 95)
         md_lines.extend(["", "## Statistical Significance (Paired t-test vs. vlm_finetune)", ""])
         ref_f1_macro = summary_table[ref_model].get('f1_macro', (None, None, []))[2]
@@ -186,10 +186,10 @@ def summarize():
         f.write("\n".join(latex_lines) + "\n")
 
     print("\n" + "=" * 95)
-    print("ĐÃ LƯU THÀNH CÔNG CÁC FILE KẾT QUẢ TỔNG HỢP:")
-    print(f"   1. {summary_json_path}  (Dữ liệu thô JSON đầy đủ Mean, Std & t-test)")
-    print(f"   2. {table_md_path}      (Bảng Markdown trực quan cho báo cáo)")
-    print(f"   3. {table_tex_path}     (Bảng LaTeX chuẩn để copy thẳng vào Overleaf/bài báo)")
+    print("SUCCESSFULLY SAVED AGGREGATE RESULT FILES:")
+    print(f"   1. {summary_json_path}  (Raw JSON summary with Mean, Std & t-test)")
+    print(f"   2. {table_md_path}      (Markdown summary table for reports)")
+    print(f"   3. {table_tex_path}     (Camera-ready LaTeX table for paper inclusion)")
     print("=" * 95)
 
 if __name__ == "__main__":

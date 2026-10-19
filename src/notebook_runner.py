@@ -90,20 +90,25 @@ def run_notebook(notebook: Path, seed: int) -> int:
     status = "COMPLETED"
     return_code = 0
     try:
-        completed = subprocess.run(
-            command,
-            cwd=run_dir,
-            capture_output=True,
-            text=True,
-            encoding="utf-8",
-            errors="replace",
-            check=False,
-        )
-        return_code = completed.returncode
-        log_file.write_text(
-            f"$ {' '.join(command)}\n\n{completed.stdout}\n{completed.stderr}",
-            encoding="utf-8",
-        )
+        with log_file.open("w", encoding="utf-8") as handle:
+            handle.write(f"$ {' '.join(command)}\n\n")
+            handle.flush()
+            process = subprocess.Popen(
+                command,
+                cwd=run_dir,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+                bufsize=1,
+            )
+            assert process.stdout is not None
+            for line in process.stdout:
+                print(line, end="", flush=True)
+                handle.write(line)
+                handle.flush()
+            return_code = process.wait()
         if return_code != 0:
             status = "FAILED"
     except Exception as exc:

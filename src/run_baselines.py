@@ -1,19 +1,19 @@
 """
 =============================================================================
-CHƯƠNG TRÌNH CHẠY BASELINES CHO BÀI TOÁN PHÁT HIỆN YÊU CẦU MƠ HỒ (SRS AMBIGUITY)
+BASELINE EXPERIMENTS FOR SOFTWARE REQUIREMENTS SPECIFICATION (SRS) AMBIGUITY
 =============================================================================
-Mục đích:
-  Đánh giá 3 mô hình Baseline truyền thống làm cơ sở so sánh với LLM và VLM:
-    1. Majority Classifier (Zero-Rule): Luôn đoán nhãn đa số 'ok' (Mức sàn tối thiểu)
-    2. TF-IDF + Logistic Regression: Phân loại tuyến tính thống kê tần suất từ
-    3. TF-IDF + Linear SVM (có bọc hiệu chỉnh xác suất Platt Scaling): Mô hình ML cổ điển mạnh nhất
+Objective:
+  Evaluate 3 classical baseline models for comparison against LLMs and VLMs:
+    1. Majority Classifier (Zero-Rule): Predicts the majority class 'ok' (Empirical lower bound)
+    2. TF-IDF + Logistic Regression: Linear statistical classification based on n-gram frequencies
+    3. TF-IDF + Linear SVM (calibrated with Platt Scaling): Strong classical ML baseline
 
-Thiết kế thực nghiệm chuẩn mực:
-  - Lặp lại trên 3 Random Seeds: [42, 123, 456]
-  - Cùng bộ chia phân tầng (Stratified 80/10/10 Split: 1749 Train / 219 Val / 219 Test)
-  - Cùng hàm tiền xử lý clean_requirement chuẩn hóa khoảng trắng
-  - Chống rò rỉ dữ liệu (No Data Leakage): TF-IDF chỉ fit trên Train, chỉ transform Test
-  - Tính toán ROC-AUC và PR-AUC trên xác suất thực tế P(defect)
+Experimental Rigor:
+  - Repeated across 3 independent random seeds: [42, 123, 456]
+  - Stratified 80/10/10 split: 1,749 Train / 219 Val / 219 Test
+  - Standardized clean_requirement preprocessing with whitespace normalization
+  - Strict prevention of data leakage: TF-IDF fitted solely on Train, transformed on Test
+  - Computes ROC-AUC and PR-AUC from posterior defect probabilities P(defect)
 =============================================================================
 """
 
@@ -23,13 +23,11 @@ import sys
 import json
 import argparse
 
-# Thiết lập encoding UTF-8 để in tiếng Việt chuẩn trên Terminal Windows
 sys.stdout.reconfigure(encoding='utf-8')
 
 import numpy as np
 import pandas as pd
 
-# Các công cụ chia dữ liệu, trích xuất đặc trưng và mô hình từ scikit-learn
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
@@ -37,23 +35,22 @@ from sklearn.svm import LinearSVC
 from sklearn.calibration import CalibratedClassifierCV
 from sklearn.dummy import DummyClassifier
 
-# Các độ đo đánh giá hiệu năng (Metrics)
 from sklearn.metrics import (
     accuracy_score, balanced_accuracy_score, precision_score, recall_score, f1_score,
     roc_auc_score, precision_recall_curve, auc as calc_auc, matthews_corrcoef, confusion_matrix
 )
 
 # =============================================================================
-# 1. TIỀN XỬ LÝ DỮ LIỆU (Giống hệt 100% trong notebook của LLM và VLM)
+# 1. DATA PREPROCESSING (Standardized across LLM and VLM pipelines)
 # =============================================================================
 MAX_REQ_CHARS = 800
 
 def clean_requirement(text: str) -> str:
     """
-    Chuẩn hóa văn bản yêu cầu phần mềm:
-    - Thay thế các khoảng trắng thừa, tab, xuống dòng liên tiếp bằng 1 khoảng trắng duy nhất.
-    - Cắt tỉa khoảng trắng ở hai đầu (strip).
-    - Cắt ngắn nếu độ dài vượt quá MAX_REQ_CHARS (800 ký tự) để đồng nhất với định dạng ảnh của VLM.
+    Standardize requirement text:
+    - Replace consecutive whitespaces, tabs, and newlines with a single space.
+    - Strip leading and trailing whitespace.
+    - Truncate text if length exceeds MAX_REQ_CHARS (800 characters) for visual parity with VLMs.
     """
     text = re.sub(r'\s+', ' ', str(text)).strip()
     if len(text) > MAX_REQ_CHARS:
@@ -61,49 +58,49 @@ def clean_requirement(text: str) -> str:
     return text
 
 # =============================================================================
-# 2. HÀM TÍNH TOÁN CÁC CHỈ SỐ ĐÁNH GIÁ (EVALUATION METRICS)
+# 2. EVALUATION METRICS
 # =============================================================================
 def evaluate_predictions(y_true_bin, y_pred_bin, y_scores):
     """
-    Tính toán đầy đủ các chỉ số hiệu năng trên tập kiểm thử (Test Set):
-      - y_true_bin: Nhãn thực tế (0 = ok, 1 = defect)
-      - y_pred_bin: Nhãn dự đoán nhị phân (0 hoặc 1)
-      - y_scores  : Xác suất liên tục mô hình dự đoán nhãn defect (P(defect) thuộc [0, 1])
+    Compute comprehensive classification metrics on the hold-out test set:
+      - y_true_bin: Ground-truth binary labels (0 = ok, 1 = defect)
+      - y_pred_bin: Predicted binary labels (0 or 1)
+      - y_scores  : Continuous posterior probabilities for defect P(defect) in [0, 1]
     """
-    # 1. Accuracy: Tỷ lệ đoán đúng tổng thể
+    # 1. Overall Accuracy
     acc = accuracy_score(y_true_bin, y_pred_bin)
     
-    # 2. Balanced Accuracy: Trung bình Recall của 2 lớp (rất quan trọng khi dữ liệu lệch 70/30)
+    # 2. Balanced Accuracy: Arithmetic mean of sensitivity and specificity (vital for 70/30 imbalance)
     bacc = balanced_accuracy_score(y_true_bin, y_pred_bin)
     
-    # 3. Precision, Recall, F1 cho lớp 'defect' (lớp lỗi thiểu số quan trọng nhất)
+    # 3. Precision, Recall, F1 for minority 'defect' class
     prec_d = precision_score(y_true_bin, y_pred_bin, pos_label=1, zero_division=0)
     rec_d = recall_score(y_true_bin, y_pred_bin, pos_label=1, zero_division=0)
     f1_d = f1_score(y_true_bin, y_pred_bin, pos_label=1, zero_division=0)
     
-    # 4. Precision, Recall, F1 cho lớp 'ok' (lớp hợp lệ đa số)
+    # 4. Precision, Recall, F1 for majority 'ok' class
     prec_ok = precision_score(y_true_bin, y_pred_bin, pos_label=0, zero_division=0)
     rec_ok = recall_score(y_true_bin, y_pred_bin, pos_label=0, zero_division=0)
     f1_ok = f1_score(y_true_bin, y_pred_bin, pos_label=0, zero_division=0)
     
-    # 5. F1-Macro (Trung bình không trọng số của F1-ok và F1-defect) và F1-Weighted
+    # 5. Macro-averaged and Weighted F1-scores
     f1_macro = f1_score(y_true_bin, y_pred_bin, average='macro', zero_division=0)
     f1_weight = f1_score(y_true_bin, y_pred_bin, average='weighted', zero_division=0)
     
-    # 6. Matthews Correlation Coefficient (MCC): Thước đo chuẩn vàng đánh giá chất lượng phân loại nhị phân
+    # 6. Matthews Correlation Coefficient (MCC): Gold standard for imbalanced binary classification
     mcc = matthews_corrcoef(y_true_bin, y_pred_bin)
 
-    # 7. ROC-AUC: Diện tích dưới đường cong ROC tính trên xác suất P(defect)
+    # 7. ROC-AUC: Area under the ROC curve computed from continuous probabilities
     try:
         roc_auc = roc_auc_score(y_true_bin, y_scores)
-    except:
+    except Exception:
         roc_auc = float('nan')
 
-    # 8. PR-AUC: Diện tích dưới đường cong Precision-Recall (đặc biệt chuẩn xác cho dữ liệu mất cân bằng)
+    # 8. PR-AUC: Area under the Precision-Recall curve
     try:
         pr_p, pr_r, _ = precision_recall_curve(y_true_bin, y_scores)
         pr_auc = calc_auc(pr_r, pr_p)
-    except:
+    except Exception:
         pr_auc = float('nan')
 
     return {
@@ -123,13 +120,13 @@ def evaluate_predictions(y_true_bin, y_pred_bin, y_scores):
     }
 
 # =============================================================================
-# 3. QUY TRÌNH THỰC NGHIỆM CHÍNH (TRAINING & EVALUATION PIPELINE)
+# 3. TRAINING & EVALUATION PIPELINE
 # =============================================================================
 def run_experiment(dataset_path="data/QuRE.csv", seeds=None, output_dir="results", save_predictions=True):
     if seeds is None:
         seeds = [42, 123, 456]
 
-    # Kiểm tra tự động file dataset (hỗ trợ cả QuRE.csv và datasetRE.csv ở data/, ../data/, .)
+    # Resolve candidate dataset paths
     candidate_paths = [
         dataset_path,
         "data/QuRE.csv",
@@ -146,45 +143,35 @@ def run_experiment(dataset_path="data/QuRE.csv", seeds=None, output_dir="results
             break
 
     if not resolved_path:
-        print(f"⚠️  Không tìm thấy file dataset (QuRE.csv / datasetRE.csv).")
-        print("    Vui lòng kiểm tra thư mục data/ hoặc thư mục hiện tại.")
+        print("⚠️  Dataset file not found (QuRE.csv / datasetRE.csv).")
+        print("    Please check the data/ directory or current path.")
         return
 
-    print(f"Đang tải dataset: {resolved_path}")
+    print(f"Loading dataset: {resolved_path}")
     df = pd.read_csv(resolved_path)
     
-    # Bước 1: Làm sạch văn bản yêu cầu bằng hàm chuẩn
+    # Step 1: Text cleaning
     df['clean_text'] = df['requirement'].apply(clean_requirement)
     
-    # Bước 2: Chuyển đổi nhãn dạng chuỗi sang nhị phân: 'ok' -> 0, 'defect' -> 1
+    # Step 2: Convert target labels to binary: 'ok' -> 0, 'defect' -> 1
     label2int = {'ok': 0, 'defect': 1}
     df['target'] = df['defect'].map(label2int)
 
-    # Khởi tạo 3 mô hình Baseline:
+    # Initialize baseline models
     models_to_test = {
-        # Baseline 1: DummyClassifier luôn đoán nhãn xuất hiện nhiều nhất ('ok')
         'majority_classifier': lambda: DummyClassifier(strategy='most_frequent'),
-        
-        # Baseline 2: Hồi quy Logistic trên ma trận đặc trưng từ vựng TF-IDF
         'tfidf_logistic_regression': lambda seed: LogisticRegression(C=1.0, max_iter=1000, random_state=seed),
-        
-        # Baseline 3: Linear SVM bọc bằng CalibratedClassifierCV (Platt Scaling)
-        # Giúp SVM biến đổi khoảng cách siêu phẳng thành xác suất thực tế [0, 1] để tính ROC-AUC
         'tfidf_linear_svm': lambda seed: CalibratedClassifierCV(LinearSVC(C=1.0, random_state=seed, max_iter=2000), cv=3),
     }
 
     all_results = {name: [] for name in models_to_test}
 
-    # =========================================================================
-    # LẶP QUA TỪNG RANDOM SEED ĐỂ ĐẢM BẢO TÍNH ĐỘC LẬP & TÁI LẬP (REPRODUCIBILITY)
-    # =========================================================================
+    # Iterate over independent random seeds
     for seed in seeds:
-        print(f"\n{'='*60}\nBẮT ĐẦU CHẠY VỚI SEED: {seed}\n{'='*60}")
+        print(f"\n{'='*60}\nRUNNING BASELINES FOR SEED: {seed}\n{'='*60}")
         
-        # Bước 3: Phân chia tập dữ liệu 80/10/10 có Stratified (giữ nguyên tỷ lệ 70% ok : 30% defect)
-        # - Tách 10% ra làm Test Set (219 mẫu)
+        # Stratified 80/10/10 split
         df_trainval, df_test = train_test_split(df, test_size=0.10, random_state=seed, stratify=df['target'])
-        # - Trong 90% còn lại, lấy 11.11% làm Validation Set (0.9 * 0.1111 = 0.10 => 219 mẫu), 80% còn lại làm Train Set (1749 mẫu)
         df_train, df_val = train_test_split(df_trainval, test_size=0.1111, random_state=seed, stratify=df_trainval['target'])
 
         X_train_raw = df_train['clean_text'].tolist()
@@ -192,48 +179,38 @@ def run_experiment(dataset_path="data/QuRE.csv", seeds=None, output_dir="results
         X_test_raw = df_test['clean_text'].tolist()
         y_test = df_test['target'].values
 
-        # Bước 4: Trích xuất đặc trưng TF-IDF (1-gram và 2-gram, lấy tối đa 5000 từ/cụm từ quan trọng nhất)
+        # TF-IDF Feature extraction (unigrams + bigrams, up to 5,000 features)
         tfidf = TfidfVectorizer(max_features=5000, ngram_range=(1, 2), sublinear_tf=True)
         
-        # QUAN TRỌNG (CHỐNG RÒ RỈ DỮ LIỆU):
-        # - fit_transform: Chỉ học từ vựng và tần suất trên tập TRAIN
+        # Fit strictly on train set to prevent data leakage
         X_train_tfidf = tfidf.fit_transform(X_train_raw)
-        # - transform: Tập TEST chỉ biến đổi theo từ vựng đã học từ TRAIN (tuyệt đối không học từ TEST)
         X_test_tfidf = tfidf.transform(X_test_raw)
 
-        # Bước 5: Huấn luyện và kiểm thử từng mô hình
+        # Train and evaluate models
         for model_name, model_fn in models_to_test.items():
             clf = model_fn(seed) if model_name != 'majority_classifier' else model_fn()
             
             if model_name == 'majority_classifier':
-                # Majority chỉ cần đếm tần suất nhãn trên tập Train
                 clf.fit(X_train_raw, y_train)
                 y_pred = clf.predict(X_test_raw)
-                # Xác suất đoán nhãn defect (luôn bằng 0 vì lớp đa số là 'ok')
                 majority_class = clf.classes_[np.argmax(clf.class_prior_)]
                 y_scores = np.full(len(y_test), 1.0 if majority_class == 1 else 0.0)
             else:
-                # Huấn luyện mô hình (LR hoặc SVM) trên ma trận TF-IDF của tập Train
                 clf.fit(X_train_tfidf, y_train)
-                # Dự đoán nhãn phân loại (0 hoặc 1) trên tập Test
                 y_pred = clf.predict(X_test_tfidf)
-                # Dự đoán xác suất liên tục P(defect) [cột index 1] để vẽ đường cong ROC/PR
                 y_scores = clf.predict_proba(X_test_tfidf)[:, 1]
 
-            # Tính toán toàn bộ các metric
             metrics = evaluate_predictions(y_test, y_pred, y_scores)
             metrics['seed'] = seed
             metrics['model'] = model_name
             all_results[model_name].append(metrics)
 
-            # Xác định thư mục lưu metrics
             out_metrics_dir = os.path.join(output_dir, "metrics")
             out_predictions_dir = os.path.join(output_dir, "predictions")
             os.makedirs(out_metrics_dir, exist_ok=True)
             if save_predictions:
                 os.makedirs(out_predictions_dir, exist_ok=True)
 
-            # Lưu file kết quả JSON riêng lẻ cho từng seed (ví dụ: metrics_tfidf_logistic_regression_seed_42.json)
             fname = os.path.join(out_metrics_dir, f"metrics_{model_name}_seed_{seed}.json")
             with open(fname, 'w', encoding='utf-8') as f:
                 json.dump(metrics, f, indent=2)
@@ -252,16 +229,13 @@ def run_experiment(dataset_path="data/QuRE.csv", seeds=None, output_dir="results
 
             print(f"[{model_name.upper()}] Acc: {metrics['accuracy']:.4f} | F1-macro: {metrics['f1_macro']:.4f} | ROC-AUC: {metrics['roc_auc']} | PR-AUC: {metrics['pr_auc']}")
 
-    # Bước 6: Lưu tổng hợp kết quả của cả 3 mô hình trên cả 3 seeds vào 1 file duy nhất
     baseline_all_path = os.path.join(out_metrics_dir, "baseline_results_all.json")
     with open(baseline_all_path, 'w', encoding='utf-8') as f:
         json.dump(all_results, f, indent=2)
 
-    # =========================================================================
-    # IN BẢNG TỔNG HỢP KHOA HỌC: TRUNG BÌNH ± ĐỘ LỆCH CHUẨN (MEAN ± STD)
-    # =========================================================================
+    # Print summary table
     print("\n" + "="*80)
-    print("           TỔNG HỢP KẾT QUẢ BASELINES TRÊN 3 SEEDS (Mean ± Std)")
+    print("           BASELINE RESULTS SUMMARY ACROSS 3 SEEDS (Mean ± Std)")
     print("="*80)
     header = f"{'Model':<28} | {'Accuracy':<14} | {'F1-Macro':<14} | {'ROC-AUC':<14} | {'PR-AUC':<14}"
     print(header)
@@ -281,6 +255,6 @@ def run_experiment(dataset_path="data/QuRE.csv", seeds=None, output_dir="results
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--dataset", default="datasetRE.csv", help="Đường dẫn tới file datasetRE.csv hoặc QuRE.csv")
+    parser.add_argument("--dataset", default="data/QuRE.csv", help="Path to dataset file (QuRE.csv or datasetRE.csv)")
     args = parser.parse_args()
     run_experiment(dataset_path=args.dataset)
