@@ -15,8 +15,11 @@ This repository contains the empirical code, benchmark dataset, notebooks, and m
 │   ├── SRS_VLM_Zero_Shot.ipynb       # VLM Zero-Shot local GPU inference
 │   ├── SRS_LLM_Finetune.ipynb        # QLoRA fine-tuning for Qwen2.5-3B-Instruct
 │   └── SRS_VLM_Finetune.ipynb        # QLoRA fine-tuning for Qwen2.5-VL-3B-Instruct
+├── notebook_runs/                     # Isolated notebook outputs grouped by seed
+│   └── README.md
 ├── src/
 │   ├── run_baselines.py              # Evaluates Majority Classifier, TF-IDF + LR, TF-IDF + SVM
+│   ├── notebook_runner.py             # Runs one notebook/seed and appends the run log
 │   └── aggregate_results.py          # Aggregates multi-seed results and computes paired t-tests
 ├── results/
 │   ├── metrics/                      # JSON metrics across all 21 runs (7 models x 3 seeds)
@@ -32,8 +35,14 @@ This repository contains the empirical code, benchmark dataset, notebooks, and m
 │   └── MCNEMAR_VALIDATION_NOTE.md     # Reproducibility and provenance note
 ├── aggregate_results.py              # Root runner for results aggregation
 ├── run_baselines.py                  # Root runner for classical ML baselines
+├── run_notebooks.py                  # Portable batch runner for local Python/Colab
 └── README.md
 ```
+
+Notebook runs are isolated under `notebook_runs/seed_<seed>/<notebook>/`. The
+central run table is `results/notebook_run_logs.csv`; it records the notebook,
+seed, status, duration, executed notebook path, and `run.log` path for every
+attempt.
 
 ---
 
@@ -116,3 +125,44 @@ Open any notebook inside `notebooks/`:
 * `notebooks/SRS_LLM_Finetune.ipynb`
 * `notebooks/SRS_VLM_Finetune.ipynb`
 Configure `RANDOM_SEED` (`42`, `123`, or `456`) in Cell 3 and run all cells sequentially.
+
+For reproducible local runs with isolated folders, use the runner from the
+repository root. The original notebook is copied to a seed-specific run folder,
+its seed is set automatically, and the executed notebook plus all relative
+artifacts are kept there:
+
+```powershell
+python src/notebook_runner.py --notebook notebooks/SRS_LLM_Zero_Shot.ipynb --seed 42
+python src/notebook_runner.py --notebook notebooks/SRS_LLM_Zero_Shot.ipynb --seed 123
+python src/notebook_runner.py --notebook notebooks/SRS_LLM_Zero_Shot.ipynb --seed 456
+```
+
+Replace the notebook path to run the VLM or fine-tuning notebooks. Each command
+appends one row to `results/notebook_run_logs.csv`.
+
+To run all four notebooks for all three seeds:
+
+```powershell
+./run_notebooks.ps1
+```
+
+The same workflow can run on Google Colab after cloning the repository and
+installing the notebook dependencies. Colab uses the portable Python runner:
+
+```python
+!git clone <repository-url>
+%cd VLM-in-ambiguity-RE
+# Chạy cell cài đặt dependency ở đầu notebook trước khi gọi runner.
+!python run_notebooks.py
+```
+
+To test one notebook/seed first:
+
+```python
+!python run_notebooks.py --notebook notebooks/SRS_LLM_Zero_Shot.ipynb --seed 42
+```
+
+Colab must have a GPU runtime for the LLM/VLM notebooks. Fine-tuning all 12
+runs may exceed one runtime session; use one notebook or one seed at a time if
+the runtime disconnects. Outputs and `results/notebook_run_logs.csv` are saved
+in the cloned Colab workspace, so download or push them after the runs finish.
